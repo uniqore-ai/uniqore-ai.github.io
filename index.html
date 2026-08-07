@@ -284,6 +284,26 @@ footer img{width:18px;height:18px;border-radius:5px;vertical-align:-4px;margin-r
 .amk .dc-field{flex:1;min-width:0;font:inherit;font-size:12.5px;color:var(--ink);background:var(--surface);border:1px solid var(--line-strong);border-radius:11px;padding:10px 12px;outline:none}
 .amk .dc-send{width:34px;height:34px;border-radius:9px;border:none;background:var(--grad);color:#fff;font-weight:800;box-shadow:0 8px 22px rgba(109,94,248,.38);cursor:pointer;flex-shrink:0}
 @media(max-width:900px){.amk .pane-row{flex-direction:column}.amk .dc{width:100%}.amk .pane-div{display:none}.amk .f-sub{margin-left:0}.amk .f-n{width:auto;flex:1}.amk .f-v{width:auto}}
+
+.amk .sbar{width:208px;flex-shrink:0;background:linear-gradient(180deg,#fbfbfe,#f5f6fb);border-right:1px solid #e7eaf3;padding:0 10px 12px;display:flex;flex-direction:column;overflow:hidden}
+.amk .sb-head{display:flex;align-items:center;gap:9px;padding:14px 6px 10px;border-bottom:1px solid var(--line);margin-bottom:6px}
+.amk .sb-ava{width:32px;height:32px;border-radius:9px;overflow:hidden;flex-shrink:0}
+.amk .sb-ava img{width:100%;height:100%;display:block}
+.amk .sb-nm{font-weight:700;font-size:12.5px;line-height:1.2;color:var(--ink)}
+.amk .sb-bz{font-size:10.5px;color:var(--ink-3)}
+.amk .nav-i{display:flex;align-items:center;gap:9px;padding:7px 9px;border-radius:10px;color:var(--ink-2);font-weight:600;font-size:12px;margin-top:4px;white-space:nowrap}
+.amk .nav-i .ico{width:24px;height:24px;border-radius:8px;background:var(--surface-2);font-size:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--ink-2)}
+.amk .t-row{display:flex;align-items:center;gap:7px;margin-top:1px;border-radius:9px;white-space:nowrap;font-size:11.5px;font-weight:500;color:var(--ink-2);padding:6px 8px 6px 30px;overflow:hidden}
+.amk .t-row .txt{overflow:hidden;text-overflow:ellipsis}
+.amk .t-row.auto{padding-left:24px;font-weight:600;color:var(--ink)}
+.amk .t-row.auto .a-ic{width:22px;height:22px;border-radius:7px;background:linear-gradient(135deg,rgba(109,94,248,.14),rgba(17,201,192,.14));display:flex;align-items:center;justify-content:center;font-size:11px;flex-shrink:0}
+.amk .t-row.auto.on .a-ic{background:var(--grad);color:#fff}
+.amk .t-row.inst{padding-left:40px;font-weight:600;color:var(--ink)}
+.amk .t-row.run{padding-left:52px}
+.amk .t-row.run.on{background:var(--surface);color:var(--ink);box-shadow:var(--shadow);font-weight:600}
+.amk .t-row .tic{opacity:.65;font-size:10px;flex-shrink:0}
+.amk .sb-dot{width:8px;height:8px;border-radius:50%;background:#1fbf75;margin-left:auto;flex-shrink:0}
+@media(max-width:900px){.amk .sbar{display:none}}
 </style>
 </head>
 <body>
@@ -474,31 +494,41 @@ footer img{width:18px;height:18px;border-radius:5px;vertical-align:-4px;margin-r
   <div class="wrap">
     <div class="sec-head rv">
       <h2>The flagship automation — live.</h2>
-      <p>Sales speech analytics: the app screen on demo data. The product currently ships in Russian; the full sample review lives on its page.</p>
+      <p>Sales speech analytics: the app screen on demo data. The full sample review lives on its page.</p>
     </div>
-    <div class="mock rv" style="max-width:820px">
-      <div class="mock-bar"><i class="r"></i><i class="y"></i><i class="g"></i><span>UNIQORE · Речевая аналитика</span><span class="mock-tag">демо-данные</span></div>
+    <div class="mock rv" style="max-width:980px">
+      <div class="mock-bar"><i class="r"></i><i class="y"></i><i class="g"></i><span>UNIQORE · Speech analytics</span><span class="mock-tag">demo data</span></div>
       <div class="amk"><div class="pane-row">
+        <aside class="sbar">
+          <div class="sb-head"><span class="sb-ava"><img src="/favicon.svg" alt=""/></span><span><span class="sb-nm">Uniqore</span><br/><span class="sb-bz">AI business partner</span></span></div>
+          <div class="nav-i"><span class="ico">✦</span><span>AI Partner</span></div>
+          <div class="nav-i"><span class="ico">▦</span><span>Ready-made automations</span></div>
+          <div class="t-row auto"><span class="a-ic">📊</span><span class="txt">Sales funnel analysis</span><span class="sb-dot"></span></div>
+          <div class="t-row auto on"><span class="a-ic">🎧</span><span class="txt">Speech analytics</span></div>
+          <div class="t-row inst"><span class="txt">Sales</span></div>
+          <div class="t-row run on"><span class="tic">📄</span><span class="txt">Jul 31, 2026 · 6:42 PM</span></div>
+          <div class="t-row run"><span class="tic">📄</span><span class="txt">Jul 14, 2026 · 9:15 AM</span></div>
+        </aside>
         <div class="pane-main">
           <div class="page-head">
             <div>
-              <div class="h-title">Разбор диалогов</div>
-              <div class="h-sub">Продажи · Текущий месяц</div>
+              <div class="h-title">Conversation review</div>
+              <div class="h-sub">Sales · This month</div>
             </div>
           </div>
-          <div class="sub-head-row"><button class="sub-toggle first"><span class="chev open">›</span> Рейтинг</button></div>
+          <div class="sub-head-row"><button class="sub-toggle first"><span class="chev open">›</span> Scorecard</button></div>
           <div class="acard">
-            <div class="p-cap">Балл считает код по методике, а не ИИ: два прогона на одних данных обязаны дать одно число. <b>Мест и номеров нет</b> — список отсортирован по баллу.</div>
-            <div class="f-row"><span class="f-n">Айгерим</span><span class="f-v">84 из 100</span></div>
-            <div class="f-sub">Снятие потребности — 7 из 8 сделок · Названа цена — 6 из 8 сделок · Следующий шаг — 7 из 8 сделок · Скорость первого ответа — 92 по 8 сделкам</div>
-            <div class="f-row"><span class="f-n">Мария</span><span class="f-v">77 из 100</span></div>
-            <div class="f-row"><span class="f-n">Тимур</span><span class="f-v">63 из 100</span></div>
-            <div class="f-row"><span class="f-n">Арман</span><span class="f-v">51 из 100</span></div>
-            <div class="f-sub">Следующий шаг — 2 из 8 сделок · Названа цена — 4 из 8 сделок · <span class="no-data">Речь: слушает или говорит — данных не было</span></div>
-            <div class="f-row"><span class="f-n">Салтанат</span><span class="f-v">—</span></div>
-            <div class="f-sub">разобрано 3 закрытых — на оценку не хватает (нужно от 4)</div>
+            <div class="p-cap">The score is computed by code from the methodology, not by AI: two runs on the same data must give the same number. <b>No ranks or places</b> — the list is sorted by score.</div>
+            <div class="f-row"><span class="f-n">Emily</span><span class="f-v">84 of 100</span></div>
+            <div class="f-sub">Need discovery — 7 of 8 deals · Price named — 6 of 8 deals · Next step — 7 of 8 deals · First response speed — 92 across 8 deals</div>
+            <div class="f-row"><span class="f-n">Sarah</span><span class="f-v">77 of 100</span></div>
+            <div class="f-row"><span class="f-n">Mike</span><span class="f-v">63 of 100</span></div>
+            <div class="f-row"><span class="f-n">Jake</span><span class="f-v">51 of 100</span></div>
+            <div class="f-sub">Next step — 2 of 8 deals · Price named — 4 of 8 deals · <span class="no-data">Talk vs listen — no data</span></div>
+            <div class="f-row"><span class="f-n">Rachel</span><span class="f-v">—</span></div>
+            <div class="f-sub">3 closed reviewed — not enough to score (needs 4+)</div>
             <div class="verdict loss">
-              <div class="verdict-t">Общая брешь: в 21 из 40 разобранных сделок не назначен следующий шаг — разговоры заканчиваются на «я подумаю».</div>
+              <div class="verdict-t">The team-wide gap: in 21 of 40 reviewed deals no next step was booked — conversations end at "let me think about it".</div>
             </div>
           </div>
         </div>
@@ -507,8 +537,6 @@ footer img{width:18px;height:18px;border-radius:5px;vertical-align:-4px;margin-r
     <div class="rv" style="text-align:center;margin-top:20px">
       <a class="btn btn-primary" href="/speech/">See the sample review →</a>
     </div>
-  </div>
-
   </div>
 </section>
 

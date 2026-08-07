@@ -295,6 +295,26 @@ footer img{width:18px;height:18px;border-radius:5px;vertical-align:-4px;margin-r
 .amk .dc-field{flex:1;min-width:0;font:inherit;font-size:12.5px;color:var(--ink);background:var(--surface);border:1px solid var(--line-strong);border-radius:11px;padding:10px 12px;outline:none}
 .amk .dc-send{width:34px;height:34px;border-radius:9px;border:none;background:var(--grad);color:#fff;font-weight:800;box-shadow:0 8px 22px rgba(109,94,248,.38);cursor:pointer;flex-shrink:0}
 @media(max-width:900px){.amk .pane-row{flex-direction:column}.amk .dc{width:100%}.amk .pane-div{display:none}.amk .f-sub{margin-left:0}.amk .f-n{width:auto;flex:1}.amk .f-v{width:auto}}
+
+.amk .sbar{width:208px;flex-shrink:0;background:linear-gradient(180deg,#fbfbfe,#f5f6fb);border-right:1px solid #e7eaf3;padding:0 10px 12px;display:flex;flex-direction:column;overflow:hidden}
+.amk .sb-head{display:flex;align-items:center;gap:9px;padding:14px 6px 10px;border-bottom:1px solid var(--line);margin-bottom:6px}
+.amk .sb-ava{width:32px;height:32px;border-radius:9px;overflow:hidden;flex-shrink:0}
+.amk .sb-ava img{width:100%;height:100%;display:block}
+.amk .sb-nm{font-weight:700;font-size:12.5px;line-height:1.2;color:var(--ink)}
+.amk .sb-bz{font-size:10.5px;color:var(--ink-3)}
+.amk .nav-i{display:flex;align-items:center;gap:9px;padding:7px 9px;border-radius:10px;color:var(--ink-2);font-weight:600;font-size:12px;margin-top:4px;white-space:nowrap}
+.amk .nav-i .ico{width:24px;height:24px;border-radius:8px;background:var(--surface-2);font-size:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--ink-2)}
+.amk .t-row{display:flex;align-items:center;gap:7px;margin-top:1px;border-radius:9px;white-space:nowrap;font-size:11.5px;font-weight:500;color:var(--ink-2);padding:6px 8px 6px 30px;overflow:hidden}
+.amk .t-row .txt{overflow:hidden;text-overflow:ellipsis}
+.amk .t-row.auto{padding-left:24px;font-weight:600;color:var(--ink)}
+.amk .t-row.auto .a-ic{width:22px;height:22px;border-radius:7px;background:linear-gradient(135deg,rgba(109,94,248,.14),rgba(17,201,192,.14));display:flex;align-items:center;justify-content:center;font-size:11px;flex-shrink:0}
+.amk .t-row.auto.on .a-ic{background:var(--grad);color:#fff}
+.amk .t-row.inst{padding-left:40px;font-weight:600;color:var(--ink)}
+.amk .t-row.run{padding-left:52px}
+.amk .t-row.run.on{background:var(--surface);color:var(--ink);box-shadow:var(--shadow);font-weight:600}
+.amk .t-row .tic{opacity:.65;font-size:10px;flex-shrink:0}
+.amk .sb-dot{width:8px;height:8px;border-radius:50%;background:#1fbf75;margin-left:auto;flex-shrink:0}
+@media(max-width:900px){.amk .sbar{display:none}}
 </style>
 <link rel="alternate" hreflang="en" href="https://uniqore.ai/speech/"/>
 <link rel="alternate" hreflang="ru" href="https://uniqore.kz/speech/"/>
@@ -479,95 +499,104 @@ footer img{width:18px;height:18px;border-radius:5px;vertical-align:-4px;margin-r
   <div class="wrap">
     <div class="sec-head rv">
       <h2>This is what a review looks like.</h2>
-      <p>A one-to-one copy of the app screen, on demo data. Click the prompts — the chat answers like the real product. The product currently ships in Russian; English is on the roadmap.</p>
+      <p>A one-to-one copy of the app screen, on demo data. Click the prompts — the chat answers like the real product.</p>
     </div>
-    <div class="mock rv">
-      <div class="mock-bar"><i class="r"></i><i class="y"></i><i class="g"></i><span>UNIQORE · Речевая аналитика</span><span class="mock-tag">демо-данные</span></div>
+    <div class="mock rv" style="max-width:1120px">
+      <div class="mock-bar"><i class="r"></i><i class="y"></i><i class="g"></i><span>UNIQORE · Speech analytics</span><span class="mock-tag">demo data</span></div>
       <div class="amk"><div class="pane-row">
+        <aside class="sbar">
+          <div class="sb-head"><span class="sb-ava"><img src="/favicon.svg" alt=""/></span><span><span class="sb-nm">Uniqore</span><br/><span class="sb-bz">AI business partner</span></span></div>
+          <div class="nav-i"><span class="ico">✦</span><span>AI Partner</span></div>
+          <div class="nav-i"><span class="ico">▦</span><span>Ready-made automations</span></div>
+          <div class="t-row auto"><span class="a-ic">📊</span><span class="txt">Sales funnel analysis</span><span class="sb-dot"></span></div>
+          <div class="t-row auto on"><span class="a-ic">🎧</span><span class="txt">Speech analytics</span></div>
+          <div class="t-row inst"><span class="txt">Sales</span></div>
+          <div class="t-row run on"><span class="tic">📄</span><span class="txt">Jul 31, 2026 · 6:42 PM</span></div>
+          <div class="t-row run"><span class="tic">📄</span><span class="txt">Jul 14, 2026 · 9:15 AM</span></div>
+        </aside>
         <div class="pane-main">
           <div class="page-head">
             <div>
-              <div class="h-title">Разбор диалогов</div>
-              <div class="h-sub">Продажи · Текущий месяц</div>
+              <div class="h-title">Conversation review</div>
+              <div class="h-sub">Sales · This month</div>
             </div>
           </div>
           <div class="atoolbar run-head">
-            <span class="run-meta"><span>Текущий месяц · с 01.07.2026 по 31.07.2026</span><span>разобрано 31.07.2026 · 18:42</span><span>прочитано 40 из 40 отобранных</span></span>
-            <span class="tb-end"><span class="abtn">Выгрузить ▾</span></span>
+            <span class="run-meta"><span>This month · Jul 1 – Jul 31, 2026</span><span>reviewed Jul 31, 2026 · 6:42 PM</span><span>read 40 of 40 selected</span></span>
+            <span class="tb-end"><span class="abtn">Export ▾</span></span>
           </div>
-          <button class="sub-toggle first"><span class="chev">›</span> Что разбирали</button>
-          <div class="sub-head-row"><button class="sub-toggle"><span class="chev open">›</span> Рейтинг</button></div>
+          <button class="sub-toggle first"><span class="chev">›</span> What was reviewed</button>
+          <div class="sub-head-row"><button class="sub-toggle"><span class="chev open">›</span> Scorecard</button></div>
           <div class="acard">
-            <div class="p-cap">Балл считает код по методике, а не ИИ: два прогона на одних данных обязаны дать одно число. <b>Мест и номеров нет</b> — список отсортирован по баллу. Считается <b>только по закрытым сделкам</b>: у открытой исхода ещё нет, открытые идут в личные планы. Закрытых меньше четырёх — балла нет: это была бы не оценка, а поклёп.</div>
-            <div class="f-row"><span class="f-n">Айгерим</span><span class="f-v">84 из 100</span></div>
-            <div class="f-sub">Снятие потребности — 7 из 8 сделок · Названа цена — 6 из 8 сделок · Работа с возражением — 5 из 6 сделок · Следующий шаг — 7 из 8 сделок · Дожим — 88 по 8 сделкам · Скорость первого ответа — 92 по 8 сделкам · Плотность работы — 81 по 8 сделкам · Речь: слушает или говорит — 74 по 5 записям</div>
-            <div class="f-sub">разобрано 10, из них закрытых 8; запись была у 6 сделок, послушали 5</div>
-            <div class="f-row"><span class="f-n">Мария</span><span class="f-v">77 из 100</span></div>
-            <div class="f-sub">Снятие потребности — 6 из 8 сделок · Названа цена — 6 из 8 сделок · Работа с возражением — 4 из 5 сделок · Следующий шаг — 5 из 8 сделок · Дожим — 74 по 8 сделкам · Скорость первого ответа — 68 по 8 сделкам · Плотность работы — 77 по 8 сделкам · Речь: слушает или говорит — 66 по 4 записям</div>
-            <div class="f-sub">разобрано 11, из них закрытых 8; запись была у 5 сделок, послушали 4</div>
-            <div class="f-row"><span class="f-n">Тимур</span><span class="f-v">63 из 100</span></div>
-            <div class="f-sub">Снятие потребности — 4 из 8 сделок · Названа цена — 5 из 8 сделок · Работа с возражением — 3 из 6 сделок · Следующий шаг — 4 из 8 сделок · Дожим — 61 по 8 сделкам · Скорость первого ответа — 57 по 8 сделкам · Плотность работы — 66 по 8 сделкам · Речь: слушает или говорит — 52 по 3 записям</div>
-            <div class="f-sub">разобрано 9, из них закрытых 8; запись была у 4 сделок, послушали 3</div>
-            <div class="f-row"><span class="f-n">Арман</span><span class="f-v">51 из 100</span></div>
-            <div class="f-sub">Снятие потребности — 3 из 8 сделок · Названа цена — 4 из 8 сделок · Работа с возражением — 2 из 5 сделок · Следующий шаг — 2 из 8 сделок · Дожим — 55 по 8 сделкам · Скорость первого ответа — 34 по 8 сделкам · Плотность работы — 49 по 8 сделкам · <span class="no-data">Речь: слушает или говорит — данных не было</span></div>
-            <div class="f-sub">разобрано 9, из них закрытых 8; запись была у 3 сделок, послушали 2</div>
-            <div class="f-row"><span class="f-n">Салтанат</span><span class="f-v">—</span></div>
-            <div class="f-sub">разобрано 3 закрытых — на оценку не хватает (нужно от 4)</div>
+            <div class="p-cap">The score is computed by code from the methodology, not by AI: two runs on the same data must give the same number. <b>No ranks or places</b> — the list is sorted by score. Counted <b>on closed deals only</b>: an open deal has no outcome yet; open deals go into the personal plans. Fewer than four closed — no score: that would be slander, not assessment.</div>
+            <div class="f-row"><span class="f-n">Emily</span><span class="f-v">84 of 100</span></div>
+            <div class="f-sub">Need discovery — 7 of 8 deals · Price named — 6 of 8 deals · Objection handling — 5 of 6 deals · Next step — 7 of 8 deals · Follow-through — 88 across 8 deals · First response speed — 92 across 8 deals · Work density — 81 across 8 deals · Talk vs listen — 74 across 5 recordings</div>
+            <div class="f-sub">10 reviewed, 8 of them closed; 6 deals had recordings, 5 listened to</div>
+            <div class="f-row"><span class="f-n">Sarah</span><span class="f-v">77 of 100</span></div>
+            <div class="f-sub">Need discovery — 6 of 8 deals · Price named — 6 of 8 deals · Objection handling — 4 of 5 deals · Next step — 5 of 8 deals · Follow-through — 74 across 8 deals · First response speed — 68 across 8 deals · Work density — 77 across 8 deals · Talk vs listen — 66 across 4 recordings</div>
+            <div class="f-sub">11 reviewed, 8 of them closed; 5 deals had recordings, 4 listened to</div>
+            <div class="f-row"><span class="f-n">Mike</span><span class="f-v">63 of 100</span></div>
+            <div class="f-sub">Need discovery — 4 of 8 deals · Price named — 5 of 8 deals · Objection handling — 3 of 6 deals · Next step — 4 of 8 deals · Follow-through — 61 across 8 deals · First response speed — 57 across 8 deals · Work density — 66 across 8 deals · Talk vs listen — 52 across 3 recordings</div>
+            <div class="f-sub">9 reviewed, 8 of them closed; 4 deals had recordings, 3 listened to</div>
+            <div class="f-row"><span class="f-n">Jake</span><span class="f-v">51 of 100</span></div>
+            <div class="f-sub">Need discovery — 3 of 8 deals · Price named — 4 of 8 deals · Objection handling — 2 of 5 deals · Next step — 2 of 8 deals · Follow-through — 55 across 8 deals · First response speed — 34 across 8 deals · Work density — 49 across 8 deals · <span class="no-data">Talk vs listen — no data</span></div>
+            <div class="f-sub">9 reviewed, 8 of them closed; 3 deals had recordings, 2 listened to</div>
+            <div class="f-row"><span class="f-n">Rachel</span><span class="f-v">—</span></div>
+            <div class="f-sub">3 closed reviewed — not enough to score (needs 4+)</div>
           </div>
-          <button class="sub-toggle"><span class="chev open">›</span> Что делать каждому</button>
+          <button class="sub-toggle"><span class="chev open">›</span> What each rep should do</button>
           <div class="acard">
-            <div class="p-title">Арман — что делать<span class="copy-b" aria-hidden="true"></span></div>
-            <div class="p-cap">Сильная сторона: не бросает после отказа — в 6 из 8 сделок вернулся повторным касанием.</div>
+            <div class="p-title">Jake — what to do<span class="copy-b" aria-hidden="true"></span></div>
+            <div class="p-cap">Strength: doesn't give up after a "no" — came back with a follow-up touch in 6 of 8 deals.</div>
             <div class="verdict note">
-              <div class="verdict-t">Возвращаться к цене после «дорого»</div>
-              <div class="verdict-basis">В сделке 1288 разговор закончился на возражении; у Айгерим в 1201 то же возражение — сделка выиграна.</div>
-              <div class="verdict-basis">Как говорят коллеги: «Понимаю, что дорого. Давайте посчитаю на вашем объёме — если не сойдётся, разойдёмся.»</div>
-              <div class="verdict-material">по 3 сделкам: 2 с записями, 1 только комментарии</div>
-              <div class="deal-cards"><span class="adeal lost"><i></i>Сделка 1288<span>↗</span></span><span class="adeal won"><i></i>Сделка 1201<span>↗</span></span></div>
+              <div class="verdict-t">Return to price after "too expensive"</div>
+              <div class="verdict-basis">In deal 1288 the conversation ended on the objection; Emily faced the same objection in 1201 — the deal was won.</div>
+              <div class="verdict-basis">How your colleagues say it: "I get that it feels expensive. Let me run the numbers on your volume — if it doesn't add up, we walk away."</div>
+              <div class="verdict-material">across 3 deals: 2 with recordings, 1 notes only</div>
+              <div class="deal-cards"><span class="adeal lost"><i></i>Deal 1288<span>↗</span></span><span class="adeal won"><i></i>Deal 1201<span>↗</span></span></div>
             </div>
             <div class="verdict note">
-              <div class="verdict-t">Заканчивать звонок датой следующего шага</div>
-              <div class="verdict-basis">Сделки 1197 и 1233 ушли без договорённости — в разговоре не назван конкретный день.</div>
-              <div class="verdict-material">по 2 сделкам: обе с записями</div>
-              <div class="deal-cards"><span class="adeal lost"><i></i>Сделка 1197<span>↗</span></span><span class="adeal lost"><i></i>Сделка 1233<span>↗</span></span></div>
+              <div class="verdict-t">End every call with a date for the next step</div>
+              <div class="verdict-basis">Deals 1197 and 1233 slipped away with no commitment — no specific day was named in the call.</div>
+              <div class="verdict-material">across 2 deals: both with recordings</div>
+              <div class="deal-cards"><span class="adeal lost"><i></i>Deal 1197<span>↗</span></span><span class="adeal lost"><i></i>Deal 1233<span>↗</span></span></div>
             </div>
           </div>
-          <button class="sub-toggle"><span class="chev open">›</span> Что отличает выигранные от отказных</button>
+          <button class="sub-toggle"><span class="chev open">›</span> What separates won deals from lost</button>
           <div class="acard">
             <div class="verdict win">
-              <div class="verdict-t">В выигранных сделках цена звучит в первом разговоре; в отказных — после третьего касания или никогда.</div>
-              <div class="verdict-basis">сделок в основании: 11 из 16 закрытых</div>
-              <div class="verdict-material">по 11 сделкам: 6 с записями, 5 с перепиской</div>
-              <div class="deal-cards"><span class="adeal won"><i></i>Сделка 1201<span>↗</span></span><span class="adeal lost"><i></i>Сделка 1288<span>↗</span></span></div>
+              <div class="verdict-t">In won deals the price comes up in the first conversation; in lost ones — after the third touch or never.</div>
+              <div class="verdict-basis">deals behind this: 11 of 16 closed</div>
+              <div class="verdict-material">across 11 deals: 6 with recordings, 5 with messages</div>
+              <div class="deal-cards"><span class="adeal won"><i></i>Deal 1201<span>↗</span></span><span class="adeal lost"><i></i>Deal 1288<span>↗</span></span></div>
             </div>
-            <div class="p-title">Как это делают у вас</div>
-            <div class="p-cap">Дословно из выигранных сделок — не совет из книжки.</div>
+            <div class="p-title">How your own team does it</div>
+            <div class="p-cap">Verbatim from won deals — not playbook advice.</div>
             <div class="verdict win">
-              <div class="verdict-t">«Понимаю, что дорого. Давайте посчитаю на вашем объёме — если не сойдётся, разойдёмся.»</div>
-              <div class="verdict-basis">работа с возражением «дорого» · сделка 1201</div>
+              <div class="verdict-t">"I get that it feels expensive. Let me run the numbers on your volume — if it doesn't add up, we walk away."</div>
+              <div class="verdict-basis">handling the "too expensive" objection · deal 1201</div>
             </div>
             <div class="verdict loss">
-              <div class="verdict-t">Общая брешь: в 21 из 40 разобранных сделок не назначен следующий шаг — разговоры заканчиваются на «я подумаю».</div>
+              <div class="verdict-t">The team-wide gap: in 21 of 40 reviewed deals no next step was booked — conversations end at "let me think about it".</div>
             </div>
           </div>
-          <button class="sub-toggle"><span class="chev">›</span> Что прочитано, а что нет</button>
+          <button class="sub-toggle"><span class="chev">›</span> What was read and what wasn't</button>
         </div>
         <div class="pane-div"></div>
         <aside class="dc">
-          <div class="dc-head"><span>Спросить про разбор</span><span class="abtn">＋ Новый</span></div>
+          <div class="dc-head"><span>Ask about the review</span><span class="abtn">＋ New</span></div>
           <div class="dc-scroll" id="chat">
-            <div class="dc-hint">Спросите словами: «почему он последний», «с чего начать на планёрке», «насколько можно верить оценкам».</div>
+            <div class="dc-hint">Ask in plain words: "why is he last", "where do I start at the team meeting", "how much can I trust the scores".</div>
             <div class="dc-chips" id="chips">
-              <button class="dc-chip" id="chipWhy">Почему Арман внизу списка?</button>
-              <button class="dc-chip" id="chipPlan">С чего начать на планёрке?</button>
-              <button class="dc-chip" id="chipTrust">Насколько можно верить оценкам?</button>
+              <button class="dc-chip" id="chipWhy">Why is Jake at the bottom?</button>
+              <button class="dc-chip" id="chipPlan">Where do I start at the team meeting?</button>
+              <button class="dc-chip" id="chipTrust">How much can I trust the scores?</button>
             </div>
           </div>
-          <div class="dc-composer"><input class="dc-field" id="dcField" readonly placeholder="Спросите про разбор…"/><button class="dc-send" aria-label="Отправить">↑</button></div>
+          <div class="dc-composer"><input class="dc-field" id="dcField" readonly placeholder="Ask about the review…"/><button class="dc-send" aria-label="Send">↑</button></div>
         </aside>
       </div></div>
     </div>
-  </div>
   </div>
 </section>
 
@@ -869,12 +898,12 @@ footer img{width:18px;height:18px;border-radius:5px;vertical-align:-4px;margin-r
       setTimeout(function(){ push('agent', a); }, 550);
     });
   }
-  wire('chipWhy', 'Почему Арман внизу списка?',
-    'Арман: 51 из 100 по 8 закрытым сделкам. Западают два критерия: следующий шаг (не назначен в 6 из 8 разговоров) и цена (в 4 не прозвучала). Факт из CRM: первый ответ лиду — 2 ч 10 мин против 25 минут у Айгерим. Оба пункта уже в его плане.');
-  wire('chipPlan', 'С чего начать на планёрке?',
-    'Начните с общей бреши: в 21 из 40 разговоров нет следующего шага. Включите звонок Айгерим по сделке 1201 как образец, затем раздайте по одному шагу из плана каждого. Блок плана копируется в чат команды одним нажатием.');
-  wire('chipTrust', 'Насколько можно верить оценкам?',
-    'Балл считает программа по открытой методике: 8 критериев, фиксированные веса. Суждения ИИ привязаны к конкретным сделкам — любую можно открыть в CRM и проверить. А если закрытых сделок меньше четырёх, балл не ставится вовсе.');
+  wire('chipWhy', 'Why is Jake at the bottom?',
+    "Jake: 51 of 100 across 8 closed deals. Two criteria drag him down: next step (not booked in 6 of 8 conversations) and price (never named in 4). A fact from the CRM: first response to a lead — 2 h 10 min against Emily's 25 minutes. Both items are already in his plan.");
+  wire('chipPlan', 'Where do I start at the team meeting?',
+    "Start with the team-wide gap: 21 of 40 conversations have no next step. Play Emily's call on deal 1201 as the model, then hand each rep one step from their plan. The plan block copies to your team chat in one click.");
+  wire('chipTrust', 'How much can I trust the scores?',
+    "The score is computed by the program from an open methodology: 8 criteria, fixed weights. The AI's judgments are tied to specific deals — open any of them in your CRM and check. And with fewer than four closed deals, no score is given at all.");
 
   var btn = document.getElementById('copyBtn');
   if(btn) btn.addEventListener('click', function(){
