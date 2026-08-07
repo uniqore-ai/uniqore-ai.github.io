@@ -365,6 +365,20 @@ footer img{width:18px;height:18px;border-radius:5px;vertical-align:-4px;margin-r
 .amk .scope-row .sl{flex:none;width:150px;color:var(--ink-3);font-weight:600}
 .amk .sub-toggle{cursor:pointer}
 @media(max-width:860px){.dark-grid{grid-template-columns:1fr}.tl{grid-template-columns:1fr;gap:26px}.tl::before{display:none}.feat-row{flex-direction:column;gap:10px}.feat-row .num{width:auto;font-size:34px}.dark-sec{padding:32px 24px}.priv{padding:4px 20px}.amk .scope-row{flex-direction:column;gap:2px}.amk .scope-row .sl{width:auto}}
+
+/* ── calculator ── */
+.calc-card{max-width:960px;margin:0 auto;display:grid;grid-template-columns:1fr 1.15fr;background:linear-gradient(#fff,#fbfbfe);border:1px solid var(--line);border-radius:24px;box-shadow:var(--shadow-lg);overflow:hidden}
+.calc-in{padding:32px 34px;display:flex;flex-direction:column;gap:16px}
+.calc-in .cl{display:block;font-size:12.5px;font-weight:700;color:var(--ink-2)}
+.calc-in .cfield{display:block;width:100%;margin-top:7px;font:inherit;font-size:16px;font-weight:700;color:var(--ink);background:var(--surface);border:1px solid var(--line-strong);border-radius:12px;padding:12px 14px;outline:none;transition:.14s}
+.calc-in .cfield:focus{border-color:var(--violet);box-shadow:0 0 0 3px rgba(109,94,248,.15)}
+.calc-note{font-size:12px;color:var(--ink-3);line-height:1.55;margin-top:auto}
+.calc-out{padding:32px 34px;background:linear-gradient(160deg,rgba(109,94,248,.09),rgba(17,201,192,.09));border-left:1px solid var(--line);display:flex;flex-direction:column;gap:22px}
+.calc-l{font-size:11px;color:var(--ink-3);font-weight:800;text-transform:uppercase;letter-spacing:.07em;margin-bottom:6px}
+.calc-num{font-size:28px;font-weight:800;letter-spacing:-.02em;line-height:1.15}
+.calc-num small{font-size:15px;font-weight:700;color:var(--ink-2)}
+.co-pay{margin-top:auto;background:rgba(31,191,117,.12);border:1px solid rgba(31,191,117,.35);color:#128a55;font-size:13px;font-weight:700;line-height:1.5;border-radius:12px;padding:12px 15px}
+@media(max-width:860px){.calc-card{grid-template-columns:1fr}.calc-out{border-left:none;border-top:1px solid var(--line)}}
 </style>
 <link rel="alternate" hreflang="en" href="https://uniqore.ai/speech/"/>
 <link rel="alternate" hreflang="ru" href="https://uniqore.kz/speech/"/>
@@ -549,7 +563,7 @@ footer img{width:18px;height:18px;border-radius:5px;vertical-align:-4px;margin-r
   <div class="wrap">
     <div class="sec-head rv">
       <h2>This is what a review looks like.</h2>
-      <p>A one-to-one copy of the app screen, on demo data. Click the prompts — the chat answers like the real product.</p>
+      <p>Click the prompts — the chat answers just like it does in a real review.</p>
     </div>
     <div class="mock rv" style="max-width:1120px">
       <div class="mock-bar"><i class="r"></i><i class="y"></i><i class="g"></i><span>UNIQORE · Speech analytics</span><span class="mock-tag">demo data</span></div>
@@ -663,6 +677,30 @@ footer img{width:18px;height:18px;border-radius:5px;vertical-align:-4px;margin-r
           <div class="dc-composer"><input class="dc-field" id="dcField" readonly placeholder="Ask about the review…"/><button class="dc-send" aria-label="Send">↑</button></div>
         </aside>
       </div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CALC -->
+<section>
+  <div class="wrap">
+    <div class="sec-head rv">
+      <h2>How much is leaking through conversations?</h2>
+      <p>Run your own numbers. The estimate is modest: a review doesn't promise magic — it shows where deals break and what to tell each rep.</p>
+    </div>
+    <div class="calc-card rv">
+      <div class="calc-in">
+        <label class="cl">Leads per month<input class="cfield" id="cLeads" type="number" min="1" value="120"/></label>
+        <label class="cl">Average deal size, $<input class="cfield" id="cAvg" type="number" min="0" step="100" value="1500"/></label>
+        <label class="cl">Close rate, %<input class="cfield" id="cConv" type="number" min="0" max="100" value="10"/></label>
+        <div class="calc-note">This is arithmetic on your numbers, not a promise. What actually comes back — your first review will show. It's free.</div>
+      </div>
+      <div class="calc-out">
+        <div><div class="calc-l">Deals not closing, per month</div><div class="calc-num"><span id="oLost">108</span></div></div>
+        <div><div class="calc-l">Money passing by, per month</div><div class="calc-num"><small>$</small><span id="oMoney">162,000</span></div></div>
+        <div><div class="calc-l">A modest goal after one review — one extra point of close rate</div><div class="calc-num">+<span id="oExtra">1.2</span> <small>deals</small> · ≈ <small>$</small><span id="oExtraMoney">1,800</span> <small>a month</small></div></div>
+        <div class="co-pay" id="oPay">One recovered deal covers about 7 months of Uniqore.</div>
+      </div>
     </div>
   </div>
 </section>
@@ -990,6 +1028,83 @@ footer img{width:18px;height:18px;border-radius:5px;vertical-align:-4px;margin-r
     });
     document.addEventListener('click', function(){ expMenu.hidden = true; });
   }
+
+
+  // калькулятор
+  var fm = new Intl.NumberFormat('en-US');
+  function calc(){
+    var leads = Math.max(0, +document.getElementById('cLeads').value || 0);
+    var avg = Math.max(0, +document.getElementById('cAvg').value || 0);
+    var conv = Math.min(100, Math.max(0, +document.getElementById('cConv').value || 0));
+    var lost = Math.round(leads * (1 - conv/100));
+    var extra = leads * 0.01;
+    document.getElementById('oLost').textContent = fm.format(lost);
+    document.getElementById('oMoney').textContent = fm.format(Math.round(lost * avg));
+    document.getElementById('oExtra').textContent = extra.toFixed(1);
+    document.getElementById('oExtraMoney').textContent = fm.format(Math.round(extra * avg));
+  }
+  ['cLeads','cAvg','cConv'].forEach(function(id){
+    var el = document.getElementById(id);
+    if(el) el.addEventListener('input', calc);
+  });
+  if(document.getElementById('cLeads')) calc();
+
+  // «В буфер обмена» и copy-b: текст собирается из DOM — язык актуальный
+  function reportText(){
+    var L = [];
+    L.push(document.querySelector('.amk .h-title').textContent + ' — ' + document.querySelector('.amk .h-sub').textContent);
+    var cards = document.querySelectorAll('.amk .acard');
+    cards[1].querySelectorAll('.f-row').forEach(function(r){
+      L.push(r.querySelector('.f-n').textContent + ' — ' + r.querySelector('.f-v').textContent);
+    });
+    L.push('');
+    L.push(cards[2].querySelector('.p-title').textContent.replace('⧉','').trim());
+    cards[2].querySelectorAll('.verdict-t').forEach(function(v){ L.push('• ' + v.textContent); });
+    L.push('');
+    var loss = document.querySelector('.amk .verdict.loss .verdict-t');
+    if(loss) L.push(loss.textContent);
+    L.push('');
+    L.push('UNIQORE · uniqore.ai/speech');
+    return L.join('\n');
+  }
+  function flash(el, done, back){
+    var was = el.textContent; el.textContent = done;
+    setTimeout(function(){ el.textContent = back || was; }, 1400);
+  }
+  var miCopy = expMenu ? expMenu.querySelector('.menu-item') : null;
+  if(miCopy) miCopy.addEventListener('click', function(){
+    if(navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(reportText());
+    flash(miCopy, 'Copied ✓');
+  });
+  var cb = document.querySelector('.amk .copy-b');
+  if(cb) cb.addEventListener('click', function(){
+    var card = cb.closest('.acard');
+    var L = [card.querySelector('.p-title').textContent.replace('⧉','').trim()];
+    card.querySelectorAll('.verdict').forEach(function(v){
+      L.push('• ' + v.querySelector('.verdict-t').textContent);
+      v.querySelectorAll('.verdict-basis').forEach(function(b){ L.push('  ' + b.textContent); });
+    });
+    L.push('UNIQORE · uniqore.ai/speech');
+    if(navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(L.join('\n'));
+    cb.classList.add('done');
+    setTimeout(function(){ cb.classList.remove('done'); }, 1400);
+  });
+
+  // окупаемость в долларах — на EN считаем точно
+  function payback(){
+    var avg = Math.max(0, +document.getElementById('cAvg').value || 0);
+    var el = document.getElementById('oPay');
+    if(!el) return;
+    if(avg >= 199){
+      var m = Math.max(1, Math.floor(avg / 199));
+      el.textContent = 'One recovered deal covers about ' + m + (m === 1 ? ' month' : ' months') + ' of Uniqore.';
+    } else {
+      var d = Math.ceil(199 / Math.max(1, avg));
+      el.textContent = d + ' recovered deals a month cover the subscription.';
+    }
+  }
+  document.getElementById('cAvg').addEventListener('input', payback);
+  payback();
 
   var btn = document.getElementById('copyBtn');
   if(btn) btn.addEventListener('click', function(){
