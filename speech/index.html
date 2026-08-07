@@ -322,6 +322,49 @@ footer img{width:18px;height:18px;border-radius:5px;vertical-align:-4px;margin-r
 .amk .rec-mark.heard::before{background-color:var(--violet)}
 .amk .rec-mark.none::before{opacity:.45}
 .amk .rec-mark.none::after{content:"";position:absolute;left:-1px;right:-1px;top:50%;height:1.5px;background:var(--ink-3);opacity:.75;transform:rotate(-32deg);border-radius:1px}
+
+/* ── section variety ── */
+.feat-list{max-width:880px;margin:0 auto}
+.feat-row{display:flex;gap:24px;align-items:flex-start;padding:28px 0;border-top:1px solid var(--line)}
+.feat-row:first-child{border-top:none;padding-top:6px}
+.feat-row .num{flex:none;width:78px;font-size:46px;font-weight:800;letter-spacing:-.03em;line-height:1;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.feat-row h3{font-size:19px;font-weight:800;letter-spacing:-.01em;margin-bottom:7px}
+.feat-row p{font-size:14.5px;color:var(--ink-2);line-height:1.6;max-width:640px}
+.dark-sec{background:radial-gradient(700px 340px at 80% -20%,rgba(109,94,248,.45),transparent 60%),radial-gradient(500px 300px at 0% 120%,rgba(17,201,192,.25),transparent 55%),var(--orb-bg);border-radius:24px;padding:46px 50px;color:#edeef7;box-shadow:var(--shadow-lg)}
+.dark-sec .sec-head{margin-bottom:30px}
+.dark-sec h2{color:#fff}
+.dark-sec .sec-head p{color:#b8bcd6}
+.dark-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:26px 34px;text-align:left}
+.dk-it{display:flex;gap:13px}
+.dk-it .ck{flex:none;width:26px;height:26px;border-radius:8px;background:rgba(17,201,192,.16);color:#2de3d9;font-weight:800;font-size:13px;display:flex;align-items:center;justify-content:center;margin-top:2px}
+.dk-it h3{font-size:15.5px;font-weight:800;color:#fff;margin-bottom:5px}
+.dk-it p{font-size:13px;color:#b8bcd6;line-height:1.55}
+.tl{display:grid;grid-template-columns:repeat(3,1fr);position:relative;max-width:980px;margin:0 auto}
+.tl::before{content:'';position:absolute;top:26px;left:17%;right:17%;height:2px;background:linear-gradient(90deg,#6d5ef8,#8a6cff,#11c9c0);opacity:.5}
+.tl-step{text-align:center;padding:0 20px;position:relative}
+.tl-step .n{width:52px;height:52px;border-radius:50%;background:var(--grad);color:#fff;font-weight:800;font-size:20px;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;box-shadow:0 10px 24px rgba(109,94,248,.35);position:relative;z-index:1}
+.tl-step h3{font-size:16px;font-weight:800;margin-bottom:7px}
+.tl-step p{font-size:13.5px;color:var(--ink-2);line-height:1.55}
+.priv{max-width:840px;margin:0 auto;background:var(--surface-2);border:1px solid var(--line);border-radius:20px;padding:8px 30px}
+.priv-row{display:flex;gap:16px;padding:20px 0;border-top:1px solid var(--line);align-items:flex-start}
+.priv-row:first-child{border-top:none}
+.priv-row .pic{flex:none;width:36px;height:36px;border-radius:10px;background:var(--surface);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;font-size:15px}
+.priv-row h3{font-size:14.5px;font-weight:800;margin-bottom:4px}
+.priv-row p{font-size:13px;color:var(--ink-2);line-height:1.6}
+.get-card{max-width:760px;margin:0 auto;text-align:center;background:linear-gradient(#fff,#fbfbfe);border:1px solid var(--line);border-radius:24px;box-shadow:var(--shadow-lg);padding:44px 40px}
+.get-card .free{display:inline-block;background:rgba(31,191,117,.12);border:1px solid rgba(31,191,117,.35);color:#128a55;font-weight:800;font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;border-radius:999px;padding:6px 14px;margin-bottom:16px}
+.get-card p{font-size:15px;color:var(--ink-2);line-height:1.6;max-width:560px;margin:14px auto 26px}
+.get-note{margin-top:16px;font-size:13px;font-weight:600;color:var(--ink-3)}
+/* ── mock interactivity ── */
+.amk .tb-end{position:relative}
+.amk .menu{position:absolute;right:0;top:calc(100% + 6px);background:var(--surface);border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow-lg);padding:6px;z-index:6;min-width:185px;text-align:left}
+.amk .menu-item{display:block;width:100%;text-align:left;border:none;background:none;font:600 12.5px var(--font);color:var(--ink-2);padding:8px 10px;border-radius:8px;cursor:pointer}
+.amk .menu-item:hover{background:var(--surface-2);color:var(--ink)}
+.amk .scope-row{font-size:12.5px;color:var(--ink-2);line-height:1.55;padding:6px 0;border-top:1px solid #e7eaf3;display:flex;gap:8px}
+.amk .scope-row:first-child{border-top:none;padding-top:0}
+.amk .scope-row .sl{flex:none;width:150px;color:var(--ink-3);font-weight:600}
+.amk .sub-toggle{cursor:pointer}
+@media(max-width:860px){.dark-grid{grid-template-columns:1fr}.tl{grid-template-columns:1fr;gap:26px}.tl::before{display:none}.feat-row{flex-direction:column;gap:10px}.feat-row .num{width:auto;font-size:34px}.dark-sec{padding:32px 24px}.priv{padding:4px 20px}.amk .scope-row{flex-direction:column;gap:2px}.amk .scope-row .sl{width:auto}}
 </style>
 <link rel="alternate" hreflang="en" href="https://uniqore.ai/speech/"/>
 <link rel="alternate" hreflang="ru" href="https://uniqore.kz/speech/"/>
@@ -477,10 +520,10 @@ footer img{width:18px;height:18px;border-radius:5px;vertical-align:-4px;margin-r
   <h1>Find out where your reps lose deals — straight from their calls.</h1>
   <p class="sub">UNIQORE reads the messages and listens to the call recordings behind every deal in your CRM — and returns a rep scorecard built on an open methodology, plus a personal coaching plan for each rep with examples from their own deals.</p>
   <div class="cta-row">
-    <a class="btn btn-primary btn-xl" href="mailto:hi@uniqore.ai?subject=UNIQORE%20speech%20pilot">Review my sales calls →</a>
+    <a class="btn btn-primary btn-xl" href="#get">Download &amp; install Uniqore →</a>
     <a class="btn btn-ghost btn-xl" href="#demo">See a sample review</a>
   </div>
-  <div class="trust"><b>Bitrix24</b> &amp; <b>amoCRM (Kommo)</b> · read-only access · rep names never reach the AI</div>
+  <div class="trust"><b>Bitrix24</b> &amp; <b>amoCRM (Kommo)</b> · read-only access · rep names never reach the AI · first review free</div>
 </header>
 
 <!-- PAIN -->
@@ -530,9 +573,19 @@ footer img{width:18px;height:18px;border-radius:5px;vertical-align:-4px;margin-r
           </div>
           <div class="atoolbar run-head">
             <span class="run-meta"><span>This month · Jul 1 – Jul 31, 2026</span><span>reviewed Jul 31, 2026 · 6:42 PM</span><span>read 40 of 40 selected</span></span>
-            <span class="tb-end"><span class="abtn">Export ▾</span></span>
+            <span class="tb-end"><button class="abtn" id="expBtn">Export ▾</button>
+              <div class="menu" id="expMenu" hidden><button class="menu-item">Copy to clipboard</button><button class="menu-item">Excel (.xlsx)</button><button class="menu-item">PDF (.pdf)</button></div></span>
           </div>
           <button class="sub-toggle first"><span class="chev">›</span> What was reviewed</button>
+          <div class="acard" id="sec-scope" hidden>
+            <div class="scope-row"><span class="sl">Period</span><span>This month · Jul 1 – Jul 31, 2026</span></div>
+            <div class="scope-row"><span class="sl">Reps</span><span>5 · volume: 8 deals per person</span></div>
+            <div class="scope-row"><span class="sl">Included</span><span>won · lost · in progress · stuck</span></div>
+            <div class="scope-row"><span class="sl">Mix</span><span>16 closed · 14 in progress · 10 stuck</span></div>
+            <div class="scope-row"><span class="sl">Read</span><span>96 notes · 12 emails · 54 messenger messages · 118 calls</span></div>
+            <div class="scope-row"><span class="sl">Recordings</span><span>allowed, 14 listened to</span></div>
+            <div class="scope-row"><span class="sl">Who was reviewed</span><span>Emily · Sarah · Mike · Jake · Rachel</span></div>
+          </div>
           <div class="sub-head-row"><button class="sub-toggle"><span class="chev open">›</span> Scorecard</button></div>
           <div class="acard">
             <div class="p-cap">The score is computed by code from the methodology, not by AI: two runs on the same data must give the same number. <b>No ranks or places</b> — the list is sorted by score. Counted <b>on closed deals only</b>: an open deal has no outcome yet; open deals go into the personal plans. Fewer than four closed — no score: that would be slander, not assessment.</div>
@@ -588,6 +641,13 @@ footer img{width:18px;height:18px;border-radius:5px;vertical-align:-4px;margin-r
             </div>
           </div>
           <button class="sub-toggle"><span class="chev">›</span> What was read and what wasn't</button>
+          <div class="acard" id="sec-cover" hidden>
+            <div class="scope-row"><span class="sl">Read</span><span>40 of 40 selected deals · 18 deals had recordings, 14 listened to</span></div>
+            <div class="scope-row"><span class="sl">Material</span><span>96 notes · 12 emails · 54 messenger messages · 118 calls</span></div>
+            <div class="scope-row"><span class="sl">Deal 1310</span><span>a 12-second call is a dial tone, not a conversation (we listen from 30 s)</span></div>
+            <div class="scope-row"><span class="sl">Deal 1284</span><span>a 42-minute recording — over the 5-minute limit</span></div>
+            <div class="scope-row"><span class="sl">Deal 1263</span><span>file 3.1 MB — over the 2 MB size limit</span></div>
+          </div>
         </div>
         <div class="pane-div"></div>
         <aside class="dc">
@@ -614,15 +674,12 @@ footer img{width:18px;height:18px;border-radius:5px;vertical-align:-4px;margin-r
       <h2>What you get after a review.</h2>
       <p>Not a pile of transcripts — conclusions you can bring to tomorrow's team meeting.</p>
     </div>
-    <div class="grid3">
-      <div class="card res rv"><div class="ic">🏆</div><h3>A scorecard with a methodology</h3>
-        <p>Every conversation is scored on 8 criteria — from need discovery to first-response speed. The score is computed by code, not by a neural net: two runs give the same number.</p></div>
-      <div class="card res rv"><div class="ic">📋</div><h3>A personal plan for each rep</h3>
-        <p>Two or three steps per person with examples from their own deals: asked about budget — won; didn't ask — lost. Advice without a deal reference is never shown.</p></div>
-      <div class="card res rv"><div class="ic">💬</div><h3>Your best reps' lines — verbatim</h3>
-        <p>How your strongest sellers answer "too expensive" and book the next step — quoted from won deals. Teams trust their own people, not playbooks.</p></div>
+    <div class="feat-list">
+      <div class="feat-row rv"><span class="num">01</span><div><h3>A scorecard with a methodology</h3><p>Every conversation is scored on 8 criteria — from need discovery to first-response speed. The score is computed by code, not by a neural net: two runs give the same number.</p></div></div>
+      <div class="feat-row rv"><span class="num">02</span><div><h3>A personal plan for each rep</h3><p>Two or three steps per person with examples from their own deals: asked about budget — won; didn't ask — lost. Advice without a deal reference is never shown.</p></div></div>
+      <div class="feat-row rv"><span class="num">03</span><div><h3>Your best reps' lines — verbatim</h3><p>How your strongest sellers answer "too expensive" and book the next step — quoted from won deals. Teams trust their own people, not playbooks.</p></div></div>
     </div>
-    <div class="card strip rv" style="margin-top:18px">
+    <div class="card strip rv" style="margin-top:14px">
       <span class="em">⏳</span>
       <div>
         <h3>Stuck deals — this week's money</h3>
@@ -635,19 +692,17 @@ footer img{width:18px;height:18px;border-radius:5px;vertical-align:-4px;margin-r
 <!-- WHY TRUST -->
 <section>
   <div class="wrap">
-    <div class="sec-head rv">
-      <h2>Scores you can trust. And verify.</h2>
-      <p>A rep ranking nobody can verify isn't a tool — it's a fight waiting to happen. So this one works differently.</p>
-    </div>
-    <div class="grid2">
-      <div class="card res rv"><div class="ic">🧮</div><h3>Code does the math</h3>
-        <p>Criteria are normalized and weighted by the program with fixed weights. The AI answers questions like "was the price named" — it never decides who's best.</p></div>
-      <div class="card res rv"><div class="ic">🔗</div><h3>Every conclusion links to deals</h3>
-        <p>Under each step of the plan — the specific deals it's built on. One click opens that exact card in your CRM.</p></div>
-      <div class="card res rv"><div class="ic">⚖️</div><h3>Too little data — no verdict</h3>
-        <p>Fewer than four reviewed closed deals — no score, with the reason spelled out. A "worst rep" built on three deals is slander, not assessment.</p></div>
-      <div class="card res rv"><div class="ic">📈</div><h3>Progress from review to review</h3>
-        <p>Reviews accumulate: you see how the team's and each rep's scores move period over period — whether the coaching landed.</p></div>
+    <div class="dark-sec rv">
+      <div class="sec-head">
+        <h2>Scores you can trust. And verify.</h2>
+        <p>A rep ranking nobody can verify isn't a tool — it's a fight waiting to happen. So this one works differently.</p>
+      </div>
+      <div class="dark-grid">
+        <div class="dk-it"><span class="ck">✓</span><div><h3>Code does the math</h3><p>Criteria are normalized and weighted by the program with fixed weights. The AI answers questions like "was the price named" — it never decides who's best.</p></div></div>
+        <div class="dk-it"><span class="ck">✓</span><div><h3>Every conclusion links to deals</h3><p>Under each step of the plan — the specific deals it's built on. One click opens that exact card in your CRM.</p></div></div>
+        <div class="dk-it"><span class="ck">✓</span><div><h3>Too little data — no verdict</h3><p>Fewer than four reviewed closed deals — no score, with the reason spelled out. A "worst rep" built on three deals is slander, not assessment.</p></div></div>
+        <div class="dk-it"><span class="ck">✓</span><div><h3>Progress from review to review</h3><p>Reviews accumulate: you see how the team's and each rep's scores move period over period — whether the coaching landed.</p></div></div>
+      </div>
     </div>
   </div>
 </section>
@@ -656,10 +711,10 @@ footer img{width:18px;height:18px;border-radius:5px;vertical-align:-4px;margin-r
 <section>
   <div class="wrap">
     <div class="sec-head rv"><h2>Three steps. By yourself, in one evening.</h2></div>
-    <div class="steps">
-      <div class="card stp rv"><div class="n">1</div><h3>Connect your pipeline</h3><p>Once, on your own: a Bitrix24 webhook or an amoCRM token, read-only. Nothing changes in your CRM; disconnect anytime.</p></div>
-      <div class="card stp rv"><div class="n">2</div><h3>Choose who to review</h3><p>Tick the reps, set the volume per person. How many deals and minutes it takes is shown before you press start.</p></div>
-      <div class="card stp rv"><div class="n">3</div><h3>Get the review</h3><p>It runs in the background and survives closing the window. The report lands on screen: copy it to the team or export to Excel and PDF.</p></div>
+    <div class="tl rv">
+      <div class="tl-step"><div class="n">1</div><h3>Connect your pipeline</h3><p>Once, on your own: a Bitrix24 webhook or an amoCRM token, read-only. Nothing changes in your CRM; disconnect anytime.</p></div>
+      <div class="tl-step"><div class="n">2</div><h3>Choose who to review</h3><p>Tick the reps, set the volume per person. How many deals and minutes it takes is shown before you press start.</p></div>
+      <div class="tl-step"><div class="n">3</div><h3>Get the review</h3><p>It runs in the background and survives closing the window. The report lands on screen: copy it to the team or export to Excel and PDF.</p></div>
     </div>
   </div>
 </section>
@@ -670,15 +725,11 @@ footer img{width:18px;height:18px;border-radius:5px;vertical-align:-4px;margin-r
     <div class="sec-head rv">
       <h2>Call recordings are sensitive.<br/>We treat them that way.</h2>
     </div>
-    <div class="grid2">
-      <div class="card res rv"><div class="ic">🔒</div><h3>Read-only</h3>
-        <p>We never ask for write permissions — the webhook stays read-only. Delete it in your CRM with one click and access is gone.</p></div>
-      <div class="card res rv"><div class="ic">🕶</div><h3>Names never reach the AI</h3>
-        <p>The model sees "Rep #1", not last names. Names, phone numbers and emails in messages are replaced with tokens before sending; real names stay in the app.</p></div>
-      <div class="card res rv"><div class="ic">✋</div><h3>Two separate consents</h3>
-        <p>Message texts and call audio are processed only after your explicit "yes" to each. Without audio consent, calls stay numbers: how many, when, how long.</p></div>
-      <div class="card res rv"><div class="ic">💻</div><h3>Reports live on your computer</h3>
-        <p>Reviews are stored locally, in the app. Your reps install nothing — they won't even notice.</p></div>
+    <div class="priv rv">
+      <div class="priv-row"><span class="pic">🔒</span><div><h3>Read-only</h3><p>We never ask for write permissions — the webhook stays read-only. Delete it in your CRM with one click and access is gone.</p></div></div>
+      <div class="priv-row"><span class="pic">🕶</span><div><h3>Names never reach the AI</h3><p>The model sees "Rep #1", not last names. Names, phone numbers and emails in messages are replaced with tokens before sending; real names stay in the app.</p></div></div>
+      <div class="priv-row"><span class="pic">✋</span><div><h3>Two separate consents</h3><p>Message texts and call audio are processed only after your explicit "yes" to each. Without audio consent, calls stay numbers: how many, when, how long.</p></div></div>
+      <div class="priv-row"><span class="pic">💻</span><div><h3>Reports live on your computer</h3><p>Reviews are stored locally, in the app. Your reps install nothing — they won't even notice.</p></div></div>
     </div>
   </div>
 </section>
@@ -693,14 +744,6 @@ footer img{width:18px;height:18px;border-radius:5px;vertical-align:-4px;margin-r
         <div class="fa">The review says so honestly before you start — and works with what's there: messages, emails, notes, WhatsApp and Telegram threads from your CRM. Short rings and missed calls are filtered out automatically, and the report always includes a "What was read and what wasn't" section.</div>
       </details>
       <details>
-        <summary>We're on HubSpot / Salesforce / Pipedrive — can we use it?</summary>
-        <div class="fa">Not yet. Today UNIQORE connects to Bitrix24 and amoCRM (Kommo); support for US-market CRMs is on the roadmap. Write to us — we'll let you know the moment yours is ready.</div>
-      </details>
-      <details>
-        <summary>Is there an English version?</summary>
-        <div class="fa">The product currently ships in Russian — the interface and the reports. English is on the roadmap, and early-access pilots are how we prioritize it. If that's you, write to us.</div>
-      </details>
-      <details>
         <summary>How is this different from the speech analytics in my phone system?</summary>
         <div class="fa">Phone systems count keywords against a checklist. UNIQORE reviews deals end to end — calls, messages and emails together — compares won against lost, and returns a plan: who to coach on what, with examples. And it doesn't bury you in transcripts — you get conclusions.</div>
       </details>
@@ -710,19 +753,32 @@ footer img{width:18px;height:18px;border-radius:5px;vertical-align:-4px;margin-r
       </details>
       <details>
         <summary>How much does it cost?</summary>
-        <div class="fa">Speech analytics is part of UNIQORE's extended plan; the base subscription is $199/month. Write to us — we'll show a review on your data and size the plan to your team.</div>
+        <div class="fa">Your first review is free: download the app and run it on your own data. After that, speech analytics is part of UNIQORE's extended plan; the base subscription is $199/month. Write to us — we'll size the plan to your team.</div>
+      </details>
+      <details>
+        <summary>We're on HubSpot / Salesforce / Pipedrive — can we use it?</summary>
+        <div class="fa">Not yet. Today UNIQORE connects to Bitrix24 and amoCRM (Kommo); support for US-market CRMs is on the roadmap. Write to us — we'll let you know the moment yours is ready.</div>
+      </details>
+      <details>
+        <summary>Is there an English version?</summary>
+        <div class="fa">The product currently ships in Russian — the interface and the reports. English is on the roadmap, and early-access pilots are how we prioritize it. If that's you, write to us.</div>
       </details>
     </div>
   </div>
 </section>
 
-<!-- PRICE -->
-<section>
+<!-- GET -->
+<section id="get">
   <div class="wrap">
-    <div class="price rv">
-      <div class="big">Extended plan</div>
-      <p>One review replaces a week of listening to calls by hand. <b>Pilot participants get their first review on their own data and personal onboarding with the founders.</b></p>
-      <a class="btn btn-primary" href="mailto:hi@uniqore.ai?subject=UNIQORE%20speech%20pilot">Join the pilot →</a>
+    <div class="get-card rv">
+      <span class="free">First review free</span>
+      <h2>Try it on your own calls.</h2>
+      <p>Download Uniqore, connect your CRM and get your first full review — free, on your data. After that, the extended plan; base subscription $199/mo.</p>
+      <div class="cta-row">
+        <a class="btn btn-primary btn-xl" href="/download/">Download for macOS</a>
+        <a class="btn btn-ghost btn-xl" href="/download/">Download for Windows</a>
+      </div>
+      <div class="get-note">First review free · no card required</div>
     </div>
   </div>
 </section>
@@ -911,6 +967,29 @@ footer img{width:18px;height:18px;border-radius:5px;vertical-align:-4px;margin-r
     "Start with the team-wide gap: 21 of 40 conversations have no next step. Play Emily's call on deal 1201 as the model, then hand each rep one step from their plan. The plan block copies to your team chat in one click.");
   wire('chipTrust', 'How much can I trust the scores?',
     "The score is computed by the program from an open methodology: 8 criteria, fixed weights. The AI's judgments are tied to specific deals — open any of them in your CRM and check. And with fewer than four closed deals, no score is given at all.");
+
+
+  // свёртки разделов мока
+  document.querySelectorAll('.amk .sub-toggle').forEach(function(tg){
+    tg.addEventListener('click', function(){
+      var host = tg.closest('.sub-head-row') || tg;
+      var panel = host.nextElementSibling;
+      if(!panel || !panel.classList.contains('acard')) return;
+      panel.hidden = !panel.hidden;
+      var ch = tg.querySelector('.chev');
+      if(ch) ch.classList.toggle('open', !panel.hidden);
+    });
+  });
+  // меню «Выгрузить»
+  var expBtn = document.getElementById('expBtn');
+  var expMenu = document.getElementById('expMenu');
+  if(expBtn && expMenu){
+    expBtn.addEventListener('click', function(e){ e.stopPropagation(); expMenu.hidden = !expMenu.hidden; });
+    expMenu.querySelectorAll('.menu-item').forEach(function(mi){
+      mi.addEventListener('click', function(){ expMenu.hidden = true; });
+    });
+    document.addEventListener('click', function(){ expMenu.hidden = true; });
+  }
 
   var btn = document.getElementById('copyBtn');
   if(btn) btn.addEventListener('click', function(){
