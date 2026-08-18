@@ -183,20 +183,11 @@ h1{max-width:940px}
 .get-card .free{display:inline-block;background:rgba(31,191,117,.12);border:1px solid rgba(31,191,117,.35);color:#128a55;font-weight:800;font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;border-radius:999px;padding:6px 14px;margin-bottom:16px}
 .get-card p{font-size:15px;color:var(--ink-2);line-height:1.6;max-width:560px;margin:14px auto 26px}
 .get-note{margin-top:16px;font-size:13px;font-weight:600;color:var(--ink-3)}
-.lead-form{margin:28px auto 0;text-align:left;scroll-margin-top:110px}
-.lead-fields{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.lead-field{display:flex;flex-direction:column;gap:7px;font-size:12.5px;font-weight:750;color:var(--ink)}
-.lead-field em{font-style:normal;font-weight:600;color:var(--ink-3)}
-.lead-field.full{grid-column:1/-1}
-.lead-field input{width:100%;border:1px solid var(--line-strong);border-radius:12px;background:var(--surface);color:var(--ink);font:600 14px var(--font);padding:13px 14px;outline:none;transition:border-color .15s,box-shadow .15s}
-.lead-field input:focus{border-color:var(--violet);box-shadow:0 0 0 4px rgba(109,94,248,.11)}
-.lead-field input::placeholder{color:var(--ink-3);font-weight:500}
-.lead-required{color:var(--red)}
-.lead-actions{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:18px}
-.lead-actions .btn{min-width:220px}
-.lead-form-note{margin:13px auto 0!important;font-size:12px!important;line-height:1.5!important;text-align:center;color:var(--ink-3)!important}
-.lead-status{min-height:18px;margin-top:8px;text-align:center;font-size:12px;font-weight:700;color:var(--green)}
-@media(max-width:620px){.lead-fields{grid-template-columns:1fr}.lead-field.full{grid-column:auto}.lead-actions{align-items:stretch;flex-direction:column}.lead-actions .btn{width:100%}}
+.whatsapp-request{margin:28px auto 0;scroll-margin-top:110px}
+.whatsapp-actions{display:flex;justify-content:center;gap:10px;flex-wrap:wrap}
+.whatsapp-actions .btn{min-width:220px}
+.whatsapp-request-note{margin:13px auto 0!important;font-size:12px!important;line-height:1.5!important;text-align:center;color:var(--ink-3)!important}
+@media(max-width:620px){.whatsapp-actions{align-items:stretch;flex-direction:column}.whatsapp-actions .btn{width:100%}}
 /* ── mock interactivity ── */
 .amk .tb-end{position:relative}
 .amk .menu{position:absolute;right:0;top:calc(100% + 6px);background:var(--surface);border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow-lg);padding:6px;z-index:6;min-width:185px;text-align:left}
@@ -444,7 +435,7 @@ q{quotes:none}
     <p class="sub">Uniqore analyzes customer emails, messages, notes, and available call recordings from HubSpot, then shows exactly where deals stall and what each rep should do next.</p>
     <div class="cta-row">
       <a class="btn btn-primary btn-xl" href="/download/">Download</a>
-      <a class="btn btn-ghost btn-xl" href="#contact-form">Analyze 20 deals →</a>
+      <a class="btn btn-ghost btn-xl" href="https://wa.me/" data-whatsapp-message="Hi! I'm writing from uniqore.ai. I'd like to analyze 20 sales deals for free.">Analyze 20 deals →</a>
     </div>
     <div class="trust"><b>Your first pilot review is free.</b> Nothing to install for your sales reps.</div>
   </div>
@@ -871,19 +862,13 @@ q{quotes:none}
       <span class="free">Your first pilot analysis is free</span>
       <h2>Give us 20 closed deals.</h2>
       <p>We will return the conversation worth playing in your next sales meeting, a winning response from your own team, and one or two concrete actions for each rep.</p>
-      <form class="lead-form" id="contact-form">
-        <div class="lead-fields">
-          <label class="lead-field"><span>Name <b class="lead-required">*</b></span><input name="name" autocomplete="name" required placeholder="Your name"/></label>
-          <label class="lead-field"><span>Phone <b class="lead-required">*</b></span><input name="phone" type="tel" inputmode="tel" autocomplete="tel" minlength="7" required placeholder="+1 (555) 000-0000"/></label>
-          <label class="lead-field full"><span>Email <em>(optional)</em></span><input name="email" type="email" autocomplete="email" placeholder="you@company.com"/></label>
-        </div>
-        <div class="lead-actions">
-          <button class="btn btn-primary btn-xl" type="submit">Request my free analysis →</button>
+      <div class="whatsapp-request" id="contact-form">
+        <div class="whatsapp-actions">
+          <a class="btn btn-primary btn-xl" href="https://wa.me/" data-whatsapp-message="Hi! I'm writing from uniqore.ai. I'd like to analyze 20 sales deals for free.">Message us on WhatsApp →</a>
           <a class="btn btn-ghost btn-xl" href="/download/">Download the app</a>
         </div>
-        <p class="lead-form-note">This opens a prefilled email for you to send. Our team will guide the HubSpot connection and your first analysis.</p>
-        <div class="lead-status" id="leadStatus" role="status" aria-live="polite"></div>
-      </form>
+        <p class="whatsapp-request-note">WhatsApp will open with a ready-to-send message. We will guide the HubSpot connection and your first analysis personally.</p>
+      </div>
       <div class="get-note">HubSpot · about 30 minutes to connect · no credit card required</div>
     </div>
   </div>
@@ -1027,7 +1012,7 @@ q{quotes:none}
       <p>Tell us how your HubSpot pipeline works and how many reps are on the team. We will show you what the first review can cover and guide the pilot setup.</p>
       <div class="mail-row">
         <a class="btn btn-primary btn-xl" href="/download/">Download</a>
-        <a class="btn btn-ghost btn-xl" href="#contact-form">Get my first analysis →</a>
+        <a class="btn btn-ghost btn-xl" href="https://wa.me/" data-whatsapp-message="Hi! I'm writing from uniqore.ai. I'd like to analyze 20 sales deals for free.">Get my first analysis →</a>
         <span class="mail-pill">hi@uniqore.ai <button class="copy-btn" id="copyBtn">copy</button></span>
       </div>
     </div>
@@ -1049,6 +1034,7 @@ q{quotes:none}
   </div>
 </footer>
 
+<script src="/assets/contact.js?v=1"></script>
 <script>
 (function(){
   function t(s){ return window.uniqoreTranslate ? window.uniqoreTranslate(s) : s; }
@@ -1161,29 +1147,6 @@ q{quotes:none}
     if(navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(L.join('\n'));
     cb.classList.add('done');
     setTimeout(function(){ cb.classList.remove('done'); }, 1400);
-  });
-
-  // Static GitHub Pages form: validate fields and prepare an email to the team.
-  var leadForm = document.getElementById('contact-form');
-  if(leadForm) leadForm.addEventListener('submit', function(event){
-    event.preventDefault();
-    if(!leadForm.reportValidity()) return;
-    var data = new FormData(leadForm);
-    var name = String(data.get('name') || '').trim();
-    var phone = String(data.get('phone') || '').trim();
-    var email = String(data.get('email') || '').trim();
-    var body = [
-      'Sales Conversation Intelligence pilot request',
-      '',
-      'Name: ' + name,
-      'Phone: ' + phone,
-      'Email: ' + (email || 'not provided'),
-      'Landing page language: ' + document.documentElement.lang,
-      'Source: ' + location.href
-    ].join('\n');
-    var status = document.getElementById('leadStatus');
-    if(status) status.textContent = t('Your email is ready. Send it to Uniqore and we will follow up personally.');
-    location.href = 'mailto:hi@uniqore.ai?subject=' + encodeURIComponent('Sales Conversation Intelligence pilot — ' + name) + '&body=' + encodeURIComponent(body);
   });
 
   // copy email
