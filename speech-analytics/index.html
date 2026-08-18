@@ -1,0 +1,1199 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<script>document.documentElement.lang="en-US";document.documentElement.dataset.language="en";document.documentElement.classList.add("i18n-ready");</script>
+<title>Sales Conversation Intelligence for HubSpot — Uniqore</title>
+<meta name="description" content="Uniqore analyzes customer emails, messages, notes, and call recordings from HubSpot to show where deals stall and what each rep should do next."/>
+<meta property="og:title" content="Deals are not lost in a dashboard. They are lost in a conversation."/>
+<meta property="og:description" content="Turn customer conversations into deal-level actions, rep coaching plans, and a sales review your team can actually use."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="/assets/site.css?v=2"/>
+<link rel="canonical" href="https://uniqore.ai/speech-analytics/"/>
+<link rel="alternate" hreflang="en" href="https://uniqore.ai/speech-analytics/"/>
+<link rel="alternate" hreflang="ru" href="https://uniqore.kz/speech-analytics/"/>
+<link rel="alternate" hreflang="kk" href="https://uniqore.kz/speech-analytics/?lang=kk"/>
+<link rel="alternate" hreflang="x-default" href="https://uniqore.ai/speech-analytics/"/>
+<link rel="icon" href="/favicon.ico?v=1.0.1" sizes="any"/>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg?v=1.0.1"/>
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=1.0.1"/>
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=1.0.1"/>
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=1.0.1"/>
+<link rel="manifest" href="/site.webmanifest?v=1.0.1"/>
+<meta name="msapplication-config" content="/browserconfig.xml?v=1.0.1"/>
+<meta name="theme-color" content="#8D7FF1"/>
+<meta property="og:url" content="https://uniqore.ai/speech-analytics/"/>
+<meta property="og:type" content="website"/>
+<meta property="og:image" content="https://uniqore.ai/og-home-1200x630-en-v1.0.1.png"/>
+<meta property="og:image:secure_url" content="https://uniqore.ai/og-home-1200x630-en-v1.0.1.png"/>
+<meta property="og:image:type" content="image/png"/>
+<meta property="og:image:width" content="1200"/>
+<meta property="og:image:height" content="630"/>
+<meta property="og:image:alt" content="Sales Conversation Intelligence for HubSpot by Uniqore"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://uniqore.ai/og-home-1200x630-en-v1.0.1.png"/>
+<style>
+/* Shared site chrome lives in /assets/site.css; page-specific overrides follow. */
+/* Compact page hero */
+.hero{padding:36px 24px 28px}
+.halo{width:170px;height:170px}
+.halo svg,.halo img{width:132px}
+.eyebrow{margin:2px 0 12px}
+h1{max-width:940px}
+.hero .sub{font-size:clamp(15px,2vw,18px);line-height:1.5;max-width:860px;margin:14px auto 22px}
+/* Interactive product demo frame */
+.mock{max-width:960px;margin:0 auto;border-radius:20px;overflow:hidden;border:1px solid var(--line-strong);
+  box-shadow:var(--shadow-lg);background:var(--bg)}
+.mock-bar{display:flex;align-items:center;gap:8px;padding:12px 16px;background:var(--surface-2);border-bottom:1px solid var(--line)}
+.mock-bar i{width:11px;height:11px;border-radius:50%;display:block}
+.mock-bar .r{background:#ff5f57}.mock-bar .y{background:#febc2e}.mock-bar .g{background:#28c840}
+.mock-bar span{margin-left:8px;font-size:12px;font-weight:700;color:var(--ink-3)}
+.mock-tag{margin-left:auto;font-size:10.5px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--ink-3);background:var(--surface-3);padding:4px 10px;border-radius:999px}
+
+/* ── speech page extras ── */
+.grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.strip{max-width:960px;margin:0 auto;padding:22px 26px;display:flex;gap:16px;align-items:flex-start}
+.strip .em{font-size:24px;flex-shrink:0}
+.strip h3{font-size:16px;font-weight:800;margin-bottom:5px}
+.strip p{font-size:13.5px;color:var(--ink-2);line-height:1.55}
+.faq{max-width:760px;margin:0 auto}
+.faq details{background:linear-gradient(#fff,#fbfbfe);border:1px solid var(--line);border-radius:var(--r-sm);box-shadow:var(--shadow);padding:0;margin-bottom:10px;overflow:hidden}
+.faq summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:12px;padding:15px 18px;font-size:14.5px;font-weight:700}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:'+';font-size:18px;font-weight:800;color:var(--violet);transition:.2s}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq .fa{padding:0 18px 15px;font-size:13.5px;color:var(--ink-2);line-height:1.6}
+@media(max-width:860px){.grid2{grid-template-columns:1fr}.strip{flex-direction:column;gap:10px}}
+
+/* App demo: production UI styles mirrored from mvp.css */
+.amk{font-family:var(--font);color:var(--ink);text-align:left}
+.amk .pane-row{display:flex;align-items:stretch;background:var(--bg)}
+.amk .pane-main{flex:1;min-width:0;padding:24px 26px;background:var(--bg)}
+.amk .pane-div{width:1px;background:#e7eaf3;flex:none}
+.amk .page-head{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:18px;gap:16px;flex-wrap:wrap}
+.amk .h-title{font-size:25px;font-weight:800;letter-spacing:-.02em}
+.amk .h-sub{font-size:13.5px;color:var(--ink-2);margin-top:6px;line-height:1.5}
+.amk .run-head{margin:-4px 0 14px}
+.amk .run-meta{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:12px;color:var(--ink-2)}
+.amk .atoolbar{display:flex;align-items:center;flex-wrap:wrap;gap:10px;width:100%}
+.amk .atoolbar .tb-end{margin-left:auto}
+.amk .abtn{border:1px solid var(--line-strong);background:var(--surface);color:var(--ink-2);border-radius:9px;padding:7px 12px;font:700 12.5px var(--font);cursor:pointer}
+.amk .sub-toggle{display:flex;align-items:center;gap:6px;width:100%;background:none;border:none;border-top:1px solid #e7eaf3;cursor:pointer;text-align:left;font:700 12px var(--font);color:var(--ink-3);margin:14px 2px 8px;padding:12px 0 0}
+.amk .sub-toggle.first{border-top:none;margin-top:0;padding-top:0}
+.amk .chev{display:inline-block;transition:transform .15s;font-weight:800}
+.amk .chev.open{transform:rotate(90deg)}
+.amk .acard{background:var(--surface);border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow);padding:16px 18px;margin-bottom:14px}
+.amk .p-title{font-size:13px;font-weight:800;color:var(--ink);margin-bottom:12px}
+.amk .copy-b{width:24px;height:24px;display:inline-flex;align-items:center;justify-content:center;border:1px solid transparent;border-radius:8px;background:none;color:var(--ink-3);font-size:13px;margin-left:6px;vertical-align:middle;cursor:pointer}
+.amk .copy-b::after{content:"⧉"}
+.amk .p-cap{font-size:11.5px;color:var(--ink-3);margin:-4px 0 12px;line-height:1.45}
+.amk .f-row{display:flex;align-items:center;gap:11px;padding:6px 0}
+.amk .f-n{width:130px;font-size:12px;font-weight:700;color:var(--ink-2);flex-shrink:0}
+.amk .f-v{width:130px;text-align:right;font-size:11.5px;font-weight:800;color:var(--ink);flex-shrink:0}
+.amk .f-sub{margin:-3px 0 9px 141px;font-size:11.5px;color:var(--ink-3);line-height:1.45}
+.amk .no-data{opacity:.6;font-style:italic}
+.amk .verdict{border-left:3px solid var(--line-strong);padding:2px 0 2px 12px;margin:12px 0}
+.amk .verdict-t{font-size:14px;font-weight:800;color:var(--ink);line-height:1.4}
+.amk .verdict-basis{font-size:11.5px;color:var(--ink-3);line-height:1.5;margin-top:3px}
+.amk .verdict-material{font-size:11px;color:var(--ink-3);line-height:1.5;font-style:italic;margin-top:2px}
+.amk .verdict.win{border-left-color:var(--green)}
+.amk .verdict.loss{border-left-color:var(--red)}
+.amk .verdict.note{border-left-color:var(--ink-3)}
+.amk .deal-cards{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.amk .adeal{display:inline-flex;align-items:center;gap:6px;padding:4px 9px;border-radius:9px;border:1px solid var(--line);background:var(--surface);font-size:11.5px;color:var(--ink-2)}
+.amk .adeal i{width:6px;height:6px;border-radius:50%;flex:none;background:var(--ink-3)}
+.amk .adeal.won i{background:var(--green)}
+.amk .adeal.lost i{background:var(--red)}
+.amk .dc{display:flex;flex-direction:column;width:300px;flex-shrink:0;background:var(--surface)}
+.amk .dc-head{display:flex;align-items:center;justify-content:space-between;gap:8px;font-size:13px;font-weight:800;color:var(--ink);padding:14px 16px 10px}
+.amk .dc-scroll{flex:1;overflow-y:auto;padding:0 16px 8px;display:flex;flex-direction:column;gap:8px;min-height:160px}
+.amk .dc-hint{font-size:12px;color:var(--ink-3);line-height:1.5}
+.amk .dc-msg{font-size:12.5px;line-height:1.5;padding:8px 11px;border-radius:10px;max-width:90%;animation:pop .35s ease}
+.amk .dc-msg.user{align-self:flex-end;background:var(--violet);color:#fff}
+.amk .dc-msg.agent{align-self:flex-start;background:var(--surface-2);color:var(--ink)}
+.amk .dc-chips{display:flex;flex-direction:column;gap:6px;padding:2px 0 8px}
+.amk .dc-chip{text-align:left;width:100%;font:600 12px/1.35 var(--font);color:var(--ink-2);background:var(--surface-2);border:1px solid var(--line);border-radius:10px;padding:8px 11px;cursor:pointer;transition:.14s}
+.amk .dc-chip:hover:not(:disabled){color:var(--violet);border-color:var(--violet);background:var(--surface)}
+.amk .dc-chip:disabled{opacity:.55;cursor:default}
+.amk .dc-composer{display:flex;gap:7px;padding:10px 16px 14px;border-top:1px solid var(--line-soft, #e7eaf3)}
+.amk .dc-field{flex:1;min-width:0;font:inherit;font-size:12.5px;color:var(--ink);background:var(--surface);border:1px solid var(--line-strong);border-radius:11px;padding:10px 12px;outline:none}
+.amk .dc-send{width:34px;height:34px;border-radius:9px;border:none;background:var(--grad);color:#fff;font-weight:800;box-shadow:0 8px 22px rgba(109,94,248,.38);cursor:pointer;flex-shrink:0}
+@media(max-width:900px){.amk .pane-row{flex-direction:column}.amk .dc{width:100%}.amk .pane-div{display:none}.amk .f-sub{margin-left:0}.amk .f-n{width:auto;flex:1}.amk .f-v{width:auto}}
+
+.amk .sbar{width:208px;flex-shrink:0;background:linear-gradient(180deg,#fbfbfe,#f5f6fb);border-right:1px solid #e7eaf3;padding:0 10px 12px;display:flex;flex-direction:column;overflow:hidden}
+.amk .sb-head{display:flex;align-items:center;gap:9px;padding:14px 6px 10px;border-bottom:1px solid var(--line);margin-bottom:6px}
+.amk .sb-ava{width:32px;height:32px;border-radius:9px;overflow:hidden;flex-shrink:0}
+.amk .sb-ava img{width:100%;height:100%;display:block}
+.amk .sb-nm{font-weight:700;font-size:12.5px;line-height:1.2;color:var(--ink)}
+.amk .sb-bz{font-size:10.5px;color:var(--ink-3)}
+.amk .nav-i{display:flex;align-items:center;gap:9px;padding:7px 9px;border-radius:10px;color:var(--ink-2);font-weight:600;font-size:12px;margin-top:4px;white-space:nowrap}
+.amk .nav-i .ico{width:24px;height:24px;border-radius:8px;background:var(--surface-2);font-size:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--ink-2)}
+.amk .t-row{display:flex;align-items:center;gap:7px;margin-top:1px;border-radius:9px;white-space:nowrap;font-size:11.5px;font-weight:500;color:var(--ink-2);padding:6px 8px 6px 30px;overflow:hidden}
+.amk .t-row .txt{overflow:hidden;text-overflow:ellipsis}
+.amk .t-row.auto{padding-left:24px;font-weight:600;color:var(--ink)}
+.amk .t-row.auto .a-ic{width:22px;height:22px;border-radius:7px;background:linear-gradient(135deg,rgba(109,94,248,.14),rgba(17,201,192,.14));display:flex;align-items:center;justify-content:center;font-size:11px;flex-shrink:0}
+.amk .t-row.auto.on .a-ic{background:var(--grad);color:#fff}
+.amk .t-row.inst{padding-left:40px;font-weight:600;color:var(--ink)}
+.amk .t-row.run{padding-left:52px}
+.amk .t-row.run.on{background:var(--surface);color:var(--ink);box-shadow:var(--shadow);font-weight:600}
+.amk .t-row .tic{opacity:.65;font-size:10px;flex-shrink:0}
+.amk .sb-dot{width:8px;height:8px;border-radius:50%;background:#1fbf75;margin-left:auto;flex-shrink:0}
+@media(max-width:900px){.amk .sbar{display:none}}
+
+.amk{--rec-glyph:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 14'%3E%3Cpath d='M3 9V7.5a5 5 0 0 1 10 0V9' fill='none' stroke='%23000' stroke-width='1.7' stroke-linecap='round'/%3E%3Crect x='.8' y='7.6' width='3.8' height='5.6' rx='1.9' fill='%23000'/%3E%3Crect x='11.4' y='7.6' width='3.8' height='5.6' rx='1.9' fill='%23000'/%3E%3C/svg%3E")}
+.amk .rec-mark{position:relative;flex:none;width:13px;height:11px;display:inline-block}
+.amk .rec-mark::before{content:"";position:absolute;inset:0;background-color:var(--ink-3);-webkit-mask:var(--rec-glyph) center / contain no-repeat;mask:var(--rec-glyph) center / contain no-repeat}
+.amk .rec-mark.heard::before{background-color:var(--violet)}
+.amk .rec-mark.none::before{opacity:.45}
+.amk .rec-mark.none::after{content:"";position:absolute;left:-1px;right:-1px;top:50%;height:1.5px;background:var(--ink-3);opacity:.75;transform:rotate(-32deg);border-radius:1px}
+
+/* ── section variety ── */
+.feat-list{max-width:880px;margin:0 auto}
+.feat-row{display:flex;gap:24px;align-items:flex-start;padding:28px 0;border-top:1px solid var(--line)}
+.feat-row:first-child{border-top:none;padding-top:6px}
+.feat-row .num{flex:none;width:78px;font-size:46px;font-weight:800;letter-spacing:-.03em;line-height:1;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.feat-row h3{font-size:19px;font-weight:800;letter-spacing:-.01em;margin-bottom:7px}
+.feat-row p{font-size:14.5px;color:var(--ink-2);line-height:1.6;max-width:640px}
+.dark-sec{background:radial-gradient(700px 340px at 80% -20%,rgba(109,94,248,.45),transparent 60%),radial-gradient(500px 300px at 0% 120%,rgba(17,201,192,.25),transparent 55%),var(--orb-bg);border-radius:24px;padding:46px 50px;color:#edeef7;box-shadow:var(--shadow-lg)}
+.dark-sec .sec-head{margin-bottom:30px}
+.dark-sec h2{color:#fff}
+.dark-sec .sec-head p{color:#b8bcd6}
+.dark-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:26px 34px;text-align:left}
+.dk-it{display:flex;gap:13px}
+.dk-it .ck{flex:none;width:26px;height:26px;border-radius:8px;background:rgba(17,201,192,.16);color:#2de3d9;font-weight:800;font-size:13px;display:flex;align-items:center;justify-content:center;margin-top:2px}
+.dk-it h3{font-size:15.5px;font-weight:800;color:#fff;margin-bottom:5px}
+.dk-it p{font-size:13px;color:#b8bcd6;line-height:1.55}
+.tl{display:grid;grid-template-columns:repeat(3,1fr);position:relative;max-width:980px;margin:0 auto}
+.tl::before{content:'';position:absolute;top:26px;left:17%;right:17%;height:2px;background:linear-gradient(90deg,#6d5ef8,#8a6cff,#11c9c0);opacity:.5}
+.tl-step{text-align:center;padding:0 20px;position:relative}
+.tl-step .n{width:52px;height:52px;border-radius:50%;background:var(--grad);color:#fff;font-weight:800;font-size:20px;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;box-shadow:0 10px 24px rgba(109,94,248,.35);position:relative;z-index:1}
+.tl-step h3{font-size:16px;font-weight:800;margin-bottom:7px}
+.tl-step p{font-size:13.5px;color:var(--ink-2);line-height:1.55}
+.priv{max-width:840px;margin:0 auto;background:var(--surface-2);border:1px solid var(--line);border-radius:20px;padding:8px 30px}
+.priv-row{display:flex;gap:16px;padding:20px 0;border-top:1px solid var(--line);align-items:flex-start}
+.priv-row:first-child{border-top:none}
+.priv-row .pic{flex:none;width:36px;height:36px;border-radius:10px;background:var(--surface);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;font-size:15px}
+.priv-row h3{font-size:14.5px;font-weight:800;margin-bottom:4px}
+.priv-row p{font-size:13px;color:var(--ink-2);line-height:1.6}
+.get-card{max-width:760px;margin:0 auto;text-align:center;background:linear-gradient(#fff,#fbfbfe);border:1px solid var(--line);border-radius:24px;box-shadow:var(--shadow-lg);padding:44px 40px}
+.get-card .free{display:inline-block;background:rgba(31,191,117,.12);border:1px solid rgba(31,191,117,.35);color:#128a55;font-weight:800;font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;border-radius:999px;padding:6px 14px;margin-bottom:16px}
+.get-card p{font-size:15px;color:var(--ink-2);line-height:1.6;max-width:560px;margin:14px auto 26px}
+.get-note{margin-top:16px;font-size:13px;font-weight:600;color:var(--ink-3)}
+.lead-form{margin:28px auto 0;text-align:left;scroll-margin-top:110px}
+.lead-fields{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.lead-field{display:flex;flex-direction:column;gap:7px;font-size:12.5px;font-weight:750;color:var(--ink)}
+.lead-field em{font-style:normal;font-weight:600;color:var(--ink-3)}
+.lead-field.full{grid-column:1/-1}
+.lead-field input{width:100%;border:1px solid var(--line-strong);border-radius:12px;background:var(--surface);color:var(--ink);font:600 14px var(--font);padding:13px 14px;outline:none;transition:border-color .15s,box-shadow .15s}
+.lead-field input:focus{border-color:var(--violet);box-shadow:0 0 0 4px rgba(109,94,248,.11)}
+.lead-field input::placeholder{color:var(--ink-3);font-weight:500}
+.lead-required{color:var(--red)}
+.lead-actions{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:18px}
+.lead-actions .btn{min-width:220px}
+.lead-form-note{margin:13px auto 0!important;font-size:12px!important;line-height:1.5!important;text-align:center;color:var(--ink-3)!important}
+.lead-status{min-height:18px;margin-top:8px;text-align:center;font-size:12px;font-weight:700;color:var(--green)}
+@media(max-width:620px){.lead-fields{grid-template-columns:1fr}.lead-field.full{grid-column:auto}.lead-actions{align-items:stretch;flex-direction:column}.lead-actions .btn{width:100%}}
+/* ── mock interactivity ── */
+.amk .tb-end{position:relative}
+.amk .menu{position:absolute;right:0;top:calc(100% + 6px);background:var(--surface);border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow-lg);padding:6px;z-index:6;min-width:185px;text-align:left}
+.amk .menu-item{display:block;width:100%;text-align:left;border:none;background:none;font:600 12.5px var(--font);color:var(--ink-2);padding:8px 10px;border-radius:8px;cursor:pointer;text-decoration:none}
+.amk .menu-item:hover{background:var(--surface-2);color:var(--ink)}
+.amk .scope-row{font-size:12.5px;color:var(--ink-2);line-height:1.55;padding:6px 0;border-top:1px solid #e7eaf3;display:flex;gap:8px}
+.amk .scope-row:first-child{border-top:none;padding-top:0}
+.amk .scope-row .sl{flex:none;width:150px;color:var(--ink-3);font-weight:600}
+.amk .sub-toggle{cursor:pointer}
+@media(max-width:860px){.dark-grid{grid-template-columns:1fr}.tl{grid-template-columns:1fr;gap:26px}.tl::before{display:none}.feat-row{flex-direction:column;gap:10px}.feat-row .num{width:auto;font-size:34px}.dark-sec{padding:32px 24px}.priv{padding:4px 20px}.amk .scope-row{flex-direction:column;gap:2px}.amk .scope-row .sl{width:auto}}
+
+/* ── story-first sales narrative ── */
+.signal-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;max-width:980px;margin:0 auto}
+.signal{position:relative;padding:24px 24px 22px;min-height:220px;overflow:hidden}
+.signal::after{content:'“';position:absolute;right:14px;bottom:-38px;font-size:150px;font-weight:800;line-height:1;color:rgba(109,94,248,.08)}
+.signal .signal-k{font-size:10.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--violet);margin-bottom:18px}
+.signal blockquote{font-size:21px;font-weight:800;letter-spacing:-.02em;line-height:1.25;margin-bottom:16px;position:relative;z-index:1}
+.signal p{font-size:13.5px;color:var(--ink-2);line-height:1.55;position:relative;z-index:1}
+.signal.good{background:linear-gradient(150deg,#fff,rgba(17,201,192,.1));border-color:rgba(17,201,192,.35)}
+.signal.good .signal-k{color:var(--teal-d)}
+.case-stage{max-width:980px;margin:0 auto;background:radial-gradient(700px 320px at 82% -15%,rgba(109,94,248,.35),transparent 58%),var(--orb-bg);color:#eef0ff;border-radius:26px;padding:30px;box-shadow:var(--shadow-lg)}
+.case-top{display:flex;justify-content:space-between;gap:14px;align-items:center;margin-bottom:22px;flex-wrap:wrap}
+.case-kicker{font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#aeb4d2}
+.case-proof{font-size:12px;font-weight:700;color:#73e6d6;background:rgba(17,201,192,.12);border:1px solid rgba(17,201,192,.28);border-radius:999px;padding:7px 11px}
+.dialog-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.dialog-card{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.13);border-radius:18px;padding:22px}
+.dialog-card.lost{border-top:3px solid var(--red)}
+.dialog-card.won{border-top:3px solid var(--green)}
+.deal-state{font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#aeb4d2;margin-bottom:18px}
+.talk{display:flex;gap:10px;align-items:flex-start;margin-top:11px}
+.talk .who{flex:none;width:78px;font-size:10.5px;font-weight:800;color:#8f96b6;text-transform:uppercase;padding-top:5px}
+.talk .said{font-size:15px;font-weight:650;line-height:1.45;color:#f5f6ff}
+.call-out{margin-top:18px;padding-top:15px;border-top:1px solid rgba(255,255,255,.12);font-size:12.5px;line-height:1.5;color:#c0c5df}
+.call-out b{color:#fff}
+.case-finding{display:grid;grid-template-columns:auto 1fr;gap:16px;align-items:center;margin-top:16px;padding:18px 20px;border-radius:16px;background:linear-gradient(135deg,rgba(109,94,248,.2),rgba(17,201,192,.12));border:1px solid rgba(155,139,255,.25)}
+.case-number{font-size:36px;font-weight:800;letter-spacing:-.04em;color:#fff;white-space:nowrap}
+.case-finding p{font-size:13.5px;line-height:1.55;color:#cfd3e8}
+.case-finding b{color:#fff}
+.full-review{max-width:1120px;margin:24px auto 0}
+.full-review>summary{list-style:none;cursor:pointer;width:max-content;max-width:100%;margin:0 auto;padding:13px 18px;border-radius:12px;background:var(--surface);border:1px solid var(--line-strong);font-size:13.5px;font-weight:800;color:var(--ink-2);box-shadow:var(--shadow)}
+.full-review>summary::-webkit-details-marker{display:none}
+.full-review>summary::after{content:' ↓';color:var(--violet)}
+.full-review[open]>summary{margin-bottom:18px}
+.full-review[open]>summary::after{content:' ↑'}
+.full-review-note{text-align:center;color:var(--ink-3);font-size:12.5px;line-height:1.5;margin:-6px auto 16px;max-width:620px}
+.outcome{max-width:980px;margin:0 auto;display:grid;grid-template-columns:1.05fr 1.95fr;gap:24px;align-items:start}
+.outcome-lead{padding:28px;background:linear-gradient(145deg,rgba(109,94,248,.12),rgba(17,201,192,.08));border:1px solid rgba(109,94,248,.22);border-radius:22px}
+.outcome-lead .big{font-size:54px;font-weight:800;line-height:1;letter-spacing:-.05em;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.outcome-lead h3{font-size:20px;line-height:1.25;margin:12px 0 8px}
+.outcome-lead p{font-size:13.5px;color:var(--ink-2);line-height:1.55}
+.outcome-list{display:flex;flex-direction:column;border-top:1px solid var(--line)}
+.outcome-row{display:grid;grid-template-columns:42px 1fr;gap:16px;padding:22px 0;border-bottom:1px solid var(--line)}
+.outcome-row .n{font-size:13px;font-weight:800;color:var(--violet)}
+.outcome-row h3{font-size:16px;margin-bottom:5px}
+.outcome-row p{font-size:13.5px;color:var(--ink-2);line-height:1.55}
+@media(max-width:860px){.signal-grid,.dialog-grid,.outcome{grid-template-columns:1fr}.signal{min-height:0}.case-stage{padding:22px}.case-finding{grid-template-columns:1fr}.case-number{font-size:30px}.outcome-lead .big{font-size:44px}}
+@media(max-width:560px){.case-stage{padding:18px;border-radius:20px}.dialog-card{padding:18px}.talk{display:block}.talk .who{width:auto;margin-bottom:3px}.hero .sub{font-size:15.5px}.trust{line-height:1.6}}
+
+/* ── visual-first product story ── */
+.hero{max-width:1180px;padding:76px 24px 68px;text-align:left;display:grid;grid-template-columns:minmax(0,.88fr) minmax(520px,1.12fr);gap:54px;align-items:center}
+.hero .halo{display:none}.hero-copy{min-width:0}.hero .eyebrow{margin:0 0 16px}.hero h1{font-size:clamp(46px,5.6vw,72px);line-height:.98;letter-spacing:-.055em;max-width:650px;margin:0}.hero .sub{max-width:610px;margin:22px 0 26px;font-size:17px}.hero .cta-row{justify-content:flex-start}.hero .trust{margin-top:20px;line-height:1.6}
+.hero-shot{position:relative;border-radius:26px;padding:12px;background:#0b0d18;color:#f5f6ff;box-shadow:0 38px 90px rgba(29,25,70,.32);transform:rotate(1.1deg);overflow:hidden}
+.hero-shot::before{content:'';position:absolute;width:360px;height:360px;right:-120px;top:-170px;border-radius:50%;background:rgba(109,94,248,.36);filter:blur(30px)}
+.shot-top,.shot-foot{position:relative;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:9px 10px;font-size:10px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#8f96b7}.shot-brand{color:#fff}.shot-live{color:#74e2b1}.shot-grid{position:relative;display:grid;grid-template-columns:1.25fr .75fr;gap:10px}.shot-main,.shot-alert{background:#151827;border:1px solid rgba(255,255,255,.09);border-radius:17px}.shot-main{padding:18px}.shot-label{font-size:10px;color:#8f96b7;font-weight:700}.shot-title{font-size:18px;font-weight:800;margin:5px 0 16px}.shot-kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:7px}.shot-kpi{background:#0f111d;border-radius:11px;padding:10px}.shot-kpi b{display:block;font-size:19px}.shot-kpi span{display:block;font-size:9px;color:#8f96b7;margin-top:2px}.shot-kpi.hot b{color:#ff829b}.shot-kpi.good b{color:#65dfac}.shot-chart{height:174px;margin-top:12px;border-radius:12px;background:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px);background-size:100% 42px;overflow:hidden}.shot-chart svg{width:100%;height:100%;display:block}.shot-chart .area{fill:url(#heroChartFill)}.shot-chart .line{fill:none;stroke:#8b7cff;stroke-width:5;stroke-linecap:round;stroke-linejoin:round}.shot-chart .dot{fill:#0f111d;stroke:#a89cff;stroke-width:4}.shot-side{display:flex;flex-direction:column;gap:10px}.shot-alert{padding:17px;flex:1;display:flex;flex-direction:column}.shot-alert small{font-size:9px;letter-spacing:.08em;color:#9097b7;font-weight:800}.shot-alert q{font-size:14px;font-weight:700;line-height:1.38;margin:12px 0 auto}.shot-alert span{font-size:10px;line-height:1.4;margin-top:14px;color:#aeb4cf}.shot-alert.lost{border-color:rgba(240,80,110,.28)}.shot-alert.lost q{color:#ffb1c0}.shot-alert.won{border-color:rgba(31,191,117,.3)}.shot-alert.won q{color:#9af0c8}.shot-foot{padding-top:11px;text-transform:none;letter-spacing:0;font-weight:600}
+.signal-grid .signal{min-height:0}.signal-grid .signal p{font-size:14px}.signal-grid .signal blockquote{font-size:24px;line-height:1.12}
+.product-kicker{text-align:center;font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--violet);margin-bottom:14px}.product-nav{max-width:980px;margin:0 auto 14px;display:flex;gap:7px;flex-wrap:wrap}.product-nav span{font-size:11px;font-weight:800;color:var(--ink-3);padding:8px 11px;border:1px solid var(--line);background:rgba(255,255,255,.55);border-radius:9px}.product-nav .on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.trend-screen{max-width:980px;margin:0 auto 26px;border-radius:24px;padding:22px;background:#f8f9fc;border:1px solid var(--line-strong);box-shadow:var(--shadow-lg)}.trend-head{display:flex;align-items:flex-start;justify-content:space-between;gap:20px;margin-bottom:16px}.trend-head h3{font-size:22px}.trend-head p{font-size:12.5px;color:var(--ink-3);margin-top:4px}.trend-score{text-align:right}.trend-score b{display:block;font-size:31px;letter-spacing:-.04em}.trend-score span{font-size:11px;font-weight:800;color:var(--green)}.trend-layout{display:grid;grid-template-columns:1.65fr .85fr;gap:12px}.trend-card,.trend-side-card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:16px}.trend-card-title{display:flex;justify-content:space-between;font-size:12px;font-weight:800}.trend-card-title span{color:var(--ink-3);font-weight:600}.trend-chart{height:215px;margin-top:8px}.trend-chart svg{width:100%;height:100%;display:block}.chart-grid-line{stroke:#e7e9f1;stroke-width:1}.chart-team-line{fill:none;stroke:#6d5ef8;stroke-width:4;stroke-linecap:round;stroke-linejoin:round}.chart-team-area{fill:url(#teamArea)}.chart-team-dot{fill:#fff;stroke:#6d5ef8;stroke-width:4}.trend-dates{display:flex;justify-content:space-between;color:var(--ink-3);font-size:10px;font-weight:700}.trend-side-card h4{font-size:12px;margin-bottom:15px}.rep-row{display:grid;grid-template-columns:68px 1fr 30px;gap:8px;align-items:center;margin:12px 0;font-size:11px;font-weight:700}.rep-track{height:7px;border-radius:99px;background:#eceef5;overflow:hidden}.rep-fill{height:100%;border-radius:99px;background:var(--grad)}.rep-row em{font-style:normal;text-align:right}.trend-callout{margin-top:14px;border-radius:12px;background:#11131a;color:#fff;padding:14px}.trend-callout small{display:block;color:#9ba1ba;font-size:9px;text-transform:uppercase;letter-spacing:.08em}.trend-callout b{display:block;font-size:14px;line-height:1.35;margin-top:7px}
+.product-app{max-width:1120px;margin:30px auto 24px}.product-app-head{display:flex;justify-content:space-between;gap:16px;align-items:center;margin-bottom:12px;font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3)}.product-app-head strong{color:var(--violet)}.product-app .mock{max-height:760px;overflow:auto}.product-app .mock-bar{position:sticky;top:0;z-index:12}.product-app .sbar{position:sticky;top:37px;align-self:flex-start;height:720px}
+.report-stage{max-width:980px;margin:30px auto 0;display:grid;grid-template-columns:.78fr 1.22fr;gap:18px;align-items:stretch}.report-copy{padding:34px;background:#11131a;color:#fff;border-radius:22px;display:flex;flex-direction:column;justify-content:center}.report-copy small{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:#9ca2bd;font-weight:800}.report-copy h3{font-size:30px;line-height:1.04;letter-spacing:-.035em;margin:14px 0}.report-copy p{font-size:13.5px;line-height:1.55;color:#bec3d9}.report-format{display:flex;gap:7px;margin-top:22px;flex-wrap:wrap}.report-format span{font-size:10px;font-weight:800;border:1px solid rgba(255,255,255,.16);padding:7px 9px;border-radius:8px;color:#d9dced}.report-paper{background:#fff;border:1px solid var(--line);border-radius:22px;box-shadow:var(--shadow-lg);padding:28px}.report-paper-head{display:flex;justify-content:space-between;gap:12px;align-items:flex-start;padding-bottom:16px;border-bottom:1px solid var(--line)}.report-paper-head small{font-size:9px;color:var(--ink-3);font-weight:800;letter-spacing:.09em;text-transform:uppercase}.report-paper-head h3{font-size:18px;margin-top:4px}.report-badge{font-size:10px;font-weight:800;color:#128a55;background:rgba(31,191,117,.1);border:1px solid rgba(31,191,117,.25);padding:6px 9px;border-radius:999px;white-space:nowrap}.report-hero{display:grid;grid-template-columns:auto 1fr;gap:17px;align-items:center;padding:20px 0;border-bottom:1px solid var(--line)}.report-number{font-size:46px;font-weight:800;letter-spacing:-.06em;color:var(--red)}.report-hero p{font-size:13px;line-height:1.45;color:var(--ink-2)}.report-hero b{color:var(--ink)}.report-cols{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding-top:16px}.report-block{background:var(--surface-2);border-radius:13px;padding:14px}.report-block small{font-size:9px;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-3);font-weight:800}.report-block q{display:block;font-size:12.5px;line-height:1.45;font-weight:700;margin-top:8px}.report-block.win{border-left:3px solid var(--green)}.report-block.loss{border-left:3px solid var(--red)}
+.legacy-copy{display:none}
+@media(max-width:980px){.hero{grid-template-columns:1fr;padding-top:54px}.hero-copy{text-align:center}.hero h1,.hero .sub{margin-left:auto;margin-right:auto}.hero .cta-row{justify-content:center}.hero-shot{max-width:720px;margin:0 auto}.trend-layout,.report-stage{grid-template-columns:1fr}.product-app .sbar{position:static;height:auto}}
+@media(max-width:620px){.hero{padding:42px 18px 44px;gap:30px}.hero h1{font-size:42px}.hero .sub{font-size:15.5px}.hero-shot{padding:8px;border-radius:20px;transform:none}.shot-grid{grid-template-columns:1fr}.shot-side{display:grid;grid-template-columns:1fr 1fr}.shot-alert{min-height:160px;padding:13px}.shot-kpis{grid-template-columns:repeat(3,1fr)}.shot-kpi{padding:8px}.shot-kpi b{font-size:16px}.trend-screen{padding:15px}.trend-head{flex-direction:column}.trend-score{text-align:left}.trend-side-card{padding:13px}.report-copy,.report-paper{padding:22px}.report-cols{grid-template-columns:1fr}.product-app-head{align-items:flex-start;flex-direction:column}.product-app .mock{max-height:680px}.product-nav{overflow-x:auto;flex-wrap:nowrap;padding-bottom:4px}.product-nav span{white-space:nowrap}}
+q{quotes:none}
+
+/* Production product UI and usage scenarios */
+[hidden]{display:none!important}
+.hero{display:block;max-width:1100px;text-align:center}
+.hero h1{max-width:940px;margin-left:auto;margin-right:auto}
+.hero .sub{max-width:860px;margin-left:auto;margin-right:auto}
+.hero .cta-row{justify-content:center}
+.scenario-grid,.role-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.scenario-card,.role-card{position:relative;overflow:hidden;padding:26px;border:1px solid var(--line);border-radius:22px;background:linear-gradient(145deg,#fff,#f8f8fd);box-shadow:var(--shadow);text-align:left}
+.scenario-card::after{content:'';position:absolute;width:120px;height:120px;border-radius:50%;right:-54px;bottom:-60px;background:rgba(109,94,248,.08)}
+.scenario-time{display:inline-flex;padding:6px 9px;border-radius:999px;background:rgba(109,94,248,.1);color:var(--violet);font-size:10px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+.scenario-card h3,.role-card h3{font-size:20px;line-height:1.2;margin:16px 0 8px}
+.scenario-card p,.role-card p{font-size:14px;line-height:1.6;color:var(--ink-2)}
+.scenario-example{margin-top:16px;padding:13px 14px;border-left:3px solid var(--violet);border-radius:0 12px 12px 0;background:rgba(109,94,248,.06);color:var(--ink)!important;font-weight:650}
+.role-icon{display:flex;align-items:center;justify-content:center;width:46px;height:46px;border-radius:14px;background:linear-gradient(135deg,rgba(109,94,248,.14),rgba(17,201,192,.12));font-size:22px}
+.role-card strong{color:var(--ink)}
+@media(max-width:860px){.scenario-grid,.role-grid{grid-template-columns:1fr}.scenario-card,.role-card{padding:22px}}
+@media(max-width:560px){.hero{padding-top:50px}.hero h1{font-size:42px}}
+</style>
+</head>
+<body>
+<script>document.documentElement.classList.add('js');</script>
+
+<nav>
+  <div class="nav-in">
+    <a class="nav-home" href="/" aria-label="UNIQORE — home"><img class="brand-icon" src="/favicon.svg?v=1.0.1" alt=""/><img class="brand-wordmark" src="/assets/wordmark-dark-v1.2.0.svg" alt="UNIQORE"/></a>
+    <a class="nav-link" href="/mission/">Mission</a>
+    <a class="nav-link" href="/automations/">Automations</a>
+    <a class="nav-link" href="/speech-analytics/">Sales conversation intelligence</a>
+    <span class="sp"></span>
+    <a class="nav-link" href="https://uniqore.kz/" target="_blank" hreflang="ru" rel="alternate noopener">RU / KZ ↗</a>
+    <a class="nav-mail" href="mailto:hi@uniqore.ai">hi@uniqore.ai</a>
+    <a class="btn btn-primary btn-sm" href="/download/">Download</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero wrap">
+  <div class="halo">
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="170" height="153" viewBox="300 200 800 720"
+     role="img" aria-labelledby="title desc">
+  <title id="title">Uni — active state</title>
+  <desc id="desc">Uni, Uniqore’s friendly white narwhal-unicorn guide.</desc>
+
+  <metadata>
+    Uniqore Uni master SVG v0.8
+    Artboard: 1402 × 1122
+    Canonical state: awake
+    Alternate state: content (hidden layer)
+    Palette: #FFFFFF #DDD5F6 #2E073D #8171EF #F276AF #F26A50
+  </metadata>
+
+  <defs>
+    <linearGradient id="body-fill" x1="700" y1="360" x2="700" y2="850" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FFFFFF"/>
+      <stop offset="0.72" stop-color="#FFFFFF"/>
+      <stop offset="1" stop-color="#FEFDFE"/>
+    </linearGradient>
+
+    <linearGradient id="belly-fill" x1="390" y1="815" x2="1005" y2="630" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#E3DDF9"/>
+      <stop offset="0.56" stop-color="#DCD4F7"/>
+      <stop offset="1" stop-color="#D3CAF4"/>
+    </linearGradient>
+
+    <linearGradient id="flipper-fill" x1="677" y1="695" x2="780" y2="665" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#E5DFF9"/>
+      <stop offset="1" stop-color="#D8D0F5"/>
+    </linearGradient>
+
+    <linearGradient id="horn-purple" x1="866" y1="371" x2="945" y2="394" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#7D6DEE"/>
+      <stop offset="1" stop-color="#9180F3"/>
+    </linearGradient>
+
+    <linearGradient id="horn-pink" x1="884" y1="328" x2="951" y2="353" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#EA70B6"/>
+      <stop offset="1" stop-color="#FA79A3"/>
+    </linearGradient>
+
+    <linearGradient id="horn-coral" x1="925" y1="275" x2="960" y2="320" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#F47455"/>
+      <stop offset="1" stop-color="#EE5F49"/>
+    </linearGradient>
+
+    <clipPath id="horn-clip">
+      <path d="M858 385
+               C859 391 867 398 879 405
+               C894 414 914 421 930 422
+               C936 423 940 419 941 412
+               L962 271
+               C964 261 959 256 953 257
+               C949 257 946 260 943 265
+               L858 376
+               C856 379 856 382 858 385Z"/>
+    </clipPath>
+  </defs>
+
+  <!-- Optional preview background. Toggle display to inline when a warm canvas is required. -->
+  <g id="preview-background" display="none">
+    <rect width="1402" height="1122" fill="#FDF7F4"/>
+  </g>
+
+  <g id="yuni" aria-label="Uni">
+    <g id="body">
+      <path d="M354 680
+               C383 679 421 683 460 700
+               C489 690 518 659 547 615
+               C595 542 648 471 706 423
+               C753 384 805 367 850 375
+               C897 383 938 409 968 448
+               C999 487 1019 532 1020 574
+               C1022 630 996 682 955 726
+               C914 770 858 805 796 830
+               C733 855 661 858 597 846
+               C550 838 509 822 474 806
+               C434 818 395 817 364 805
+               C397 787 414 765 419 743
+               C417 718 393 697 354 680Z"
+            fill="url(#body-fill)"
+            stroke="#F5F0F7" stroke-width="1.5" stroke-linejoin="round"/>
+    </g>
+
+    <g id="belly">
+      <path d="M364 805
+               C409 778 455 769 506 777
+               C559 785 610 807 667 810
+               C748 814 831 783 896 741
+               C948 708 987 669 1012 632
+               C1002 674 981 707 954 735
+               C910 779 855 811 795 834
+               C727 860 660 861 597 849
+               C548 839 506 822 474 807
+               C432 819 393 817 364 805Z"
+            fill="url(#belly-fill)"/>
+    </g>
+
+    <g id="flipper">
+      <path d="M674 684
+               C695 662 729 653 760 655
+               C772 656 780 661 780 669
+               C779 682 767 695 750 703
+               C729 713 705 710 689 701
+               C680 696 675 690 674 684Z"
+            fill="url(#flipper-fill)"/>
+    </g>
+
+    <g id="horn" clip-path="url(#horn-clip)">
+      <rect x="846" y="250" width="125" height="175" fill="url(#horn-purple)"/>
+      <path d="M876 318 L974 333 L965 373 L853 354Z" fill="url(#horn-pink)"/>
+      <path d="M900 246 H974 V333 L876 318Z" fill="url(#horn-coral)"/>
+    </g>
+
+    <g id="face" fill="none" stroke="#2E073D" stroke-linecap="round" stroke-linejoin="round">
+      <g id="face-awake">
+        <circle id="eye-open" cx="880" cy="527" r="15" fill="#2E073D" stroke="none"/>
+        <path id="mouth-awake" d="M954 563 C963 572 976 574 986 563" stroke-width="7"/>
+      </g>
+
+      <g id="face-content" display="none">
+        <path id="eye-closed" d="M866 538 C876 527 889 527 899 538" stroke-width="7"/>
+        <path id="mouth-content" d="M954 563 C963 572 976 574 986 563" stroke-width="7"/>
+      </g>
+    </g>
+  </g>
+</svg>
+</div>
+  <div class="hero-copy">
+    <div class="eyebrow">Sales conversation intelligence for HubSpot</div>
+    <h1>Deals are not lost in a dashboard. They are lost in a conversation.</h1>
+    <p class="sub">Uniqore analyzes customer emails, messages, notes, and available call recordings from HubSpot, then shows exactly where deals stall and what each rep should do next.</p>
+    <div class="cta-row">
+      <a class="btn btn-primary btn-xl" href="/download/">Download</a>
+      <a class="btn btn-ghost btn-xl" href="#contact-form">Analyze 20 deals →</a>
+    </div>
+    <div class="trust"><b>Your first pilot review is free.</b> Nothing to install for your sales reps.</div>
+  </div>
+  <div class="hero-shot" aria-label="Uniqore sales conversation review" hidden aria-hidden="true">
+    <div class="shot-top"><span class="shot-brand">Uniqore / SALES · DEMO</span><span class="shot-live">● REVIEW READY</span></div>
+    <div class="shot-grid">
+      <div class="shot-main">
+        <div class="shot-label">Sales team · July</div>
+        <div class="shot-title">Where conversations lose momentum</div>
+        <div class="shot-kpis">
+          <div class="shot-kpi"><b>118</b><span>calls</span></div>
+          <div class="shot-kpi hot"><b>21/40</b><span>no next step</span></div>
+          <div class="shot-kpi good"><b>+12</b><span>team score</span></div>
+        </div>
+        <div class="shot-chart">
+          <svg viewBox="0 0 520 190" role="img" aria-label="Team score increased from 52 to 74 across four reviews">
+            <defs><linearGradient id="heroChartFill" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#7868ff" stop-opacity=".42"/><stop offset="1" stop-color="#7868ff" stop-opacity="0"/></linearGradient></defs>
+            <path class="area" d="M20 152 C95 132 126 141 178 116 S270 91 330 102 S420 60 500 42 L500 180 L20 180Z"/>
+            <path class="line" d="M20 152 C95 132 126 141 178 116 S270 91 330 102 S420 60 500 42"/>
+            <circle class="dot" cx="20" cy="152" r="7"/><circle class="dot" cx="178" cy="116" r="7"/><circle class="dot" cx="330" cy="102" r="7"/><circle class="dot" cx="500" cy="42" r="7"/>
+          </svg>
+        </div>
+      </div>
+      <div class="shot-side">
+        <div class="shot-alert lost"><small>CLOSED LOST · DEAL 1288</small><q>“I understand. Think it over.”</q><span>The next step disappeared here.</span></div>
+        <div class="shot-alert won"><small>CLOSED WON · DEAL 1201</small><q>“Let’s run the numbers at your volume.”</q><span>The winning response already exists inside your team.</span></div>
+      </div>
+    </div>
+    <div class="shot-foot"><span>Every score links back to specific deals</span><span>Read-only HubSpot access</span></div>
+  </div>
+</header>
+
+<!-- PAIN -->
+<section>
+  <div class="wrap">
+    <div class="sec-head rv">
+      <h2>Three answers. Without spending your week listening to calls.</h2>
+      <p>Where conversations break down. Who already handles it well. Whether coaching changed the outcome.</p>
+    </div>
+    <div class="signal-grid">
+      <div class="card signal rv"><div class="signal-k">21 of 40</div><blockquote>Where the team loses control</blockquote><p>The conversation ends without a dated next step.</p></div>
+      <div class="card signal rv"><div class="signal-k">Maya</div><blockquote>Who already does it better</blockquote><p>The same price objection — followed by a closed-won deal.</p></div>
+      <div class="card signal good rv"><div class="signal-k">+12</div><blockquote>Whether coaching worked</blockquote><p>The next review shows real movement — or the lack of it.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- DEMO -->
+<section id="demo">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div class="product-kicker">Inside the product</div>
+      <h2>This is an actual completed review in Uniqore.</h2>
+      <p>This is the real product interface running on demo data — not a landing-page mockup. You can see which HubSpot conversations and call recordings were analyzed and which deals support every conclusion.</p>
+    </div>
+    <div class="product-nav rv" hidden aria-hidden="true"><span class="on">Team trend</span><span>Rep scores</span><span>Supporting deals</span><span>Leadership report</span></div>
+    <div class="trend-screen rv" hidden aria-hidden="true">
+      <div class="trend-head">
+        <div><h3>Sales · team score</h3><p>Demo data · four completed reviews · fixed 0–100 scale</p></div>
+        <div class="trend-score"><b>74</b><span>↑ 12 since April</span></div>
+      </div>
+      <div class="trend-layout">
+        <div class="trend-card">
+          <div class="trend-card-title">Sales team <span>Every point opens a review</span></div>
+          <div class="trend-chart">
+            <svg viewBox="0 0 640 230" role="img" aria-label="Team score increased from 52 to 74 across four reviews">
+              <defs><linearGradient id="teamArea" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#6d5ef8" stop-opacity=".22"/><stop offset="1" stop-color="#6d5ef8" stop-opacity="0"/></linearGradient></defs>
+              <line class="chart-grid-line" x1="35" y1="35" x2="620" y2="35"/><line class="chart-grid-line" x1="35" y1="85" x2="620" y2="85"/><line class="chart-grid-line" x1="35" y1="135" x2="620" y2="135"/><line class="chart-grid-line" x1="35" y1="185" x2="620" y2="185"/>
+              <path class="chart-team-area" d="M45 156 C125 147 154 128 215 126 S340 112 405 118 S520 75 605 70 L605 205 L45 205Z"/>
+              <path class="chart-team-line" d="M45 156 C125 147 154 128 215 126 S340 112 405 118 S520 75 605 70"/>
+              <circle class="chart-team-dot" cx="45" cy="156" r="6"/><circle class="chart-team-dot" cx="215" cy="126" r="6"/><circle class="chart-team-dot" cx="405" cy="118" r="6"/><circle class="chart-team-dot" cx="605" cy="70" r="7"/>
+            </svg>
+          </div>
+          <div class="trend-dates"><span>APR 4</span><span>MAY 2</span><span>JUN 6</span><span>JUL 31</span></div>
+        </div>
+        <div class="trend-side-card">
+          <h4>Sales reps · latest review</h4>
+          <div class="rep-row"><span>Maya</span><span class="rep-track"><span class="rep-fill" style="width:84%"></span></span><em>84</em></div>
+          <div class="rep-row"><span>Jordan</span><span class="rep-track"><span class="rep-fill" style="width:77%"></span></span><em>77</em></div>
+          <div class="rep-row"><span>Alex</span><span class="rep-track"><span class="rep-fill" style="width:63%"></span></span><em>63</em></div>
+          <div class="rep-row"><span>Sam</span><span class="rep-track"><span class="rep-fill" style="width:51%"></span></span><em>51</em></div>
+          <div class="trend-callout"><small>Biggest team-wide gap</small><b>21 of 40 deals ended without a dated next step.</b></div>
+        </div>
+      </div>
+    </div>
+    <div class="case-stage rv" hidden aria-hidden="true">
+      <div class="case-top">
+        <span class="case-kicker">Two deals · the same objection</span>
+        <span class="case-proof">Demo data</span>
+      </div>
+      <div class="dialog-grid">
+        <article class="dialog-card lost">
+          <div class="deal-state">Deal 1288 · closed lost</div>
+          <div class="talk"><span class="who">Prospect</span><span class="said">“That is expensive.”</span></div>
+          <div class="talk"><span class="who">Rep</span><span class="said">“I understand. Think it over and let me know.”</span></div>
+          <div class="call-out"><b>What happened:</b> the objection went unanswered and no follow-up date was set. The deal stopped here.</div>
+        </article>
+        <article class="dialog-card won">
+          <div class="deal-state">Deal 1201 · closed won</div>
+          <div class="talk"><span class="who">Prospect</span><span class="said">“That is expensive.”</span></div>
+          <div class="talk"><span class="who">Maya</span><span class="said">“Let’s run the numbers at your volume. If the ROI is not there, we will know.”</span></div>
+          <div class="call-out"><b>What worked:</b> the rep did not argue about price. She brought the conversation back to business value and secured the next step.</div>
+        </article>
+      </div>
+      <div class="case-finding">
+        <div class="case-number">21 of 40</div>
+        <p><b>Team-wide gap:</b> more than half the reviewed deals had no dated next step. That is not one rep’s mistake — it is the first topic for your next pipeline review.</p>
+      </div>
+    </div>
+    <div class="product-app rv">
+      <div class="product-app-head"><span>A complete working review — not a cropped screenshot</span><strong>Scroll inside the product ↓</strong></div>
+      <p class="full-review-note">Sections, exports, and follow-up questions all work in this demo.</p>
+    <div class="mock rv" style="max-width:1120px">
+      <div class="mock-bar"><i class="r"></i><i class="y"></i><i class="g"></i><span>Uniqore · Sales Conversation Intelligence</span><span class="mock-tag">demo data</span></div>
+      <div class="amk"><div class="pane-row">
+        <aside class="sbar">
+          <div class="sb-head"><span class="sb-ava"><img src="/favicon.svg" alt=""/></span><span><span class="sb-nm">Uniqore</span><br/><span class="sb-bz">AI business partner</span></span></div>
+          <div class="nav-i"><span class="ico">✦</span><span>AI Business Partner</span></div>
+          <div class="nav-i"><span class="ico">▦</span><span>Automations</span></div>
+          <div class="t-row auto"><span class="a-ic">📊</span><span class="txt">Sales Pipeline Analysis</span><span class="sb-dot"></span></div>
+          <div class="t-row auto on"><span class="a-ic">🎧</span><span class="txt">Conversation Intelligence</span></div>
+          <div class="t-row inst"><span class="txt">Sales</span></div>
+          <div class="t-row run on"><span class="tic">📄</span><span class="txt">31.07.2026 · 18:42</span></div>
+          <div class="t-row run"><span class="tic">📄</span><span class="txt">14.07.2026 · 09:15</span></div>
+        </aside>
+        <div class="pane-main">
+          <div class="page-head">
+            <div>
+              <div class="h-title">Conversation Review</div>
+              <div class="h-sub">Sales · Current month</div>
+            </div>
+          </div>
+          <div class="atoolbar run-head">
+            <span class="run-meta"><span>Current month · Jul 1–31, 2026</span><span>reviewed Jul 31, 2026 · 6:42 PM</span><span>reviewed 40 of 40 selected deals</span></span>
+            <div class="tb-end"><button class="abtn" id="expBtn">Export ▾</button>
+              <div class="menu" id="expMenu" hidden><button class="menu-item" type="button">Copy to clipboard</button><a class="menu-item" href="/outputs/speech-landing/uniqore-speech-analysis-demo-report.xlsx" download>Excel (.xlsx)</a><a class="menu-item" href="/output/pdf/uniqore-speech-analysis-demo-report.pdf" download>PDF (.pdf)</a></div></div>
+          </div>
+          <button class="sub-toggle first"><span class="chev">›</span> Review scope</button>
+          <div class="acard" id="sec-scope" hidden>
+            <div class="scope-row"><span class="sl">Period</span><span>Current month · Jul 1–31, 2026</span></div>
+            <div class="scope-row"><span class="sl">Sales reps</span><span>5 · 8 deals sampled per rep</span></div>
+            <div class="scope-row"><span class="sl">Deal stages</span><span>closed won · closed lost · open · stalled</span></div>
+            <div class="scope-row"><span class="sl">Sample</span><span>16 closed · 14 open · 10 stalled</span></div>
+            <div class="scope-row"><span class="sl">Reviewed</span><span>96 notes · 12 emails · 54 messages · 118 calls</span></div>
+            <div class="scope-row"><span class="sl">Recordings</span><span>approved, 14 analyzed</span></div>
+            <div class="scope-row"><span class="sl">Reps included</span><span>Maya · Jordan · Alex · Sam · Taylor</span></div>
+          </div>
+          <div class="sub-head-row"><button class="sub-toggle"><span class="chev open">›</span> Scorecard</button></div>
+          <div class="acard">
+            <div class="p-cap">Scores are calculated by code using a fixed rubric, not improvised by AI: the same data must produce the same score. <b>There are no rankings</b> — the list is simply sorted by score. Scores use <b>closed deals only</b>; open deals feed the action plan instead. Fewer than four closed deals means no score, because the sample is too small.</div>
+            <div class="f-row"><span class="f-n">Maya</span><span class="f-v">84 / 100</span></div>
+            <div class="f-sub">Discovery — 7 of 8 deals · Pricing discussed — 6 of 8 deals · Objection handling — 5 of 6 deals · Next step — 7 of 8 deals · Follow-through — 88 across 8 deals · First-response speed — 92 across 8 deals · Deal engagement — 81 across 8 deals · Call balance: listening vs. talking — 74 across 5 recordings</div>
+            <div class="f-sub">10 deals reviewed, 8 closed; 6 had recordings and 5 were analyzed</div>
+            <div class="f-row"><span class="f-n">Jordan</span><span class="f-v">77 / 100</span></div>
+            <div class="f-sub">Discovery — 6 of 8 deals · Pricing discussed — 6 of 8 deals · Objection handling — 4 of 5 deals · Next step — 5 of 8 deals · Follow-through — 74 across 8 deals · First-response speed — 68 across 8 deals · Deal engagement — 77 across 8 deals · Call balance: listening vs. talking — 66 across 4 recordings</div>
+            <div class="f-sub">11 deals reviewed, 8 closed; 5 had recordings and 4 were analyzed</div>
+            <div class="f-row"><span class="f-n">Alex</span><span class="f-v">63 / 100</span></div>
+            <div class="f-sub">Discovery — 4 of 8 deals · Pricing discussed — 5 of 8 deals · Objection handling — 3 of 6 deals · Next step — 4 of 8 deals · Follow-through — 61 across 8 deals · First-response speed — 57 across 8 deals · Deal engagement — 66 across 8 deals · Call balance: listening vs. talking — 52 across 3 recordings</div>
+            <div class="f-sub">9 deals reviewed, 8 closed; 4 had recordings and 3 were analyzed</div>
+            <div class="f-row"><span class="f-n">Sam</span><span class="f-v">51 / 100</span></div>
+            <div class="f-sub">Discovery — 3 of 8 deals · Pricing discussed — 4 of 8 deals · Objection handling — 2 of 5 deals · Next step — 2 of 8 deals · Follow-through — 55 across 8 deals · First-response speed — 34 across 8 deals · Deal engagement — 49 across 8 deals · <span class="no-data">Call balance: listening vs. talking — no data available</span></div>
+            <div class="f-sub">9 deals reviewed, 8 closed; 3 had recordings and 2 were analyzed</div>
+            <div class="f-row"><span class="f-n">Taylor</span><span class="f-v">—</span></div>
+            <div class="f-sub">3 closed deals reviewed — not enough data to score (minimum: 4)</div>
+          </div>
+          <button class="sub-toggle"><span class="chev open">›</span> Action plan for each rep</button>
+          <div class="acard">
+            <div class="p-title">Sam — action plan<span class="copy-b" aria-hidden="true"></span></div>
+            <div class="p-cap">Strength: persistent follow-up — re-engaged after a “no” in 6 of 8 deals.</div>
+            <div class="verdict note">
+              <div class="verdict-t">Reframe the price objection with business value</div>
+              <div class="verdict-basis">Deal 1288 ended at the price objection. Maya heard the same objection in deal 1201 and moved it to closed won.</div>
+              <div class="verdict-basis">What works inside your team: “Let’s run the numbers at your volume. If the ROI is not there, we will know.”</div>
+              <div class="verdict-material">based on 3 deals: 2 with call recordings, 1 with notes only</div>
+              <div class="deal-cards"><span class="adeal lost"><i></i>Deal 1288<span class="rec-mark heard"></span><span>↗</span></span><span class="adeal won"><i></i>Deal 1201<span class="rec-mark heard"></span><span>↗</span></span></div>
+            </div>
+            <div class="verdict note">
+              <div class="verdict-t">End every call with a dated next step</div>
+              <div class="verdict-basis">Deals 1197 and 1233 ended without a commitment because no specific follow-up date was named.</div>
+              <div class="verdict-material">based on 2 deals, both with call recordings</div>
+              <div class="deal-cards"><span class="adeal lost"><i></i>Deal 1197<span class="rec-mark heard"></span><span>↗</span></span><span class="adeal lost"><i></i>Deal 1233<span class="rec-mark heard"></span><span>↗</span></span></div>
+            </div>
+          </div>
+          <button class="sub-toggle"><span class="chev open">›</span> What separates closed-won from closed-lost</button>
+          <div class="acard">
+            <div class="verdict win">
+              <div class="verdict-t">In closed-won deals, pricing comes up in the first conversation. In closed-lost deals, it appears after the third touch — or never.</div>
+              <div class="verdict-basis">evidence base: 11 of 16 closed deals</div>
+              <div class="verdict-material">based on 11 deals: 6 with recordings, 5 with written conversations</div>
+              <div class="deal-cards"><span class="adeal won"><i></i>Deal 1201<span class="rec-mark heard"></span><span>↗</span></span><span class="adeal lost"><i></i>Deal 1288<span class="rec-mark heard"></span><span>↗</span></span></div>
+            </div>
+            <div class="p-title">What good looks like on your team</div>
+            <div class="p-cap">Pulled from your own closed-won deals — not a generic sales playbook.</div>
+            <div class="verdict win">
+              <div class="verdict-t">“Let’s run the numbers at your volume. If the ROI is not there, we will know.”</div>
+              <div class="verdict-basis">price objection handled · deal 1201</div>
+            </div>
+            <div class="verdict loss">
+              <div class="verdict-t">Team-wide gap: 21 of 40 reviewed deals have no dated next step — conversations end with “I’ll think about it.”</div>
+            </div>
+          </div>
+          <button class="sub-toggle"><span class="chev">›</span> Coverage and exclusions</button>
+          <div class="acard" id="sec-cover" hidden>
+            <div class="scope-row"><span class="sl">Reviewed</span><span>40 of 40 selected deals · 18 had recordings, 14 were analyzed</span></div>
+            <div class="scope-row"><span class="sl">Source material</span><span>96 notes · 12 emails · 54 messages · 118 calls</span></div>
+            <div class="scope-row"><span class="sl">Deal 1310</span><span>12-second call — ringing, not a conversation (30-second minimum)</span></div>
+            <div class="scope-row"><span class="sl">Deal 1284</span><span>42-minute recording — above the 5-minute demo limit</span></div>
+            <div class="scope-row"><span class="sl">Deal 1263</span><span>3.1 MB file — above the 2 MB demo limit</span></div>
+          </div>
+        </div>
+        <div class="pane-div"></div>
+        <aside class="dc">
+          <div class="dc-head"><span>Ask about this review</span><span class="abtn">＋ New</span></div>
+          <div class="dc-scroll" id="chat">
+            <div class="dc-hint">Ask in plain English: “Why is Sam at the bottom?”, “What should I cover in our pipeline review?”, or “How reliable are these scores?”</div>
+            <div class="dc-chips" id="chips">
+              <button class="dc-chip" id="chipWhy">Why is Sam at the bottom?</button>
+              <button class="dc-chip" id="chipPlan">What should I cover first?</button>
+              <button class="dc-chip" id="chipTrust">How reliable are these scores?</button>
+            </div>
+          </div>
+          <div class="dc-composer"><input class="dc-field" id="dcField" readonly placeholder="Ask about this review…"/><button class="dc-send" aria-label="Send">↑</button></div>
+        </aside>
+      </div></div>
+    </div>
+    </div>
+    <div class="report-stage rv" hidden aria-hidden="true">
+      <div class="report-copy">
+        <small>What you get</small>
+        <h3>A review you can run your next sales meeting from.</h3>
+        <p>Not a transcript dump. One team-wide pattern, one or two actions per rep, language that already works on your team, and the deals behind every conclusion.</p>
+        <div class="report-format"><span>IN APP</span><span>PDF</span><span>EXCEL</span><span>COPY</span></div>
+      </div>
+      <div class="report-paper">
+        <div class="report-paper-head"><div><small>Uniqore · CONVERSATION REVIEW</small><h3>What to fix in your next sales meeting</h3></div><span class="report-badge">40 deals reviewed</span></div>
+        <div class="report-hero"><div class="report-number">21/40</div><p><b>The team is letting prospects leave without a dated next step.</b><br/>Start with deals 1288 and 1201: the same price objection, two different outcomes.</p></div>
+        <div class="report-cols">
+          <div class="report-block loss"><small>Stop saying</small><q>“I understand. Think it over and let me know.”</q></div>
+          <div class="report-block win"><small>Borrow from Maya</small><q>“Let’s run the numbers at your volume.”</q></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SCENARIOS -->
+<section>
+  <div class="wrap">
+    <div class="sec-head rv">
+      <h2>How to use it</h2>
+      <p>Uniqore pulls evidence from customer messages, emails, notes, and call recordings for any period — from today’s pipeline to the full prior year.</p>
+    </div>
+    <div class="scenario-grid">
+      <article class="scenario-card rv">
+        <span class="scenario-time">Every day</span>
+        <h3>What each rep should do with each deal today</h3>
+        <p>For every rep: who needs a follow-up, where to set the next step, how to handle the objection, and which deal cannot sit untouched.</p>
+        <p class="scenario-example">Example: “Sam: reopen deal 1288, quantify the ROI at the customer’s volume, and offer two specific follow-up times.”</p>
+      </article>
+      <article class="scenario-card rv">
+        <span class="scenario-time">Every month</span>
+        <h3>A focused coaching plan for every rep</h3>
+        <p>See progress, strengths, and repeat mistakes, then give each rep a short improvement plan tied to real deals for the coming month.</p>
+        <p class="scenario-example">Not “get better at objections,” but one specific skill, a proven peer example, and the deals to use when checking progress.</p>
+      </article>
+      <article class="scenario-card rv">
+        <span class="scenario-time">Any time period</span>
+        <h3>An evidence-based answer to a leadership question</h3>
+        <p>Choose a week, quarter, year, or custom dates. Uniqore analyzes the available conversations and shows the conclusion alongside the deals that support it.</p>
+        <p class="scenario-example">“What was the single weakest point in our sales process across every customer conversation last year?”</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ROLES -->
+<section>
+  <div class="wrap">
+    <div class="sec-head rv">
+      <h2>One analysis. A clear payoff for every role.</h2>
+      <p>Everyone works from the same evidence, but gets the answer they need to do their job.</p>
+    </div>
+    <div class="role-grid">
+      <article class="role-card rv">
+        <span class="role-icon">01</span>
+        <h3>For the business owner</h3>
+        <p><strong>Complete visibility into sales:</strong> how well leads are being handled, where deals are falling apart, and what should change now.</p>
+      </article>
+      <article class="role-card rv">
+        <span class="role-icon">02</span>
+        <h3>For the sales leader</h3>
+        <p><strong>Save up to 30 hours a week:</strong> stop reading hundreds of message threads and listening to calls just to prepare coaching and pipeline reviews.</p>
+      </article>
+      <article class="role-card rv">
+        <span class="role-icon">03</span>
+        <h3>For the sales rep</h3>
+        <p><strong>Deal-level next actions:</strong> what to write, what to say, and which next step to secure to close more business and earn more.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- OUTCOME -->
+<section class="legacy-copy">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <h2>The outcome is not “118 calls analyzed.”</h2>
+      <p>The outcome is a sales meeting where every rep knows which behavior to change today.</p>
+    </div>
+    <div class="outcome rv">
+      <div class="outcome-lead">
+        <div class="big">1</div>
+        <h3>repeatable breakdown worth fixing first</h3>
+        <p>We do not label every open deal “lost revenue” or promise a miracle recovery. The first analysis should identify one proven team habit that is getting in the way of sales.</p>
+      </div>
+      <div class="outcome-list">
+        <div class="outcome-row"><span class="n">01</span><div><h3>Show the evidence</h3><p>Not “our close rate is weak,” but “21 of 40 deals ended without a dated next step” — linked to the exact conversations.</p></div></div>
+        <div class="outcome-row"><span class="n">02</span><div><h3>Use your own team’s best example</h3><p>Play the closed-won conversation where a teammate heard the same objection and moved the deal forward.</p></div></div>
+        <div class="outcome-row"><span class="n">03</span><div><h3>Measure the next period</h3><p>The next review shows whether the behavior changed — and who still needs coaching.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT YOU GET -->
+<section class="legacy-copy">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <h2>What you will bring to your next sales meeting.</h2>
+      <p>Not a pile of transcripts or another dashboard. A focused conversation with your team.</p>
+    </div>
+    <div class="feat-list">
+      <div class="feat-row rv"><span class="num">01</span><div><h3>One team-wide gap</h3><p>The repeated breakdown to address first: pricing introduced too late, no dated next step, or an objection left unresolved.</p></div></div>
+      <div class="feat-row rv"><span class="num">02</span><div><h3>One or two actions for every rep</h3><p>Not “sell better,” but a specific skill and the deals where it helped or hurt that rep.</p></div></div>
+      <div class="feat-row rv"><span class="num">03</span><div><h3>Winning language from your own team</h3><p>Not a generic script: real responses from your closed-won deals that other reps can use tomorrow.</p></div></div>
+    </div>
+    <div class="card strip rv" style="margin-top:14px">
+      <span class="em">⏳</span>
+      <div>
+        <h3>Stalled deals are this week’s recoverable pipeline</h3>
+        <p>The review does not stop at closed deals. It flags stalled opportunities separately, explains what is stuck, and gives the rep a concrete move to restart the conversation.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY TRUST -->
+<section>
+  <div class="wrap">
+    <div class="dark-sec rv">
+      <div class="sec-head">
+        <h2>Every conclusion is traceable and reviewable.</h2>
+        <p>Uniqore does not ask you to trust a black box. It shows the deals and conversations behind every conclusion.</p>
+      </div>
+      <div class="dark-grid">
+        <div class="dk-it"><span class="ck">✓</span><div><h3>Every conclusion links back to a deal</h3><p>Open the HubSpot record and go straight to the conversation — without searching through hundreds of calls.</p></div></div>
+        <div class="dk-it"><span class="ck">✓</span><div><h3>Scores follow a fixed rubric</h3><p>AI identifies facts in the conversation; code calculates the final score using a fixed methodology.</p></div></div>
+        <div class="dk-it"><span class="ck">✓</span><div><h3>No label when the sample is too small</h3><p>If a rep has fewer than four closed deals, Uniqore does not score them. The report clearly says the data is insufficient.</p></div></div>
+        <div class="dk-it"><span class="ck">✓</span><div><h3>Coverage is explicit</h3><p>The report shows which calls, messages, notes, and recordings were included or excluded.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW -->
+<section>
+  <div class="wrap">
+    <div class="sec-head rv"><h2>We run the first analysis with you.</h2><p>During the pilot, our team helps connect the right HubSpot data and get you to the first useful result.</p></div>
+    <div class="tl rv">
+      <div class="tl-step"><div class="n">1</div><h3>Tell us how your HubSpot sales process works</h3><p>Tell us about your team, pipeline, and where calls and customer conversations are stored. We will confirm what can be analyzed before you connect anything.</p></div>
+      <div class="tl-step"><div class="n">2</div><h3>Connect HubSpot with read-only access</h3><p>We will help you create the right scoped connection. Uniqore does not edit HubSpot, and you can revoke access at any time.</p></div>
+      <div class="tl-step"><div class="n">3</div><h3>Walk into your next sales meeting with a plan</h3><p>You get in-app findings, links to the supporting deals, and a team-ready export. Your first pilot analysis is free.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- PRIVACY -->
+<section>
+  <div class="wrap">
+    <div class="sec-head rv">
+      <h2>Built for responsible access:</h2>
+    </div>
+    <div class="priv rv">
+      <div class="priv-row"><span class="pic">🔒</span><div><h3>Read-only HubSpot access</h3><p>Uniqore does not request write permissions. Revoke the connection in HubSpot at any time and access ends.</p></div></div>
+      <div class="priv-row"><span class="pic">🕶</span><div><h3>Personal data is removed before AI processing</h3><p>The model sees “Rep #1,” not employee names. Names, phone numbers, and addresses are replaced with labels before processing; real identities remain in the app.</p></div></div>
+      <div class="priv-row"><span class="pic">✋</span><div><h3>Separate approval for text and audio</h3><p>Written conversations and call recordings are analyzed only after separate approval. Without audio approval, calls remain metadata only: count, time, and duration.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section>
+  <div class="wrap">
+    <div class="sec-head rv"><h2>Frequently asked questions.</h2></div>
+    <div class="faq rv">
+      <details>
+        <summary>What if we have very few call recordings?</summary>
+        <div class="fa">Uniqore tells you before the run and works with what is available: HubSpot emails, notes, messages, and approved recordings. Short unanswered calls are excluded automatically, and the final review shows exactly what was included.</div>
+      </details>
+      <details>
+        <summary>How is this different from call intelligence in a phone system?</summary>
+        <div class="fa">Phone systems usually focus on calls. Uniqore reviews the deal as a whole — approved recordings, emails, messages, and notes — compares closed-won and closed-lost patterns, and turns the evidence into coaching and deal actions instead of a transcript dump.</div>
+      </details>
+      <details>
+        <summary>Do sales reps need to install anything?</summary>
+        <div class="fa">No. Uniqore runs as a desktop app for the owner or sales leader. Reps keep working in HubSpot; you share the review in a sales meeting or send the action plan directly.</div>
+      </details>
+      <details>
+        <summary>How much does it cost?</summary>
+        <div class="fa">Your first pilot analysis is free. After that, plans range from $20 to $200 per user per month as you add usage and capabilities. We confirm your team’s price before any paid activation.</div>
+      </details>
+      <details>
+        <summary>Does this work with HubSpot?</summary>
+        <div class="fa">The US pilot is built around HubSpot. We first confirm where your emails, notes, messages, and call recordings live, then connect only the data needed for the review.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- GET -->
+<section id="get">
+  <div class="wrap">
+    <div class="get-card rv">
+      <span class="free">Your first pilot analysis is free</span>
+      <h2>Give us 20 closed deals.</h2>
+      <p>We will return the conversation worth playing in your next sales meeting, a winning response from your own team, and one or two concrete actions for each rep.</p>
+      <form class="lead-form" id="contact-form">
+        <div class="lead-fields">
+          <label class="lead-field"><span>Name <b class="lead-required">*</b></span><input name="name" autocomplete="name" required placeholder="Your name"/></label>
+          <label class="lead-field"><span>Phone <b class="lead-required">*</b></span><input name="phone" type="tel" inputmode="tel" autocomplete="tel" minlength="7" required placeholder="+1 (555) 000-0000"/></label>
+          <label class="lead-field full"><span>Email <em>(optional)</em></span><input name="email" type="email" autocomplete="email" placeholder="you@company.com"/></label>
+        </div>
+        <div class="lead-actions">
+          <button class="btn btn-primary btn-xl" type="submit">Request my free analysis →</button>
+          <a class="btn btn-ghost btn-xl" href="/download/">Download the app</a>
+        </div>
+        <p class="lead-form-note">This opens a prefilled email for you to send. Our team will guide the HubSpot connection and your first analysis.</p>
+        <div class="lead-status" id="leadStatus" role="status" aria-live="polite"></div>
+      </form>
+      <div class="get-note">HubSpot · about 30 minutes to connect · no credit card required</div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section>
+  <div class="wrap">
+    <div class="final rv">
+      
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="120" height="108" viewBox="300 200 800 720"
+     role="img" aria-labelledby="title-c desc-c">
+  <title id="title-c">Uni — calm state</title>
+  <desc id="desc-c">Uni, Uniqore’s friendly white narwhal-unicorn guide, resting.</desc>
+
+  <metadata>
+    Uniqore Uni master SVG v0.8
+    Artboard: 1402 × 1122
+    Canonical state: awake
+    Alternate state: content (hidden layer)
+    Palette: #FFFFFF #DDD5F6 #2E073D #8171EF #F276AF #F26A50
+  </metadata>
+
+  <defs>
+    <linearGradient id="body-fill-c" x1="700" y1="360" x2="700" y2="850" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FFFFFF"/>
+      <stop offset="0.72" stop-color="#FFFFFF"/>
+      <stop offset="1" stop-color="#FEFDFE"/>
+    </linearGradient>
+
+    <linearGradient id="belly-fill-c" x1="390" y1="815" x2="1005" y2="630" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#E3DDF9"/>
+      <stop offset="0.56" stop-color="#DCD4F7"/>
+      <stop offset="1" stop-color="#D3CAF4"/>
+    </linearGradient>
+
+    <linearGradient id="flipper-fill-c" x1="677" y1="695" x2="780" y2="665" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#E5DFF9"/>
+      <stop offset="1" stop-color="#D8D0F5"/>
+    </linearGradient>
+
+    <linearGradient id="horn-purple-c" x1="866" y1="371" x2="945" y2="394" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#7D6DEE"/>
+      <stop offset="1" stop-color="#9180F3"/>
+    </linearGradient>
+
+    <linearGradient id="horn-pink-c" x1="884" y1="328" x2="951" y2="353" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#EA70B6"/>
+      <stop offset="1" stop-color="#FA79A3"/>
+    </linearGradient>
+
+    <linearGradient id="horn-coral-c" x1="925" y1="275" x2="960" y2="320" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#F47455"/>
+      <stop offset="1" stop-color="#EE5F49"/>
+    </linearGradient>
+
+    <clipPath id="horn-clip-c">
+      <path d="M858 385
+               C859 391 867 398 879 405
+               C894 414 914 421 930 422
+               C936 423 940 419 941 412
+               L962 271
+               C964 261 959 256 953 257
+               C949 257 946 260 943 265
+               L858 376
+               C856 379 856 382 858 385Z"/>
+    </clipPath>
+  </defs>
+
+  <!-- Optional preview background. Toggle display to inline when a warm canvas is required. -->
+  <g id="preview-background-c" display="none">
+    <rect width="1402" height="1122" fill="#FDF7F4"/>
+  </g>
+
+  <g id="yuni-c" aria-label="Uni">
+    <g id="body-c">
+      <path d="M354 680
+               C383 679 421 683 460 700
+               C489 690 518 659 547 615
+               C595 542 648 471 706 423
+               C753 384 805 367 850 375
+               C897 383 938 409 968 448
+               C999 487 1019 532 1020 574
+               C1022 630 996 682 955 726
+               C914 770 858 805 796 830
+               C733 855 661 858 597 846
+               C550 838 509 822 474 806
+               C434 818 395 817 364 805
+               C397 787 414 765 419 743
+               C417 718 393 697 354 680Z"
+            fill="url(#body-fill-c)"
+            stroke="#F5F0F7" stroke-width="1.5" stroke-linejoin="round"/>
+    </g>
+
+    <g id="belly-c">
+      <path d="M364 805
+               C409 778 455 769 506 777
+               C559 785 610 807 667 810
+               C748 814 831 783 896 741
+               C948 708 987 669 1012 632
+               C1002 674 981 707 954 735
+               C910 779 855 811 795 834
+               C727 860 660 861 597 849
+               C548 839 506 822 474 807
+               C432 819 393 817 364 805Z"
+            fill="url(#belly-fill-c)"/>
+    </g>
+
+    <g id="flipper-c">
+      <path d="M674 684
+               C695 662 729 653 760 655
+               C772 656 780 661 780 669
+               C779 682 767 695 750 703
+               C729 713 705 710 689 701
+               C680 696 675 690 674 684Z"
+            fill="url(#flipper-fill-c)"/>
+    </g>
+
+    <g id="horn-c" clip-path="url(#horn-clip-c)">
+      <rect x="846" y="250" width="125" height="175" fill="url(#horn-purple-c)"/>
+      <path d="M876 318 L974 333 L965 373 L853 354Z" fill="url(#horn-pink-c)"/>
+      <path d="M900 246 H974 V333 L876 318Z" fill="url(#horn-coral-c)"/>
+    </g>
+
+    <g id="face-c" fill="none" stroke="#2E073D" stroke-linecap="round" stroke-linejoin="round">
+      <g id="face-awake-c" display="none">
+        <circle id="eye-open-c" cx="880" cy="527" r="15" fill="#2E073D" stroke="none"/>
+        <path id="mouth-awake-c" d="M954 563 C963 572 976 574 986 563" stroke-width="7"/>
+      </g>
+
+      <g id="face-content-c">
+        <path id="eye-closed-c" d="M866 538 C876 527 889 527 899 538" stroke-width="7"/>
+        <path id="mouth-content-c" d="M954 563 C963 572 976 574 986 563" stroke-width="7"/>
+      </g>
+    </g>
+  </g>
+</svg>
+
+      <h2>One step away from a much clearer sales operation</h2>
+      <p>Tell us how your HubSpot pipeline works and how many reps are on the team. We will show you what the first review can cover and guide the pilot setup.</p>
+      <div class="mail-row">
+        <a class="btn btn-primary btn-xl" href="/download/">Download</a>
+        <a class="btn btn-ghost btn-xl" href="#contact-form">Get my first analysis →</a>
+        <span class="mail-pill">hi@uniqore.ai <button class="copy-btn" id="copyBtn">copy</button></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-brand"><img src="/favicon.svg?v=1.0.1" alt=""/>Uniqore — AI business partner for small business owners</div>
+    <div class="foot-links">
+      <a href="/mission/">Mission</a>
+      <a href="/automations/">Automations</a>
+      <a href="/speech-analytics/">Sales conversation intelligence</a>
+      <a href="/download/">Download</a>
+      <a href="https://uniqore.kz/" hreflang="ru" rel="alternate">RU / KZ ↗</a>
+      <a href="mailto:hi@uniqore.ai">hi@uniqore.ai</a>
+    </div>
+    <div class="foot-copy">© 2026 Uniqore, United States</div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  function t(s){ return window.uniqoreTranslate ? window.uniqoreTranslate(s) : s; }
+
+  // reveal on scroll + bars
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(e){
+      if(!e.isIntersecting) return;
+      e.target.classList.add('on');
+      e.target.querySelectorAll('.fill[data-w]').forEach(function(f){
+        requestAnimationFrame(function(){ f.style.width = f.dataset.w + '%'; });
+      });
+      io.unobserve(e.target);
+    });
+  },{threshold:.18});
+  document.querySelectorAll('.rv').forEach(function(el){ io.observe(el); });
+
+  // demo chat
+  var chat = document.getElementById('chat');
+  var chips = document.getElementById('chips');
+  function push(cls, text){
+    if(!chat) return;
+    var d = document.createElement('div');
+    d.className = 'dc-msg ' + cls;
+    d.textContent = t(text);
+    chat.insertBefore(d, chips);
+    chat.scrollTop = chat.scrollHeight;
+  }
+  var ph = document.getElementById('dcField');
+  function refreshPh(){ if(ph) ph.placeholder = t('Ask about this review…'); }
+  document.querySelectorAll('[data-language-choice]').forEach(function(el){
+    el.addEventListener('click', function(){ setTimeout(refreshPh, 0); });
+  });
+  refreshPh();
+  function wire(id, q, a){
+    var b = document.getElementById(id);
+    if(!b) return;
+    b.addEventListener('click', function(){
+      b.disabled = true;
+      push('user', q);
+      setTimeout(function(){ push('agent', a); }, 550);
+    });
+  }
+  wire('chipWhy', 'Why is Sam at the bottom?',
+    'Sam scored 51 / 100 across eight closed deals. Two behaviors explain most of the gap: no dated next step in six of eight conversations, and pricing never surfaced in four. HubSpot also shows a 2-hour, 10-minute first response versus Maya’s 25 minutes. Both issues are already translated into his action plan.');
+  wire('chipPlan', 'What should I cover first?',
+    'Start with the team-wide gap: 21 of 40 conversations ended without a dated next step. Play Maya’s call from deal 1201 as the positive example, then give every rep one action from their plan. You can copy that plan into your team channel in one click.');
+  wire('chipTrust', 'How reliable are these scores?',
+    'Scores are calculated with eight defined criteria and fixed weights. Every AI finding links to a specific HubSpot deal and conversation you can inspect. If a rep has fewer than four closed deals, Uniqore does not assign a score.');
+
+
+  // Collapsible sections inside the product demo
+  document.querySelectorAll('.amk .sub-toggle').forEach(function(tg){
+    tg.addEventListener('click', function(){
+      var host = tg.closest('.sub-head-row') || tg;
+      var panel = host.nextElementSibling;
+      if(!panel || !panel.classList.contains('acard')) return;
+      panel.hidden = !panel.hidden;
+      var ch = tg.querySelector('.chev');
+      if(ch) ch.classList.toggle('open', !panel.hidden);
+    });
+  });
+  // Export menu
+  var expBtn = document.getElementById('expBtn');
+  var expMenu = document.getElementById('expMenu');
+  if(expBtn && expMenu){
+    expBtn.addEventListener('click', function(e){ e.stopPropagation(); expMenu.hidden = !expMenu.hidden; });
+    expMenu.querySelectorAll('.menu-item').forEach(function(mi){
+      mi.addEventListener('click', function(){ expMenu.hidden = true; });
+    });
+    document.addEventListener('click', function(){ expMenu.hidden = true; });
+  }
+
+  // Copy actions use the localized text already rendered in the DOM
+  function reportText(){
+    var L = [];
+    L.push(document.querySelector('.amk .h-title').textContent + ' — ' + document.querySelector('.amk .h-sub').textContent);
+    var cards = document.querySelectorAll('.amk .acard');
+    cards[1].querySelectorAll('.f-row').forEach(function(r){
+      L.push(r.querySelector('.f-n').textContent + ' — ' + r.querySelector('.f-v').textContent);
+    });
+    L.push('');
+    L.push(cards[2].querySelector('.p-title').textContent.replace('⧉','').trim());
+    cards[2].querySelectorAll('.verdict-t').forEach(function(v){ L.push('• ' + v.textContent); });
+    L.push('');
+    var loss = document.querySelector('.amk .verdict.loss .verdict-t');
+    if(loss) L.push(loss.textContent);
+    L.push('');
+    L.push('Uniqore · uniqore.ai/speech-analytics');
+    return L.join('\n');
+  }
+  function flash(el, done, back){
+    var was = el.textContent; el.textContent = done;
+    setTimeout(function(){ el.textContent = back || was; }, 1400);
+  }
+  var miCopy = expMenu ? expMenu.querySelector('.menu-item') : null;
+  if(miCopy) miCopy.addEventListener('click', function(){
+    if(navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(reportText());
+    flash(miCopy, t('Copied ✓'));
+  });
+  var cb = document.querySelector('.amk .copy-b');
+  if(cb) cb.addEventListener('click', function(){
+    var card = cb.closest('.acard');
+    var L = [card.querySelector('.p-title').textContent.replace('⧉','').trim()];
+    card.querySelectorAll('.verdict').forEach(function(v){
+      L.push('• ' + v.querySelector('.verdict-t').textContent);
+      v.querySelectorAll('.verdict-basis').forEach(function(b){ L.push('  ' + b.textContent); });
+    });
+    L.push('Uniqore · uniqore.ai/speech-analytics');
+    if(navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(L.join('\n'));
+    cb.classList.add('done');
+    setTimeout(function(){ cb.classList.remove('done'); }, 1400);
+  });
+
+  // Static GitHub Pages form: validate fields and prepare an email to the team.
+  var leadForm = document.getElementById('contact-form');
+  if(leadForm) leadForm.addEventListener('submit', function(event){
+    event.preventDefault();
+    if(!leadForm.reportValidity()) return;
+    var data = new FormData(leadForm);
+    var name = String(data.get('name') || '').trim();
+    var phone = String(data.get('phone') || '').trim();
+    var email = String(data.get('email') || '').trim();
+    var body = [
+      'Sales Conversation Intelligence pilot request',
+      '',
+      'Name: ' + name,
+      'Phone: ' + phone,
+      'Email: ' + (email || 'not provided'),
+      'Landing page language: ' + document.documentElement.lang,
+      'Source: ' + location.href
+    ].join('\n');
+    var status = document.getElementById('leadStatus');
+    if(status) status.textContent = t('Your email is ready. Send it to Uniqore and we will follow up personally.');
+    location.href = 'mailto:hi@uniqore.ai?subject=' + encodeURIComponent('Sales Conversation Intelligence pilot — ' + name) + '&body=' + encodeURIComponent(body);
+  });
+
+  // copy email
+  var btn = document.getElementById('copyBtn');
+  if(btn) btn.addEventListener('click', function(){
+    var done = function(){ btn.textContent = t('copied!'); setTimeout(function(){ btn.textContent = t('copy'); }, 1600); };
+    if(navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText('hi@uniqore.ai').then(done);
+    else done();
+  });
+})();
+</script>
+</body>
+</html>
