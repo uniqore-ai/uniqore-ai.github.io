@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /archive/
+Disallow: /tenders/
+
+Sitemap: https://uniqore.ai/sitemap.xml

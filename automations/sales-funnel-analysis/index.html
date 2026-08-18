@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<script>document.documentElement.lang="en-US";document.documentElement.dataset.language="en";document.documentElement.classList.add("i18n-ready");</script>
+<title>Sales Pipeline Analysis — Uniqore</title>
+<meta name="description" content="Finds the stages where deals stall or die and estimates the revenue impact of those leaks."/>
+<meta property="og:title" content="Sales Pipeline Analysis — Uniqore"/>
+<meta property="og:description" content="Finds the stages where deals stall or die and estimates the revenue impact of those leaks."/>
+<meta property="og:type" content="website"/>
+<meta property="og:image" content="https://uniqore.ai/og-home-1200x630-en-v1.0.1.png"/>
+<meta property="og:image:alt" content="Sales Pipeline Analysis — Uniqore"/>
+<link rel="canonical" href="https://uniqore.ai/automations/sales-funnel-analysis/"/>
+<link rel="alternate" hreflang="en" href="https://uniqore.ai/automations/sales-funnel-analysis/"/>
+<link rel="alternate" hreflang="ru" href="https://uniqore.kz/automations/sales-funnel-analysis/"/>
+<link rel="alternate" hreflang="kk" href="https://uniqore.kz/automations/sales-funnel-analysis/?lang=kk"/>
+<link rel="alternate" hreflang="x-default" href="https://uniqore.ai/automations/sales-funnel-analysis/"/>
+<meta property="og:url" content="https://uniqore.ai/automations/sales-funnel-analysis/"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="/assets/site.css?v=2"/>
+<link rel="stylesheet" href="/assets/automations.css?v=2"/>
+<link rel="icon" href="/favicon.ico?v=1.0.1" sizes="any"/>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg?v=1.0.1"/>
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=1.0.1"/>
+<meta name="theme-color" content="#8D7FF1"/>
+</head>
+<body>
+<script>document.documentElement.classList.add('js');</script>
+<nav>
+  <div class="nav-in">
+    <a class="nav-home" href="/" aria-label="UNIQORE — home"><img class="brand-icon" src="/favicon.svg?v=1.0.1" alt=""/><img class="brand-wordmark" src="/assets/wordmark-dark-v1.2.0.svg" alt="UNIQORE"/></a>
+    <a class="nav-link" href="/mission/">Mission</a>
+    <a class="nav-link" href="/automations/">Automations</a>
+    <a class="nav-link" href="/speech-analytics/">Sales conversation intelligence</a>
+    <span class="sp"></span>
+    <a class="nav-link" href="https://uniqore.kz/" target="_blank" hreflang="ru" rel="alternate noopener">RU / KZ ↗</a>
+    <a class="nav-mail" href="mailto:hi@uniqore.ai">hi@uniqore.ai</a>
+    <a class="btn btn-primary btn-sm" href="/download/">Download</a>
+  </div>
+</nav>
+
+<main>
+  <section class="automation-detail-hero">
+    <div class="wrap">
+      <a class="automation-back" href="/automations/">← All automations</a>
+      <div id="automationDetail"></div>
+    </div>
+  </section>
+
+  <section id="demo" class="sales-funnel-demo">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <h2>The first automation, live.</h2>
+        <p>Sales Funnel Analysis — an interactive preview with demo data. Click the prompts and watch the dashboard respond like the product.</p>
+      </div>
+      <div class="mock rv" data-sales-funnel-demo>
+        <div class="mock-bar"><i class="r"></i><i class="y"></i><i class="g"></i><span class="mock-product">Uniqore · <b>Sales Funnel Analysis</b></span><span class="mock-tag">demo data</span></div>
+        <div class="mock-body">
+          <div class="mock-main">
+            <div class="m-title"><h3>Sales Funnel Analysis</h3><span class="livechip"><i></i>running</span></div>
+            <div class="m-src">Source: HubSpot · pipeline “Sales” · last 90 days · updated just now</div>
+            <div class="leak">
+              <div class="v">≈ $<span data-demo-leak>0</span><small> / month leaking</small></div>
+              <p>Biggest drop: <b>Presentation → Invoice (−58% of deals)</b> plus slow first replies. This is the money sitting in your funnel.</p>
+            </div>
+            <div class="kpis">
+              <div class="kpi"><div class="v">4.1%</div><div class="l">Lead-to-paid conversion</div><div class="t dn">▼ −0.6 pp</div></div>
+              <div class="kpi"><div class="v">184</div><div class="l">Deals lost in 90 days</div><div class="t dn">▲ +12%</div></div>
+              <div class="kpi"><div class="v">$19,000</div><div class="l">Stuck in stalled deals</div><div class="t">63 deals idle &gt;14 days</div></div>
+              <div class="kpi"><div class="v">3h 40m</div><div class="l">Median first reply to a lead</div><div class="t dn">▲ worse than 30 min norm</div></div>
+            </div>
+            <div class="fun">
+              <h4>Conversion by stage</h4>
+              <div class="s">How many deals reach each stage — and where they break.</div>
+              <div class="frow"><span class="n">New lead</span><div class="track"><div class="fill" data-demo-width="100"></div></div><span class="v">1,240 <span>· 100%</span></span></div>
+              <div class="frow"><span class="n">In progress</span><div class="track"><div class="fill" data-demo-width="71"></div></div><span class="v">880 <span>· 71%</span></span></div>
+              <div class="frow"><span class="n">Quote sent</span><div class="track"><div class="fill" data-demo-width="43"></div></div><span class="v">534 <span>· 43%</span></span></div>
+              <div class="frow loss"><span class="n">Presentation</span><div class="track"><div class="fill" data-demo-width="31"></div></div><span class="v">389 <span>· 31%</span></span></div>
+              <div class="frow loss"><span class="n">Invoice</span><div class="track"><div class="fill" data-demo-width="13"></div></div><span class="v">163 <span>· 13%</span></span></div>
+              <div class="frow"><span class="n">Paid</span><div class="track"><div class="fill" data-demo-width="5"></div></div><span class="v">51 <span>· 4.1%</span></span></div>
+              <div class="drop">▼ <b>Main loss: Presentation → Invoice</b> — 226 deals gone (−58%). Most of your money gets stuck right here.</div>
+            </div>
+            <div class="mock-extra" data-demo-source-block hidden>
+              <div class="fun">
+                <h4>Conversion by lead source <span class="newtag">added from chat</span></h4>
+                <div class="s">Where your budget should go — and where it should not.</div>
+                <div class="frow"><span class="n">Referrals</span><div class="track"><div class="fill" data-demo-width="92"></div></div><span class="v">9.1% <span>· cheap</span></span></div>
+                <div class="frow"><span class="n">Instagram</span><div class="track"><div class="fill" data-demo-width="55"></div></div><span class="v">4.3%</span></div>
+                <div class="frow"><span class="n">Paid search</span><div class="track"><div class="fill" data-demo-width="40"></div></div><span class="v">3.1% <span>· expensive</span></span></div>
+                <div class="frow loss"><span class="n">Cold calls</span><div class="track"><div class="fill" data-demo-width="18"></div></div><span class="v">1.4%</span></div>
+              </div>
+            </div>
+          </div>
+          <aside class="mock-chat">
+            <div class="mc-head"><div class="orb"></div><div><div class="t">Uniqore</div><div class="s">changes the dashboard when you ask</div></div></div>
+            <div class="mc-scroll" data-demo-chat aria-live="polite">
+              <div class="msg agent">Done — your funnel is connected. Ask me anything about sales, or tell me what to add or remove on the dashboard.</div>
+            </div>
+            <div class="mc-chips">
+              <button type="button" class="chip-btn" data-demo-action="source">＋ Add conversion by lead source</button>
+              <button type="button" class="chip-btn" data-demo-action="why">Why the drop at Invoice?</button>
+              <button type="button" class="chip-btn" data-demo-action="monday">Send me a summary every Monday</button>
+            </div>
+            <div class="mc-note">Demo. In the product, answers come from your live HubSpot data.</div>
+          </aside>
+        </div>
+        <div aria-hidden="true">
+          <span data-demo-copy="sourceButtonDone">✓ Source block added</span>
+          <span data-demo-copy="sourceUser">Add conversion by lead source</span>
+          <span data-demo-copy="sourceAgent">Added “Conversion by lead source.” Referrals convert at 9.1% and cost almost nothing; cold calls convert at 1.4%. Moving budget toward referrals is the clearest next move.</span>
+          <span data-demo-copy="whyUser">Why the drop at Invoice?</span>
+          <span data-demo-copy="whyAgent">At Presentation → Invoice you lose 58% of deals. The data shows too few touches (1–2 instead of 5–7) and slow first replies (median 3h 40m). Reviving the 63 stalled deals worth $19,000 is your fastest win.</span>
+          <span data-demo-copy="mondayUser">Send me a summary every Monday</span>
+          <span data-demo-copy="mondayAgent">Done — every Monday you will get a fresh picture of the funnel for the week.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="automation-value">
+    <div class="wrap">
+      <div class="sec-head rv"><h2>Get an answer — not another tool to manage.</h2><p>Uniqore brings together the minimum useful data, explains the finding in plain English, and recommends the next move.</p></div>
+      <div class="grid3">
+        <article class="card res rv"><div class="ic">🔎</div><h3>The cause, in your data</h3><p>Not generic advice. A finding you can trace back to the underlying numbers, deals, conversations, or files.</p></article>
+        <article class="card res rv"><div class="ic">💡</div><h3>A clear next move</h3><p>A prioritized action with the evidence and reasoning behind its expected business impact.</p></article>
+        <article class="card res rv"><div class="ic">🤝</div><h3>Uni explains every step</h3><p>Ask for another explanation, a concrete example, or a deeper breakdown as many times as you need.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="sec-head rv"><h2>How an automation gets started</h2></div>
+      <div class="steps">
+        <article class="card stp rv"><div class="n">1</div><h3>Choose the business question</h3><p>Open the automation built for the expensive question in front of you right now.</p></article>
+        <article class="card stp rv"><div class="n">2</div><h3>Connect the minimum useful data</h3><p>Only what the analysis needs: HubSpot, customer conversations, bank transactions, or operating files.</p></article>
+        <article class="card stp rv"><div class="n">3</div><h3>Get the answer and next step</h3><p>The finding, supporting evidence, and practical action plan stay together inside Uniqore.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap"><div class="final rv"><img src="/favicon.svg?v=1.0.1" alt="Uni"/><h2>Not sure where to start?</h2><p>Browse the catalog or talk to us. We will help you choose the best first automation for your business.</p><div class="mail-row"><a class="btn btn-primary btn-xl" href="/automations/">All automations →</a><a class="btn btn-ghost btn-xl" href="mailto:hi@uniqore.ai">Talk to us</a></div></div></div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-brand"><img src="/favicon.svg?v=1.0.1" alt=""/>Uniqore — AI business partner for small business owners</div>
+    <div class="foot-links"><a href="/mission/">Mission</a><a href="/automations/">Automations</a><a href="/speech-analytics/">Sales conversation intelligence</a><a href="/download/">Download</a><a href="https://uniqore.kz/" hreflang="ru" rel="alternate">RU / KZ ↗</a><a href="mailto:hi@uniqore.ai">hi@uniqore.ai</a></div>
+    <div class="foot-copy">© 2026 Uniqore, United States</div>
+  </div>
+</footer>
+
+<script src="/assets/automations.js?v=2"></script>
+<script src="/assets/sales-funnel-demo.js?v=1"></script>
+<script>
+UniqoreAutomations.renderDetail(document.getElementById('automationDetail'));
+var current=UniqoreAutomations.items.find(function(item){return location.pathname.indexOf('/'+item.slug+'/')!==-1;});
+if(current){
+  document.title=current.title+' — Uniqore';
+  var description=document.querySelector('meta[name="description"]');
+  if(description)description.setAttribute('content',current.summary);
+  var canonical=document.querySelector('link[rel="canonical"]');if(canonical)canonical.href='https://uniqore.ai'+current.path;
+  var ogUrl=document.querySelector('meta[property="og:url"]');if(ogUrl)ogUrl.setAttribute('content','https://uniqore.ai'+current.path);
+}
+var io=new IntersectionObserver(function(entries){entries.forEach(function(entry){if(entry.isIntersecting){entry.target.classList.add('on');io.unobserve(entry.target);}});},{threshold:.12});
+document.querySelectorAll('.rv').forEach(function(element){io.observe(element);});
+setTimeout(function(){document.querySelectorAll('.rv:not(.on)').forEach(function(element){element.classList.add('on');});},3000);
+</script>
+</body>
+</html>
