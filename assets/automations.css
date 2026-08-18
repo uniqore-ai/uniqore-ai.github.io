@@ -48,8 +48,60 @@
 .automation-back{display:inline-flex;align-items:center;gap:7px;margin-bottom:20px;color:var(--ink-2);font-size:13px;font-weight:800}
 .automation-back:hover{color:var(--violet)}
 
+/* Interactive Sales Funnel Analysis prototype, restored from landing v0.2.0. */
+.sales-funnel-demo{padding-top:34px}
+.sales-funnel-demo .mock{max-width:1060px;margin:0 auto;border-radius:20px;overflow:hidden;border:1px solid var(--line-strong);box-shadow:var(--shadow-lg);background:var(--bg)}
+.sales-funnel-demo .mock-bar{display:flex;align-items:center;gap:8px;padding:12px 16px;background:var(--surface-2);border-bottom:1px solid var(--line)}
+.sales-funnel-demo .mock-bar i{width:11px;height:11px;border-radius:50%;display:block;flex:0 0 auto}
+.sales-funnel-demo .mock-bar .r{background:#ff5f57}
+.sales-funnel-demo .mock-bar .y{background:#febc2e}
+.sales-funnel-demo .mock-bar .g{background:#28c840}
+.sales-funnel-demo .mock-bar .mock-product{margin-left:8px;font-size:12px;font-weight:700;color:var(--ink-3)}
+.sales-funnel-demo .mock-product b{font:inherit}
+.sales-funnel-demo .mock-tag{margin-left:auto;font-size:10.5px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);background:var(--surface-3);padding:4px 10px;border-radius:999px}
+.sales-funnel-demo .mock-body{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(280px,1fr);gap:0}
+.sales-funnel-demo .mock-main{padding:22px;border-right:1px solid var(--line)}
+.sales-funnel-demo .m-title{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:4px}
+.sales-funnel-demo .m-title h3{font-size:17px;font-weight:800}
+.sales-funnel-demo .livechip{display:inline-flex;align-items:center;gap:6px;font-size:10.5px;font-weight:800;color:#128a55;background:rgba(31,191,117,.13);border:1px solid rgba(31,191,117,.35);border-radius:999px;padding:3px 9px}
+.sales-funnel-demo .livechip i{width:6px;height:6px;border-radius:50%;background:var(--green);animation:demo-blink 1.6s infinite}
+@keyframes demo-blink{0%,100%{opacity:1}50%{opacity:.25}}
+.sales-funnel-demo .m-src{font-size:11.5px;color:var(--ink-3);font-weight:600;margin-bottom:14px}
+.sales-funnel-demo .leak{background:radial-gradient(360px 180px at 85% -20%,rgba(109,94,248,.35),transparent 60%),radial-gradient(300px 160px at -5% 120%,rgba(255,111,165,.22),transparent 55%),var(--orb-bg);color:#edeef7;border-radius:14px;padding:16px 18px;margin-bottom:16px}
+.sales-funnel-demo .leak .v{font-size:26px;font-weight:800;letter-spacing:-.02em}
+.sales-funnel-demo .leak .v small{font-size:13px;color:#9aa0c0;font-weight:700}
+.sales-funnel-demo .leak p{font-size:12.5px;color:#b8bcd6;line-height:1.45;margin-top:5px}
+.sales-funnel-demo .leak p b{color:#ff8fb3}
+.sales-funnel-demo .kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-bottom:16px}
+.sales-funnel-demo .kpi{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:11px 12px}
+.sales-funnel-demo .kpi .v{font-size:17px;font-weight:800;letter-spacing:-.01em}
+.sales-funnel-demo .kpi .l{font-size:10px;color:var(--ink-3);font-weight:600;line-height:1.3;margin-top:3px}
+.sales-funnel-demo .kpi .t{font-size:10px;font-weight:800;margin-top:4px}
+.sales-funnel-demo .kpi .t.dn{color:var(--red)}
+.sales-funnel-demo .fun{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:15px 16px}
+.sales-funnel-demo .fun h4{font-size:13px;font-weight:800;margin-bottom:3px}
+.sales-funnel-demo .fun .s{font-size:11px;color:var(--ink-3);margin-bottom:12px}
+.sales-funnel-demo .frow{display:grid;grid-template-columns:96px minmax(80px,1fr) 86px;gap:10px;align-items:center;margin-bottom:8px}
+.sales-funnel-demo .frow .n{font-size:11.5px;font-weight:700;color:var(--ink-2)}
+.sales-funnel-demo .frow .track{height:9px;background:var(--surface-3);border-radius:6px;overflow:hidden}
+.sales-funnel-demo .frow .fill{height:100%;border-radius:6px;background:var(--grad);width:0;transition:width 1.1s cubic-bezier(.2,.7,.2,1)}
+.sales-funnel-demo .frow.loss .fill{background:linear-gradient(90deg,#8a6cff,#ff6fa5,#ffb020)}
+.sales-funnel-demo .frow .v{font-size:11.5px;font-weight:800;text-align:right}
+.sales-funnel-demo .frow .v span{color:var(--ink-3);font-weight:600}
+.sales-funnel-demo .drop{margin-top:10px;background:rgba(240,80,110,.08);border:1px solid rgba(240,80,110,.25);border-radius:10px;padding:9px 12px;font-size:11.5px;color:var(--ink-2);line-height:1.4}
+.sales-funnel-demo .drop b{color:var(--red)}
+.sales-funnel-demo .mock-extra{margin-top:14px}
+.sales-funnel-demo .mock-extra .fun{border-color:rgba(109,94,248,.35)}
+.sales-funnel-demo .newtag{display:inline-block;font-size:9px;font-weight:800;letter-spacing:.05em;color:var(--violet);background:rgba(109,94,248,.1);border:1px solid rgba(109,94,248,.3);border-radius:999px;padding:2px 7px;margin-left:6px;vertical-align:1px}
+.sales-funnel-demo .mock-chat{min-width:0}
+.sales-funnel-demo .mc-scroll{min-height:230px;max-height:560px}
+.sales-funnel-demo [data-demo-copy]{display:none}
+
 @media (max-width:900px){
   .auto-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .sales-funnel-demo .mock-body{grid-template-columns:1fr}
+  .sales-funnel-demo .mock-main{border-right:none;border-bottom:1px solid var(--line)}
+  .sales-funnel-demo .kpis{grid-template-columns:repeat(2,minmax(0,1fr))}
 }
 @media (max-width:700px){
   .auto-catalog-head{flex-direction:column}
@@ -66,4 +118,14 @@
   .automation-detail-card{padding:24px 20px}
   .automation-detail-actions{flex-direction:column}
   .automation-detail-actions .btn{width:100%}
+  .sales-funnel-demo .mock-bar{padding:10px 12px}
+  .sales-funnel-demo .mock-bar .mock-product{font-size:10.5px}
+  .sales-funnel-demo .mock-main{padding:16px}
+  .sales-funnel-demo .frow{grid-template-columns:78px minmax(50px,1fr) 70px;gap:7px}
+  .sales-funnel-demo .frow .n,.sales-funnel-demo .frow .v{font-size:10.5px}
+}
+
+@media (prefers-reduced-motion:reduce){
+  .sales-funnel-demo .livechip i{animation:none}
+  .sales-funnel-demo .frow .fill{transition:none}
 }
