@@ -98,7 +98,7 @@
 
   function interestUrl(item){
     var message = 'Hi! I\'m writing from uniqore.ai. I need the "' + item.title + '" automation.';
-    return window.UniqoreContact.whatsappUrl(message);
+    return window.UniqoreContact ? window.UniqoreContact.whatsappUrl(message) : 'https://wa.me/';
   }
 
   function renderCatalog(container){
