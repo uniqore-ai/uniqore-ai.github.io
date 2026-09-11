@@ -153,6 +153,24 @@ footer img{width:18px;height:18px;border-radius:5px;vertical-align:-4px;margin-r
 .foot-links a{color:var(--ink-2);font-weight:700}
 .foot-links a:hover{color:var(--ink)}
 .foot-copy{margin-top:10px}
+/* Реквизиты юрлица и выбор региона (P163). Регион — не язык: Asia → uniqore.kz, остальное → uniqore.ai. */
+.foot-legal{margin:12px auto 0;max-width:720px;font-size:12px;line-height:1.5;color:var(--ink-3);font-weight:600}
+.foot-legal a{color:var(--ink-3)}
+.foot-region{margin-top:12px;display:flex;justify-content:center}
+.region-menu{position:relative;flex:0 0 auto}
+.region-menu summary{min-height:34px;display:inline-flex;align-items:center;gap:7px;padding:0 10px;list-style:none;border:1px solid var(--line);border-radius:9px;background:rgba(255,255,255,.55);color:var(--ink-2);cursor:pointer;user-select:none;font-size:12.5px;font-weight:700;transition:background .16s,color .16s}
+.region-menu summary::-webkit-details-marker{display:none}
+.region-menu summary:hover,.region-menu[open] summary{background:rgba(255,255,255,.85);color:var(--ink)}
+.region-menu summary:focus{outline:none}
+.region-menu summary:focus-visible{outline:2px solid rgba(109,94,248,.55);outline-offset:2px}
+.region-globe{font-size:14px;line-height:1;filter:grayscale(1);opacity:.72}
+.region-chevron{width:6px;height:6px;margin:-3px 1px 0 2px;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:rotate(45deg);opacity:.62;transition:transform .16s,margin .16s}
+.region-menu[open] .region-chevron{margin:3px 1px 0 2px;transform:rotate(225deg)}
+.region-options{position:absolute;bottom:calc(100% + 8px);left:50%;transform:translateX(-50%);z-index:80;width:200px;padding:6px;border:1px solid var(--line);border-radius:13px;background:rgba(255,255,255,.97);box-shadow:0 16px 42px rgba(24,28,50,.18);backdrop-filter:blur(16px);text-align:left}
+.region-options button{width:100%;min-height:36px;display:flex;align-items:center;justify-content:space-between;padding:0 10px;border:0;border-radius:9px;background:transparent;color:var(--ink-2);font:inherit;font-size:13px;font-weight:700;cursor:pointer;text-align:left}
+.region-options button:hover{background:rgba(109,94,248,.08);color:var(--ink)}
+.region-options button[aria-current="true"]{color:var(--violet)}
+.region-options button[aria-current="true"]::after{content:'✓'}
 
 @media (max-width:900px){
   .kpis{grid-template-columns:repeat(2,1fr)}
