@@ -61,7 +61,7 @@ const sharedReplacements = [
   ['ТОО «Uniqore» · БИН 260840038553 · Республика Казахстан, 010000, г. Астана, район Сарайшык, пр. Рақымжан Қошқарбаев, 10/1, н.п. 18', 'Uniqore LLC · BIN 260840038553 · Republic of Kazakhstan, 010000, Astana, Saraishyk district, 10/1 Rakymzhan Koshkarbayev Avenue, premises 18'],
   ['aria-label="Выбрать регион"', 'aria-label="Choose your region"'],
   ['<span class="region-current">Регион</span>', '<span class="region-current">Region</span>'],
-  ['data-region="us">США<', 'data-region="us">United States<'],
+  ['data-region="us">Соединённые Штаты<', 'data-region="us">United States<'],
   ['data-region="eu">Европа<', 'data-region="eu">Europe<'],
   ['data-region="au">Австралия и Океания<', 'data-region="au">Australia &amp; Oceania<'],
   ['data-region="asia">Азия<', 'data-region="asia">Asia<'],
