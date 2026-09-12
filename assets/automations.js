@@ -21,7 +21,7 @@
       summary:'Tracks competitors’ pricing, products, and promotions so your team does not have to check every site by hand.'
     },
     {
-      slug:'sales-funnel-analysis', path:'/automations/sales-funnel-analysis/', icon:'📊', status:'live',
+      slug:'sales-funnel-analysis', path:'/skills/sales-funnel-analysis/', icon:'📊', status:'live',
       categories:['sales'], tags:['Sales'],
       title:'Sales Pipeline Analysis',
       summary:'Finds the stages where deals stall or die and estimates the revenue impact of those leaks.'
@@ -39,7 +39,7 @@
       summary:'Shows which customers drive revenue, which are growing, which have gone quiet, and which are at risk.'
     },
     {
-      slug:'sales-manager-activity', icon:'🏃', status:'soon',
+      slug:'sales-manager-activity', icon:'🏃', status:'live',
       categories:['team','sales'], tags:['Team','Sales'],
       title:'Sales Rep Activity Analytics',
       summary:'Uses HubSpot activity data to show which reps actually moved deals forward this week — and where follow-up stopped.'
@@ -97,7 +97,7 @@
   function statusLabel(item){ return item.status === 'live' ? 'LIVE' : 'COMING SOON'; }
 
   function interestUrl(item){
-    var message = 'Hi! I\'m writing from uniqore.ai. I need the "' + item.title + '" automation.';
+    var message = 'Hi! I\'m writing from uniqore.ai. I need the "' + item.title + '" skill.';
     return window.UniqoreContact ? window.UniqoreContact.whatsappUrl(message) : 'https://wa.me/';
   }
 
@@ -105,7 +105,9 @@
     if (!container) return;
     container.innerHTML = items.map(function(item){
       var cta = item.status === 'live'
-        ? '<a class="btn btn-primary btn-sm auto-card-cta" href="' + item.path + '">View automation →</a>'
+        ? (item.path
+          ? '<a class="btn btn-primary btn-sm auto-card-cta" href="' + item.path + '">View automation →</a>'
+          : '<a class="btn btn-primary btn-sm auto-card-cta" href="/download/">In the app →</a>')
         : '<a class="btn btn-sm auto-card-cta auto-card-interest" href="' + interestUrl(item) + '" target="_blank" rel="noopener" aria-label="I need the ' + escapeHtml(item.title) + ' automation">I need this</a>';
       return '<article class="auto-card" data-categories="' + item.categories.join(' ') + '">' +
         '<div class="auto-card-top"><div class="auto-card-icon" aria-hidden="true">' + item.icon + '</div>' +
@@ -119,7 +121,7 @@
 
   function currentSlug(){
     var parts = location.pathname.split('/').filter(Boolean);
-    return parts.length > 1 && parts[0] === 'automations' ? parts[1] : '';
+    return parts.length > 1 && parts[0] === 'skills' ? parts[1] : '';
   }
 
   function renderDetail(container){
@@ -127,7 +129,7 @@
     var slug = container.dataset.automationSlug || currentSlug();
     var item = items.find(function(candidate){ return candidate.slug === slug; });
     if (!item || item.status !== 'live') {
-      container.innerHTML = '<div class="automation-detail-card card"><h1>Automation not found</h1><p>Return to the catalog and choose a ready-to-run automation.</p><a class="btn btn-primary" href="/automations/">All automations →</a></div>';
+      container.innerHTML = '<div class="automation-detail-card card"><h1>Skill not found</h1><p>Return to the catalog and choose a ready-made skill.</p><a class="btn btn-primary" href="/skills/">All skills →</a></div>';
       return;
     }
     var primary = '<a class="btn btn-primary" href="/download/">Download and launch</a>';
@@ -136,7 +138,7 @@
       '<h1>' + escapeHtml(item.title) + '</h1>' +
       '<p class="automation-detail-summary">' + escapeHtml(item.summary) + '</p>' +
       '<div class="auto-card-tags">' + item.tags.map(function(tag){ return '<span class="auto-card-tag">' + escapeHtml(tag) + '</span>'; }).join('') + '</div>' +
-      '<div class="automation-detail-actions">' + primary + '<a class="btn btn-ghost" href="/automations/">All automations →</a></div>' +
+      '<div class="automation-detail-actions">' + primary + '<a class="btn btn-ghost" href="/skills/">All skills →</a></div>' +
     '</div>';
   }
 
