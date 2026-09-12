@@ -29,25 +29,21 @@ const T = isKz
   ? {
       title: 'Юридические документы — Uniqore',
       h1: 'Юридические документы',
-      lead: 'Действующие условия использования Uniqore. Каждый документ — с версией, датой редакции и датой вступления в силу; прежние редакции не публикуются.',
+      lead: 'Действующие условия использования Uniqore.',
       version: 'Версия',
       edition: 'Редакция от',
       effective: 'Вступает в силу',
-      source: 'Исходный текст (Markdown)',
       back: '← Все документы',
-      print: 'Распечатать',
       description: (d) => `${d.title}. Версия ${d.version}, вступает в силу ${human(d.effective_date)}.`,
     }
   : {
       title: 'Legal documents — Uniqore',
       h1: 'Legal documents',
-      lead: 'The current Uniqore terms. Every document carries its version, edition date and effective date; previous editions are not published.',
+      lead: 'The current Uniqore terms.',
       version: 'Version',
       edition: 'Edition of',
       effective: 'Effective from',
-      source: 'Source text (Markdown)',
       back: '← All documents',
-      print: 'Print',
       description: (d) => `${d.title}. Version ${d.version}, effective from ${human(d.effective_date)}.`,
     };
 
@@ -236,7 +232,7 @@ for (const d of docs) {
   <div class="tbl">
 ${render(body)}
   </div>
-  <div class="legal-actions"><a href="/legal/">${T.back}</a><a href="/legal/${d.code}/${d.code}.md">${T.source}</a><a href="#" onclick="window.print();return false;">${T.print}</a></div>
+  <div class="legal-actions"><a href="/legal/">${T.back}</a></div>
 </main>
 ` +
       tail,
