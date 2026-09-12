@@ -20,7 +20,6 @@ const sharedReplacements = [
   ['https://uniqore.kz', 'https://uniqore.ai'],
   ['og-home-1200x630-ru-v1.0.1.png', 'og-home-1200x630-en-v1.0.1.png'],
   ['og-crm-1200x630-ru-v1.0.1.png', 'og-crm-1200x630-en-v1.0.1.png'],
-  ['hreflang="en" rel="alternate">Eng ↗', 'hreflang="ru" rel="alternate">RU / KZ ↗'],
   ['UNIQORE — на главную', 'UNIQORE — home'],
   ['Миссия', 'Mission'],
   ['Автоматизации', 'Automations'],
@@ -28,8 +27,6 @@ const sharedReplacements = [
   ['Скачать', 'Download'],
   ['Написать нам', 'Talk to us'],
   ['Uniqore — ИИ-Партнёр для предпринимателя', 'Uniqore — AI business partner for small business owners'],
-  ['href="https://uniqore.ai/" hreflang="ru" rel="alternate">RU / KZ ↗', 'href="https://uniqore.kz/" hreflang="ru" rel="alternate">RU / KZ ↗'],
-  ['href="https://uniqore.ai/" target="_blank" hreflang="ru" rel="alternate noopener">RU / KZ ↗', 'href="https://uniqore.kz/" target="_blank" hreflang="ru" rel="alternate noopener">RU / KZ ↗'],
   ['alt="Юни"', 'alt="Uni"'],
   ['Готовая автоматизация — Uniqore', 'Ready-to-run automation — Uniqore'],
   ['Готовая автоматизация Uniqore: понятный результат на данных вашего бизнеса без промптов и долгого внедрения.', 'A ready-to-run Uniqore automation that turns your business data into a clear decision and next step.'],
@@ -94,8 +91,11 @@ for (const relative of htmlFiles) {
   source = source.replace(/<script src="\/assets\/i18n\.js\?v=\d+"><\/script>\s*/g, '');
   source = source.replace(
     /\s*<details class="language-menu">[\s\S]*?<\/details>/g,
-    '\n    <a class="nav-link" href="https://uniqore.kz/" target="_blank" hreflang="ru" rel="alternate noopener">RU / KZ ↗</a>'
+    // Ссылки RU / KZ на витрине нет намеренно (владелец, 2026-09-12): переход в
+    // казахстанскую версию — только через неброское меню региона в футере.
+    ''
   );
+  source = source.replace(/\n?\s*<a href="https:\/\/uniqore\.kz\/" hreflang="ru" rel="alternate">RU \/ KZ ↗<\/a>/g, '');
 
   const canonicalMatch = source.match(/<link rel="canonical" href="([^"]+)"\/>/);
   if (canonicalMatch) {
