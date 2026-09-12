@@ -20,8 +20,6 @@ const sharedReplacements = [
   ['https://uniqore.kz', 'https://uniqore.ai'],
   ['og-home-1200x630-ru-v1.0.1.png', 'og-home-1200x630-en-v1.0.1.png'],
   ['og-crm-1200x630-ru-v1.0.1.png', 'og-crm-1200x630-en-v1.0.1.png'],
-  ['© 2026 Uniqore, Казахстан', '© 2026 Uniqore, United States'],
-  ['hreflang="en" rel="alternate">Eng ↗', 'hreflang="ru" rel="alternate">RU / KZ ↗'],
   ['UNIQORE — на главную', 'UNIQORE — home'],
   ['Миссия', 'Mission'],
   ['Автоматизации', 'Automations'],
@@ -29,8 +27,6 @@ const sharedReplacements = [
   ['Скачать', 'Download'],
   ['Написать нам', 'Talk to us'],
   ['Uniqore — ИИ-Партнёр для предпринимателя', 'Uniqore — AI business partner for small business owners'],
-  ['href="https://uniqore.ai/" hreflang="ru" rel="alternate">RU / KZ ↗', 'href="https://uniqore.kz/" hreflang="ru" rel="alternate">RU / KZ ↗'],
-  ['href="https://uniqore.ai/" target="_blank" hreflang="ru" rel="alternate noopener">RU / KZ ↗', 'href="https://uniqore.kz/" target="_blank" hreflang="ru" rel="alternate noopener">RU / KZ ↗'],
   ['alt="Юни"', 'alt="Uni"'],
   ['Готовая автоматизация — Uniqore', 'Ready-to-run automation — Uniqore'],
   ['Готовая автоматизация Uniqore: понятный результат на данных вашего бизнеса без промптов и долгого внедрения.', 'A ready-to-run Uniqore automation that turns your business data into a clear decision and next step.'],
@@ -55,6 +51,18 @@ const sharedReplacements = [
   ['Откройте весь каталог или напишите нам — поможем выбрать первую автоматизацию под вашу задачу.', 'Browse the catalog or talk to us. We will help you choose the best first automation for your business.'],
   ['Все автоматизации →', 'All automations →'],
   ['Частые вопросы', 'Frequently asked questions'],
+  // Футер P163: документы, реквизиты, регион. Меню региона (`region-menu`) —
+  // общее для обоих доменов и НЕ вырезается регэкспом ниже (он про `language-menu`).
+  ['href="/legal/offer/">Оферта', 'href="/legal/offer/">Terms'],
+  ['href="/legal/privacy/">Политика конфиденциальности', 'href="/legal/privacy/">Privacy'],
+  ['ТОО «Uniqore» · БИН 260840038553 · Республика Казахстан, 010000, г. Астана, район Сарайшык, пр. Рақымжан Қошқарбаев, 10/1, н.п. 18', 'Uniqore LLC · BIN 260840038553 · Republic of Kazakhstan, 010000, Astana, Saraishyk district, 10/1 Rakymzhan Koshkarbayev Avenue, premises 18'],
+  ['aria-label="Выбрать регион"', 'aria-label="Choose your region"'],
+  ['<span class="region-current">Регион</span>', '<span class="region-current">Region</span>'],
+  ['data-region="us">Соединённые Штаты<', 'data-region="us">United States<'],
+  ['data-region="eu">Европа<', 'data-region="eu">Europe<'],
+  ['data-region="au">Австралия и Океания<', 'data-region="au">Australia &amp; Oceania<'],
+  ['data-region="asia">Азия<', 'data-region="asia">Asia<'],
+  ['data-region="other">Другие регионы<', 'data-region="other">Other regions<'],
 ];
 
 function localizedAlternates(canonical) {
@@ -83,8 +91,11 @@ for (const relative of htmlFiles) {
   source = source.replace(/<script src="\/assets\/i18n\.js\?v=\d+"><\/script>\s*/g, '');
   source = source.replace(
     /\s*<details class="language-menu">[\s\S]*?<\/details>/g,
-    '\n    <a class="nav-link" href="https://uniqore.kz/" target="_blank" hreflang="ru" rel="alternate noopener">RU / KZ ↗</a>'
+    // Ссылки RU / KZ на витрине нет намеренно (владелец, 2026-09-12): переход в
+    // казахстанскую версию — только через неброское меню региона в футере.
+    ''
   );
+  source = source.replace(/\n?\s*<a href="https:\/\/uniqore\.kz\/" hreflang="ru" rel="alternate">RU \/ KZ ↗<\/a>/g, '');
 
   const canonicalMatch = source.match(/<link rel="canonical" href="([^"]+)"\/>/);
   if (canonicalMatch) {

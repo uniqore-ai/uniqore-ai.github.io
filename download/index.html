@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <script>document.documentElement.lang="en-US";document.documentElement.dataset.language="en";document.documentElement.classList.add("i18n-ready");</script>
 <title>Download Uniqore for macOS and Windows</title>
-<meta name="description" content="Install Uniqore, the AI business partner for owner-led companies. Available for Windows, with macOS coming soon. Start free."/>
+<meta name="description" content="Install Uniqore, the AI business partner for owner-led companies. Available for macOS and Windows. Start free."/>
 <meta property="og:title" content="Download Uniqore for macOS and Windows"/>
 <meta property="og:description" content="Your AI business partner, built as a desktop app. Start free."/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
@@ -62,7 +62,6 @@
     <a class="nav-link" href="/skills/">Skills</a>
     <a class="nav-link" href="/speech-analytics/">Sales conversation intelligence</a>
     <span class="sp"></span>
-    <a class="nav-link" href="https://uniqore.kz/" target="_blank" hreflang="ru" rel="alternate noopener">RU / KZ ↗</a>
     <a class="nav-mail" href="mailto:hi@uniqore.ai">hi@uniqore.ai</a>
     <a class="btn btn-primary btn-sm" href="/download/">Download</a>
   </div>
@@ -84,7 +83,7 @@
         <div class="os">🍎</div>
         <h3>macOS</h3>
         <a class="btn btn-primary" href="https://api.uniqore.ai/download/darwin">Download .dmg</a>
-        <div class="note">Apple Silicon (M-series) only; Intel is not supported yet</div>
+        <div class="note">For Macs with Apple Silicon and Intel</div>
       </div>
       <div class="card plat rv">
         <div class="os">🪟</div>
@@ -151,10 +150,24 @@
       <a href="/skills/">Skills</a>
       <a href="/speech-analytics/">Sales conversation intelligence</a>
       <a href="/download/">Download</a>
-      <a href="https://uniqore.kz/" hreflang="ru" rel="alternate">RU / KZ ↗</a>
       <a href="mailto:hi@uniqore.ai">hi@uniqore.ai</a>
+      <a href="/legal/offer/">Terms</a>
+      <a href="/legal/privacy/">Privacy</a>
     </div>
-    <div class="foot-copy">© 2026 Uniqore, United States</div>
+    <div class="foot-legal">Uniqore LLC · BIN 260840038553 · Republic of Kazakhstan, 010000, Astana, Saraishyk district, 10/1 Rakymzhan Koshkarbayev Avenue, premises 18 · <a href="tel:+77776879577">+7 777 687 95 77</a></div>
+    <div class="foot-region">
+    <details class="region-menu">
+      <summary aria-label="Choose your region" aria-haspopup="menu"><span class="region-globe" aria-hidden="true">🌐</span><span class="region-current">Region</span><span class="region-chevron" aria-hidden="true"></span></summary>
+      <div class="region-options" role="menu">
+        <button type="button" role="menuitem" data-region="us">United States</button>
+        <button type="button" role="menuitem" data-region="eu">Europe</button>
+        <button type="button" role="menuitem" data-region="au">Australia &amp; Oceania</button>
+        <button type="button" role="menuitem" data-region="asia">Asia</button>
+        <button type="button" role="menuitem" data-region="other">Other regions</button>
+      </div>
+    </details>
+    </div>
+    <div class="foot-copy">© 2026 Uniqore</div>
   </div>
 </footer>
 
@@ -175,5 +188,6 @@ document.getElementById('copyBtn').addEventListener('click', function(){
   }).catch(function(){ btn.textContent = 'hi@uniqore.ai'; });
 });
 </script>
+<script src="/assets/region.js?v=1"></script>
 </body>
 </html>
