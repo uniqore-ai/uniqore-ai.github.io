@@ -1,0 +1,70 @@
+# Thin launcher; shared checks live in the pinned cto-core commit below.
+# Access and evidence contract: uniqore-docs/sdlc/ci.md.
+name: Site regression
+on:
+  pull_request:
+  push:
+    branches: [main]
+permissions:
+  contents: read
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+jobs:
+  site-regression:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Require private source read access
+        env:
+          SDLC_READ_TOKEN: ${{ secrets.SDLC_READ_TOKEN }}
+        run: |
+          if [ -z "$SDLC_READ_TOKEN" ]; then
+            echo "::error::Configure SDLC_READ_TOKEN (Contents read on cto-core, uniqore-docs and both sites); see uniqore-docs/sdlc/ci.md"
+            exit 1
+          fi
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          path: uniqore-ai.github.io
+          persist-credentials: false
+      - uses: actions/checkout@v4
+        with:
+          repository: uniqore-ai/cto-core
+          ref: 0883699c6b9e8d4f6605f8db163d9967ff9c0bdb
+          path: cto-core
+          token: ${{ secrets.SDLC_READ_TOKEN }}
+          persist-credentials: false
+      - uses: actions/checkout@v4
+        with:
+          repository: uniqore-ai/uniqore-docs
+          ref: 865a1a80e6c7c0416e4d77b1ccd11aa045df2a6d
+          path: uniqore-docs
+          token: ${{ secrets.SDLC_READ_TOKEN }}
+          persist-credentials: false
+      - uses: actions/checkout@v4
+        with:
+          repository: uniqore-ai/uniqore.kz
+          ref: 3571247a771a2138679e98e65346a8485d8e7ceb
+          path: uniqore.kz
+          token: ${{ secrets.SDLC_READ_TOKEN }}
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Install pinned checker dependencies
+        working-directory: cto-core/tools/acceptance
+        run: npm ci --ignore-scripts
+      - name: Install Chromium
+        working-directory: cto-core/tools/acceptance
+        run: npx --no-install playwright install --with-deps chromium
+      - name: Run shared checks
+        run: node cto-core/tools/acceptance/ci.mjs sites --docs uniqore-docs --kz uniqore.kz --ai uniqore-ai.github.io --out "${{ runner.temp }}/sdlc-evidence"
+      - name: Retain results and exact source commits
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: site-regression-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/sdlc-evidence
+          if-no-files-found: warn
+          retention-days: 30
