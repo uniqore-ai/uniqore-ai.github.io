@@ -31,7 +31,7 @@ jobs:
       - uses: actions/checkout@v4
         with:
           repository: uniqore-ai/cto-core
-          ref: 0883699c6b9e8d4f6605f8db163d9967ff9c0bdb
+          ref: c4ea0e6b0e612f235ad4a01885c4ebcc924eb3d2
           path: cto-core
           token: ${{ secrets.SDLC_READ_TOKEN }}
           persist-credentials: false
