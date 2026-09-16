@@ -183,6 +183,7 @@ footer img{width:18px;height:18px;border-radius:5px;vertical-align:-4px;margin-r
   .nav-in{gap:10px}
 }
 @media (max-width:560px){
+  .mail-row .btn{max-width:100%;white-space:normal;line-height:1.35}
   .nav-mail{display:none}
   .nav-in{padding:12px 16px;gap:8px}
   .nav-in .btn{padding:8px 13px;font-size:12.5px}
