@@ -568,7 +568,7 @@ q{quotes:none}
           </div>
           <div class="atoolbar run-head">
             <span class="run-meta"><span>Current month · Jul 1–31, 2026</span><span>reviewed Jul 31, 2026 · 6:42 PM</span><span>reviewed 40 of 40 selected deals</span></span>
-            <div class="tb-end"><button class="abtn" id="expBtn">Export ▾</button>
+            <div class="tb-end"><button class="abtn" id="expBtn" type="button" aria-controls="expMenu" aria-expanded="false">Export ▾</button>
               <div class="menu" id="expMenu" hidden><button class="menu-item" type="button">Copy to clipboard</button><a class="menu-item" href="/outputs/speech-landing/uniqore-speech-analysis-demo-report.xlsx" download>Excel (.xlsx)</a><a class="menu-item" href="/output/pdf/uniqore-speech-analysis-demo-report.pdf" download>PDF (.pdf)</a></div></div>
           </div>
           <button class="sub-toggle first"><span class="chev">›</span> Review scope</button>
@@ -1114,11 +1114,20 @@ q{quotes:none}
   var expBtn = document.getElementById('expBtn');
   var expMenu = document.getElementById('expMenu');
   if(expBtn && expMenu){
-    expBtn.addEventListener('click', function(e){ e.stopPropagation(); expMenu.hidden = !expMenu.hidden; });
+    function setExportOpen(open){
+      expMenu.hidden = !open;
+      expBtn.setAttribute('aria-expanded', String(open));
+    }
+    expBtn.addEventListener('click', function(e){ e.stopPropagation(); setExportOpen(expMenu.hidden); });
     expMenu.querySelectorAll('.menu-item').forEach(function(mi){
-      mi.addEventListener('click', function(){ expMenu.hidden = true; });
+      mi.addEventListener('click', function(){ setExportOpen(false); });
     });
-    document.addEventListener('click', function(){ expMenu.hidden = true; });
+    document.addEventListener('click', function(){ setExportOpen(false); });
+    document.addEventListener('keydown', function(e){
+      if(e.key === 'Escape' && !expMenu.hidden){
+        e.preventDefault(); setExportOpen(false); expBtn.focus();
+      }
+    });
   }
 
   // Copy actions use the localized text already rendered in the DOM
