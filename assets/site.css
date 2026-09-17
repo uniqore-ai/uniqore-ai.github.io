@@ -187,3 +187,28 @@ footer img{width:18px;height:18px;border-radius:5px;vertical-align:-4px;margin-r
   .nav-in{padding:12px 16px;gap:8px}
   .nav-in .btn{padding:8px 13px;font-size:12.5px}
 }
+
+/* Плашка «Скачать» (P126): установщик под систему и мягкий контакт. Одна на
+   все кнопки «Скачать» обоих сайтов; токены — сайта. */
+.dl-plate{border:none;padding:0;margin:auto;background:transparent;max-width:min(520px,calc(100vw - 32px));width:100%}
+.dl-plate::backdrop{background:rgba(17,19,26,.55);backdrop-filter:blur(6px)}
+.dl-box{position:relative;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow-lg);padding:28px 28px 24px;font-family:var(--font);color:var(--ink)}
+.dl-close{position:absolute;top:10px;right:12px;border:none;background:transparent;color:var(--ink-3);font-size:26px;line-height:1;cursor:pointer;padding:4px 8px;border-radius:8px}
+.dl-close:hover{color:var(--ink);background:var(--surface-2)}
+.dl-title{margin:0 32px 8px 0;font-size:20px;font-weight:800;line-height:1.25}
+.dl-lead{margin:0 0 18px;color:var(--ink-2);font-size:14.5px;line-height:1.5}
+.dl-form{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:18px}
+.dl-field{display:flex;flex-direction:column;gap:6px;min-width:0}
+.dl-label{font-size:12.5px;font-weight:700;color:var(--ink-2)}
+.dl-field input{font:inherit;font-size:15px;padding:11px 12px;border:1px solid var(--line-strong);border-radius:var(--r-sm);background:var(--surface-2);color:var(--ink);min-width:0}
+.dl-field input:focus{outline:2px solid var(--violet);outline-offset:1px;border-color:var(--violet)}
+.dl-hint{font-size:12px;color:var(--red);min-height:1em}
+.dl-trap{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+.dl-os-line{font-size:14.5px;font-weight:700;margin-bottom:12px}
+.dl-actions{display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center}
+.dl-other{border:none;background:transparent;color:var(--ink-2);font:inherit;font-size:13.5px;font-weight:700;text-decoration:underline;cursor:pointer;padding:6px 0}
+.dl-other:hover{color:var(--ink)}
+.dl-status{margin-top:14px;font-size:13.5px;color:var(--ink-2)}
+.dl-timer{font-variant-numeric:tabular-nums}
+.dl-started{display:flex;flex-wrap:wrap;gap:12px;align-items:center;color:var(--ink);font-weight:700}
+@media (max-width:480px){.dl-box{padding:22px 18px 18px}.dl-form{grid-template-columns:1fr}.dl-title{font-size:18px}}
