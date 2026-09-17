@@ -31,27 +31,32 @@ jobs:
       - uses: actions/checkout@v4
         with:
           repository: uniqore-ai/cto-core
-          ref: c4ea0e6b0e612f235ad4a01885c4ebcc924eb3d2
+          ref: 81beb75d7a1fcbc3ab3673c133ed2af9f430c863
           path: cto-core
           token: ${{ secrets.SDLC_READ_TOKEN }}
           persist-credentials: false
       - uses: actions/checkout@v4
         with:
           repository: uniqore-ai/uniqore-docs
-          ref: 865a1a80e6c7c0416e4d77b1ccd11aa045df2a6d
+          ref: 40517ed44fa417f1146e25643edeff322a10ff13
           path: uniqore-docs
           token: ${{ secrets.SDLC_READ_TOKEN }}
           persist-credentials: false
       - uses: actions/checkout@v4
         with:
           repository: uniqore-ai/uniqore.kz
-          ref: 3571247a771a2138679e98e65346a8485d8e7ceb
+          ref: 0e5bcb77dee0adc9973d5052149d768a4e65f75d
           path: uniqore.kz
           token: ${{ secrets.SDLC_READ_TOKEN }}
           persist-credentials: false
       - uses: actions/setup-node@v4
         with:
           node-version: 22
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install pinned export inspector dependencies
+        run: python -m pip install -r cto-core/tools/acceptance/requirements.txt
       - name: Install pinned checker dependencies
         working-directory: cto-core/tools/acceptance
         run: npm ci --ignore-scripts
@@ -59,6 +64,8 @@ jobs:
         working-directory: cto-core/tools/acceptance
         run: npx --no-install playwright install --with-deps chromium
       - name: Run shared checks
+        env:
+          UNIQORE_ACCEPTANCE_PYTHON: python
         run: node cto-core/tools/acceptance/ci.mjs sites --docs uniqore-docs --kz uniqore.kz --ai uniqore-ai.github.io --out "${{ runner.temp }}/sdlc-evidence"
       - name: Retain results and exact source commits
         if: always()
