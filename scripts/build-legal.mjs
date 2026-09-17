@@ -192,8 +192,8 @@ fs.mkdirSync(outDir, { recursive: true });
 const listItems = docs
   .map(
     (d) => `      <li>
-        <a class="t" href="/legal/${d.code}/">${esc(d.title)}</a>
-        <div class="m">${T.version} ${d.version} · ${T.edition} ${human(d.edition_date)} · ${T.effective} ${human(d.effective_date)}</div>
+        <a class="t" href="/legal/${d.code}/" lang="${lang}" translate="no">${esc(d.title)}</a>
+        <div class="m"><span>${T.version}</span> ${d.version} · <span>${T.edition}</span> <time datetime="${d.edition_date}" lang="${lang}" translate="no">${human(d.edition_date)}</time> · <span>${T.effective}</span> <time datetime="${d.effective_date}" lang="${lang}" translate="no">${human(d.effective_date)}</time></div>
       </li>`,
   )
   .join('\n');
@@ -227,11 +227,13 @@ for (const d of docs) {
     path.join(dir, 'index.html'),
     head({ title: `${d.title} — Uniqore`, description: T.description(d), pathname: `/legal/${d.code}/` }) +
       `<main class="legal">
+  <article lang="${lang}" translate="no">
   <h1>${esc(d.title)}</h1>
   <div class="legal-meta"><span>${T.version} <b>${d.version}</b></span><span>${T.edition} <b>${human(d.edition_date)}</b></span><span>${T.effective} <b>${human(d.effective_date)}</b></span></div>
   <div class="tbl">
 ${render(body)}
   </div>
+  </article>
   <div class="legal-actions"><a href="/legal/">${T.back}</a></div>
 </main>
 ` +
