@@ -31,21 +31,21 @@ jobs:
       - uses: actions/checkout@v4
         with:
           repository: uniqore-ai/cto-core
-          ref: 81beb75d7a1fcbc3ab3673c133ed2af9f430c863
+          ref: bc5d9cfa0938f11045103ed731a8ca637646adec
           path: cto-core
           token: ${{ secrets.SDLC_READ_TOKEN }}
           persist-credentials: false
       - uses: actions/checkout@v4
         with:
           repository: uniqore-ai/uniqore-docs
-          ref: 40517ed44fa417f1146e25643edeff322a10ff13
+          ref: 4c1620f4f312017cb7701925e0e2beb3e2bcce29
           path: uniqore-docs
           token: ${{ secrets.SDLC_READ_TOKEN }}
           persist-credentials: false
       - uses: actions/checkout@v4
         with:
           repository: uniqore-ai/uniqore.kz
-          ref: 0e5bcb77dee0adc9973d5052149d768a4e65f75d
+          ref: b1e1a0465d6ef4314f58ecc60ac0d855b51e336b
           path: uniqore.kz
           token: ${{ secrets.SDLC_READ_TOKEN }}
           persist-credentials: false
@@ -66,7 +66,12 @@ jobs:
       - name: Run shared checks
         env:
           UNIQORE_ACCEPTANCE_PYTHON: python
-        run: node cto-core/tools/acceptance/ci.mjs sites --docs uniqore-docs --kz uniqore.kz --ai uniqore-ai.github.io --out "${{ runner.temp }}/sdlc-evidence"
+        run: >-
+          node cto-core/tools/acceptance/ci.mjs sites
+          --docs uniqore-docs --kz uniqore.kz --ai uniqore-ai.github.io
+          --installer-reference cto-core/tools/acceptance/fixtures/public-installer-reference-v1.json
+          --installer-reference-sha256 a087060e00514f3de05dc0f394a45aa7bbe175ea75f65b7dc17161790f860f16
+          --out "${{ runner.temp }}/sdlc-evidence"
       - name: Retain results and exact source commits
         if: always()
         uses: actions/upload-artifact@v4
