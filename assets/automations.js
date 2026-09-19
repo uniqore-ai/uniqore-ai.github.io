@@ -21,12 +21,6 @@
       summary:'Tracks competitors’ pricing, products, and promotions so your team does not have to check every site by hand.'
     },
     {
-      slug:'sales-funnel-analysis', path:'/skills/sales-funnel-analysis/', icon:'📊', status:'live',
-      categories:['sales'], tags:['Sales'],
-      title:'Sales Pipeline Analysis',
-      summary:'Finds the stages where deals stall or die and estimates the revenue impact of those leaks.'
-    },
-    {
       slug:'daily-pulse', icon:'🌅', status:'soon',
       categories:['operations','team'], tags:['Operations','Team'],
       title:'Daily Business Pulse',
